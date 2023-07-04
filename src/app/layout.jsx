@@ -16,14 +16,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <header className={styles.header}>
-          <Image
-            src="/images/RU.png"
-            width={87}
-            height={87}
-            alt="Reykjavik University Logo"
-            className={styles.logo}
-            />
-
+          <Link href="/">
+            <Image
+              src="/images/RU.png"
+              width={87}
+              height={87}
+              alt="Reykjavik University Logo"
+              className={styles.logo}
+              />
+          </Link>
           <nav className={styles.navbar}>
             <Link href="/" className={styles.navItem}>Reading</Link>
             <Link href="courses" className={styles.navItem}>Courses</Link>
@@ -31,14 +32,16 @@ export default function RootLayout({ children }) {
             <Link href="/" className={styles.navItem}>Diary</Link>
           </nav>
 
-          <div>
-            <button>Get Support</button>
-            <button>EN v</button>
-          </div>
-          
+          <menu className={styles.headerRight}>
+            <li><button className={styles.headerBtn}>Get Support</button></li>
+            <li><button className={styles.headerBtn}>EN v</button></li>
+          </menu>
+        
         </header>
-
-        {children}</body>
+      <div className={styles.mainWrapper}>
+        {children}
+      </div>
+      </body>
     </html>
   )
 }

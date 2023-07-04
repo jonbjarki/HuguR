@@ -1,14 +1,9 @@
-.main {
-  
+.mainWrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 2rem;
 }
-
-
-.header {
-  display: flex;
-  border-bottom: 1px solid black;
-  align-items: center;
-}
-
 
 .navbar {
   display: flex;
@@ -17,5 +12,38 @@
 
 
 .navItem {
-  margin: 0.5rem;
+  margin: 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 10% 60% 30%;
+  border-bottom: 1px solid black;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.headerRight {
+  text-align: right;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.headerRight > li {
+  margin: 1rem;
+}
+
+.headerBtn {
+  padding: 0.5rem 1rem;
+  /* background: none; */
+}
+
+
+@media (max-width: 480px) {
+  .header {
+    display: none;
+}
 }
