@@ -5,3 +5,32 @@
 .course {
     width: 375px;
 }
+
+
+/* Temp */
+
+.box {
+    display: flex;
+    width: 735px;
+    overflow: hidden;
+    padding: 24px;
+    border-radius: 20px;
+    background: #DCAE96;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    height: 960px;
+    padding: 64px 353px;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    flex-shrink: 0;
+}
+
