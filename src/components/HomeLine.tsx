@@ -5,7 +5,7 @@ import classNames from "classnames/bind"
 
 let cx = classNames.bind(styles)
 
-export default function HomeLine({title, content, btnLink, btnText, imgSrc, isRight }) {
+export default function HomeLine({title='', content='', btnLink='', btnText='', imgSrc='', isRight=false }) {
 
     const lineClass = cx({
         homeLine: true,
