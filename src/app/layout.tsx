@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
           </menu>
         
         </header>
-      <div className={styles.mainWrapper}>
+      <div className='w-full'>
         {children}
       </div>
       </body>

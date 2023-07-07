@@ -1,3 +1,5 @@
+'use client'
+
 import Bubble from "./bubble"
 import styles from '../app/home.module.css'
 import Image from "next/image"
@@ -5,23 +7,27 @@ import classNames from "classnames/bind"
 
 let cx = classNames.bind(styles)
 
-export default function HomeLine({title, content, btnLink, btnText, imgSrc, isRight }) {
+import { BubbleProps } from "./bubble"
 
-    const lineClass = cx({
-        homeLine: true,
-        homeLineRight: isRight
-    })
+
+interface HomeLineProps extends BubbleProps {
+    imgSrc: string
+}
+
+export default function HomeLine({title, content, btnLink, btnText, imgSrc, isRight }: HomeLineProps) {
+
+    const lineSettings = isRight ? "flex-row-reverse" : "flex-row"
 
     return (
-        <div className={lineClass}>
+        <div className={"text-center sm:text-left md:flex md:flex-nowrap sm:m-0 md:m-6 " + lineSettings}>
         <Bubble title={title} content={content} isRight={isRight} btnLink={btnLink} btnText={btnText}/>
 
         <Image
           src={imgSrc}
-          width={429}
-          height={344}
+          width={379}
+          height={294}
           alt=''
-          className={styles.bubbleImage}
+          className="hidden md:block"
           />
       </div>
     )

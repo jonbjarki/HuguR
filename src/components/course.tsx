@@ -1,5 +1,15 @@
+'use client'
+
 import styles from "../app/courses/courses.module.css"
 import Image from "next/image"
+
+
+export interface CourseProps {
+    title: string,
+    duration: string,
+    content: string,
+    imgSrc: string
+}
 
 export default function Course({title, duration, content, imgSrc}) {
     return (
