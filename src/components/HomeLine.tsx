@@ -7,7 +7,11 @@ import classNames from "classnames/bind"
 
 let cx = classNames.bind(styles)
 
+<<<<<<< HEAD
 import { BubbleProps } from "./bubble"
+=======
+export default function HomeLine({title='', content='', btnLink='', btnText='', imgSrc='', isRight=false }) {
+>>>>>>> 76c0dc4cdc69a653960e22dbb7a7ffd01942a7b5
 
 
 interface HomeLineProps extends BubbleProps {
