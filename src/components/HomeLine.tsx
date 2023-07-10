@@ -16,10 +16,10 @@ interface HomeLineProps extends BubbleProps {
 
 export default function HomeLine({title, content, btnLink, btnText, imgSrc, isRight }: HomeLineProps) {
 
-    const lineSettings = isRight ? "flex-row-reverse" : "flex-row"
+    const lineSettings = isRight ? " flex-row-reverse" : " flex-row"
 
     return (
-        <div className={"text-center sm:text-left md:flex md:flex-nowrap sm:m-0 md:m-6 " + lineSettings}>
+        <div className={"text-center sm:text-left md:flex md:flex-nowrap sm:m-0 md:m-6" + lineSettings}>
         <Bubble title={title} content={content} isRight={isRight} btnLink={btnLink} btnText={btnText}/>
 
         <Image
