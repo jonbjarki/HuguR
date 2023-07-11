@@ -9,7 +9,7 @@ const CONTENT = 'Course Content';
 const TOOLBOX = 'Toolbox';
 const GOALS = 'Goals';
 
-export default function IndividualCourse() {
+export default function IndividualCourse({children}) {
     const params = useParams();
     const id = params.id;
     let sidebarItems = Array<sidebarLink>(
@@ -18,6 +18,9 @@ export default function IndividualCourse() {
         {title: TOOLBOX, link: '/courses/' + id + '/toolbox'}, 
         {title: GOALS, link: '/courses/' + id + '/goals'});
     return (
-        <Sidebar selected={OVERVIEW} items={sidebarItems}></Sidebar>
+        <div className="flex flex-row">
+            <Sidebar selected={OVERVIEW} items={sidebarItems}></Sidebar>
+            <div className="flex grow">{children}</div>
+        </div>
     )
 }
