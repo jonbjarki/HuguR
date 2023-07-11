@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import styles from './home.module.css'
 import Bubble from '@/components/bubble'
 import HomeLine from '@/components/HomeLine'
 import { useParallax, ParallaxProvider } from 'react-scroll-parallax'
@@ -17,8 +16,8 @@ export default function Home() {
         <div className='w-full h-96'>
           <figure><HomeCover /></figure>
           <figcaption className='-translate-y-36 text-right text-lm-light mr-5'>
-            <h1 className='text-6xl font-bold filter drop-shadow-lg'>Welcome to HuguR</h1>
-            <p className='text-lg filter drop-shadow-2xl'>our goal is to provide free access to mental health support and advice<br /> for students made by students</p></figcaption>
+            <h1 className='text-6xl font-bold'>Welcome to HuguR</h1>
+            <p className='text-lg'>our goal is to provide free access to mental health support and advice<br /> for students made by students</p></figcaption>
         </div>
       </ParallaxProvider>
       

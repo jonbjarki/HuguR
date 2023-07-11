@@ -1,11 +1,10 @@
 'use client'
 
-import styles from '../app/home.module.css'
 import classNames from 'classnames/bind'
 import Link from 'next/link';
 
 
-let cx = classNames.bind(styles);
+// let cx = classNames.bind(styles);
 
 export interface BubbleProps {
     title: string,
