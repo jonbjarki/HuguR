@@ -23,12 +23,17 @@ module.exports = {
         'lm-rose-default':'#dcae96',
         'lm-rose-dark':'#a77f6a',
         'lm-rose-very-dark':'#7d5845',
+        'lm-whitesmoke-default':'#f5f5f5',
+        'lm-whitesmoke-dark':'#e8e8e8'
       },
       textShadow: {
         sm: '0 1px 2px var(--tw-shadow-color)',
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
+      dropShadow: {
+        'text': '0 0 8px rgba(125, 88, 69, 1)'
+      }
     },
   },
   plugins: [],
