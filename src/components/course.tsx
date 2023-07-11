@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link"
 import styles from "../app/courses/courses.module.css"
 import Image from "next/image"
 
@@ -11,17 +12,20 @@ export interface CourseProps {
     imgSrc: string
 }
 
-export default function Course({title, duration, content, imgSrc}) {
+export default function Course({ID, title, duration, content, imgSrc}) {
     return (
-        <li className={styles.course}>
-            <fieldset>
-               <legend className={styles.courseTitle}>{title}</legend>
+        <li> 
+        <Link href={`/courses/${ID}`}>
+            <fieldset className="border-2 border-lm-rose-dark w-96 rounded-2xl p-6">
+               <legend className="text-2xl text-center p-4">{title}</legend>
                 <Image
                     src={imgSrc}
                     width={250}
                     height={200}
-                    alt="" />
-                <div>
+                    alt=""
+                    className="m-auto"
+                    />
+                <div className="flex items-center gap-2">
                     <Image
                     src="/images/clock.svg"
                     width={35}
@@ -32,6 +36,7 @@ export default function Course({title, duration, content, imgSrc}) {
                 <p>{content}</p>
 
             </fieldset>
+        </Link>
         </li>
     )
 }

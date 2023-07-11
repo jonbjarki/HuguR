@@ -4,10 +4,11 @@ import Course from '@/components/course'
 
 export default function CourseHome() {
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>Courses</h1>
-      <ul className={styles.courseList}>
-        <Course 
+    <main className="mt-6 w-11/12 m-auto">
+      <h1 className="text-4xl text-center font-normal">Courses</h1>
+      <ul className="flex flex-row flex-wrap gap-8">
+        <Course
+          ID={1}
           title="Stress Management"
           duration="2 weeks"
           content="Short description of course and what it entails.
