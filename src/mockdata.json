@@ -1,0 +1,26 @@
+{
+    "courses": [
+      {
+        "ID": 1,
+        "title": "Managing Stress and Anxiety",
+        "duration": "6 weeks",
+        "content": "Learn effective strategies to manage stress and anxiety, including mindfulness techniques and stress-reduction exercises.",
+        "imgSrc": "https://example.com/images/managing_stress_anxiety.jpg"
+      },
+      {
+        "ID": 2,
+        "title": "Building Resilience",
+        "duration": "4 weeks",
+        "content": "Discover techniques to enhance your resilience and develop coping mechanisms to deal with life's challenges.",
+        "imgSrc": "https://example.com/images/building_resilience.jpg"
+      },
+      {
+        "ID": 3,
+        "title": "Positive Psychology: The Science of Happiness",
+        "duration": "8 weeks",
+        "content": "Explore the principles of positive psychology and learn evidence-based strategies to cultivate happiness and well-being in your life.",
+        "imgSrc": "https://example.com/images/positive_psychology.jpg"
+      }
+    ]
+  }
+  
