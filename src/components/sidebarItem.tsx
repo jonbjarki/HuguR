@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 // The title of the link in the sidebar, and where it leads to.
 export interface sidebarLink {
@@ -17,8 +16,11 @@ export interface SidebarItemProps {
 export default function SidebarItem({link, isSelected=false, setSelected}: SidebarItemProps){
     const selectedSettings = isSelected ? 'bg-lm-whitesmoke-dark font-bold' : '';
 
+    // Highlight selected item
     function handleClick() {
-        setSelected(link.title);
+        if (setSelected != undefined) {
+            setSelected(link.title);
+        }
     }
 
     return (

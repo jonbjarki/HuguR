@@ -10,6 +10,7 @@ export interface sidebarProps {
     items?: Array<sidebarLink>
 }
 
+// Takes title of selected item and an array of items as props. Uses state to keep track of selected item.
 export default function Sidebar({ selected, items }: sidebarProps){
     const [selectedItem, setSelected] = useState(selected);
     return (
