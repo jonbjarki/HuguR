@@ -18,6 +18,7 @@ export default function Sidebar({ selected, items }: sidebarProps){
             <div className='bg-lm-rose-default py-3 flex content-center justify-center'>
                 <h3 className='w-56 text-2xl text-lm-very-light drop-shadow-text shadow-lm-rose-very-dark flex text-center'>Stress Management</h3>
             </div>
+            {/* Map items from props to actual SidebarItem components, using the item title as a key */}
             {items.map(item => (
                 <SidebarItem 
                 key={item.title} 
