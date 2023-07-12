@@ -5,8 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      minHeight: {
+        'card': '33rem'
+      },
       height: {
-        'card': '30rem'
+        'card': '32rem'
       },
       borderRadius: {
         'larger': '4.6rem'

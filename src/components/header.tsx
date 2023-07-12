@@ -18,7 +18,7 @@ export default function Header() {
 
           <nav className="hidden md:flex flex-row flex-nowrap text-lg gap-6">
             <Link href="/" className="">Reading</Link>
-            <Link href="/courses" className="">Courses</Link>
+            <Link href="/courses" className="" prefetch>Courses</Link>
             <Link href="/" className="">Exercises</Link>
             <Link href="/" className="">Diary</Link>
           </nav>
