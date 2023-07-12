@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        'card': '30rem'
+      },
       borderRadius: {
         'larger': '4.6rem'
       },
@@ -32,7 +35,8 @@ module.exports = {
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
       dropShadow: {
-        'text': '0 0 8px rgba(125, 88, 69, 1)'
+        'text': '0 0 8px rgba(125, 88, 69, 1)',
+        'text-white': '0 0 4px rgba(0, 0, 0, 1)',
       }
     },
   },
