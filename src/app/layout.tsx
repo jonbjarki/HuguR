@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-      <div className='w-full relative z-10'>
+      <div className='w-full max-w-screen-2xl m-auto relative z-10'>
         {children}
       </div>
       </body>
