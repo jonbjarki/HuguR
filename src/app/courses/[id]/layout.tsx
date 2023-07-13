@@ -18,7 +18,7 @@ export default function IndividualCourse({children}) {
         {title: TOOLBOX, link: '/courses/' + id + '/toolbox'}, 
         {title: GOALS, link: '/courses/' + id + '/goals'});
     return (
-        <div className="flex flex-row">
+        <div className="flex flex-row h-full">
             <Sidebar selected={OVERVIEW} items={sidebarItems}></Sidebar>
             <div className="flex grow">{children}</div>
         </div>
