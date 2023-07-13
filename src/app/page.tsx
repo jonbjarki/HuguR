@@ -15,12 +15,11 @@ export default function Home() {
       <ParallaxProvider>
         <div className='w-full h-96'>
           <figure><HomeCover /></figure>
-          <figcaption className='-translate-y-36 text-right text-lm-light drop-shadow-text-white mr-5'>
-            <h1 className='text-6xl font-bold'>Welcome to HuguR</h1>
-            <p className='text-lg'>our goal is to provide free access to mental health support and advice<br /> for students made by students</p></figcaption>
+          <figcaption className='-translate-y-36 text-center md:text-right text-lm-light drop-shadow-text-white mr-5'>
+            <h1 className='text-4xl md:text-6xl font-bold'>Welcome to HuguR</h1>
+            <p className='text-sm md:text-lg'>our goal is to provide free access to mental health support and advice<br /> for students made by students</p></figcaption>
         </div>
       </ParallaxProvider>
-      
       {/* Main */}
       <main className="flex flex-col items-center gap-16 xl:w-10/12 max-w-6xl mx-auto mt-10">
         
