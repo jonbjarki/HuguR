@@ -3,8 +3,8 @@ import Image from "next/image"
 export interface roadmapUnitProps {
     title: string,
     content: string,
-    isRight: boolean,
-    showArrow: boolean
+    isRight?: boolean,
+    showArrow?: boolean
 }
 
 export default function RoadmapUnit({
