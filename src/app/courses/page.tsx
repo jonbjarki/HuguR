@@ -1,24 +1,22 @@
-import Image from 'next/image'
-import styles from './courses.module.css'
-import Course from '@/components/course'
-import data from '../../mockdata.json'
+import Image from 'next/image';
+import styles from './courses.module.css';
+import Course from '@/components/course';
+import data from '../../mockdata.json';
 
-
-
-
-export default function CourseHome() {
+export default async function CourseHome() {
   return (
     <main className="mt-6 w-11/12 m-auto">
       <h1 className="text-4xl text-center font-normal">Courses</h1>
       <ul className={styles.courses}>
-        { data.courses.map(item => (
+        {data.courses.map((item) => (
           <Course
-          key={item.ID}
-          ID={item.ID}
-          title={item.title}
-          duration={item.duration}
-          content={item.content}
-          imgSrc={item.imgSrc} />
+            key={item.ID}
+            ID={item.ID}
+            title={item.title}
+            duration={item.duration}
+            content={item.content}
+            imgSrc={item.imgSrc}
+          />
         ))}
         {/* <Course
           ID={1}
@@ -29,5 +27,5 @@ export default function CourseHome() {
           imgSrc="/images/personsofa.png" /> */}
       </ul>
     </main>
-  )
+  );
 }
