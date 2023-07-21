@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import Modal from "@/components/modal";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useRouter, redirect } from "next/navigation";
-import { useEffect, useState } from "react";
+import Modal from '@/components/modal';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useRouter, redirect } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import type { Database } from "@/lib/database.types";
+import type { Database } from '@/lib/database.types';
 
 /**
  * Enum representing the different views for the authentication modal.
@@ -25,8 +25,8 @@ export default function Login() {
 
 function Auth() {
   const [view, setView] = useState<View>(View.SIGN_IN);
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const router = useRouter();
   const supabase = createClientComponentClient<Database>();
 
@@ -49,6 +49,7 @@ function Auth() {
       email,
       password,
     });
+    router.back();
     router.refresh();
   };
 
@@ -78,7 +79,7 @@ function Auth() {
             Sign in
           </button>
           <p className="text-gray-500 mb-4">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{' '}
             <button
               onClick={() => setView(View.SIGN_UP)}
               className="text-blue-500"
@@ -114,7 +115,7 @@ function Auth() {
               Sign up
             </button>
             <p className="text-gray-500">
-              Already have an account?{" "}
+              Already have an account?{' '}
               <button
                 onClick={() => setView(View.SIGN_IN)}
                 className="text-blue-500"
