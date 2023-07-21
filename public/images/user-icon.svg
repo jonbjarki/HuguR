@@ -1,0 +1,11 @@
+<svg width="87" height="87" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="User Icon">
+<mask id="mask0_1042_12428" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="87" height="87">
+<circle id="Ellipse 10" cx="43.5" cy="43.5" r="43.5" fill="#747474"/>
+</mask>
+<g mask="url(#mask0_1042_12428)">
+<rect id="Rectangle 67" width="87" height="87" fill="#747474"/>
+<path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M54.6142 49.7286C60.2619 46.0778 64 39.7254 64 32.5C64 21.1782 54.8218 12 43.5 12C32.1782 12 23 21.1782 23 32.5C23 39.7254 26.7381 46.0778 32.3858 49.7286C20.4732 53.5797 12 63.4417 12 75C12 89.9117 26.103 102 43.5 102C60.897 102 75 89.9117 75 75C75 63.4417 66.5268 53.5797 54.6142 49.7286Z" fill="#DDDDDD"/>
+</g>
+</g>
+</svg>
