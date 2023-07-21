@@ -12,6 +12,8 @@ export interface EntryFrameProps {
 export function EntryFrame({ date, children, open=false }: EntryFrameProps) {
     const [isOpen, setIsOpen] = useState(open);
     
+    // TODO: Probably move the open/close functionality to tool/diary entries
+    // It's not worth it to have it here...
     function toggleOpen() {
         setIsOpen(!isOpen);
     }
