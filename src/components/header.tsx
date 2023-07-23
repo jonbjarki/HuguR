@@ -3,7 +3,9 @@ import Image from 'next/image';
 import hamburgerIcon from '/public/images/hamburger.svg';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import SignOut from './signOut';
+import Logout from './buttons/Logout';
+import Avatar from './avatar';
+import LoginButton from '@/components/buttons/LoginButton';
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -11,8 +13,6 @@ export default async function Header() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
-  console.log(user);
 
   return (
     <header className="sticky bg-lm-very-light top-0 z-40 flex flex-row flex-nowrap justify-between items-center px-4 shadow-md">
@@ -50,24 +50,7 @@ export default async function Header() {
         </li>
       </menu>
 
-      <Link href="/login">
-        <div className="avatar">
-          <div className="w-24 h-24 rounded-full flex justify-center items-center">
-            <Image
-              src="/images/user-icon.svg"
-              alt="user icon"
-              width={24}
-              height={24}
-            />
-          </div>
-        </div>
-      </Link>
-
-      {user && (
-        <SignOut>
-          <button className="btn btn-error">Sign Out</button>
-        </SignOut>
-      )}
+      {user ? <Avatar /> : <LoginButton />}
 
       {/* Mobile Nav */}
 

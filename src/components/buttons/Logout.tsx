@@ -1,9 +1,14 @@
+/**
+ * Logout wrapper component that signs out the user and redirects to the home page.
+ * @param children - The child components to be rendered.
+ * @returns A div element with an onClick event that signs out the user.
+ */
 'use client';
 
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 
-export default function SignOut({ children }) {
+export default function Logout({ children }) {
   const router = useRouter();
 
   // Create a Supabase client configured to use cookies
@@ -15,5 +20,5 @@ export default function SignOut({ children }) {
     router.refresh();
   };
 
-  return <div onClick={signOut}>{children}</div>;
+  return <span onClick={signOut}>{children}</span>;
 }

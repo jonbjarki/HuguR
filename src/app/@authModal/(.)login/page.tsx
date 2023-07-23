@@ -13,6 +13,7 @@ import type { Database } from '@/lib/database.types';
 enum View {
   SIGN_IN,
   SIGN_UP,
+  CHECK_EMAIL,
 }
 
 export default function Login() {
@@ -39,9 +40,11 @@ function Auth() {
     await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: `${location.origin}/auth/callback`,
+      },
     });
-    router.back();
-    router.refresh();
+    setView(View.CHECK_EMAIL);
   };
 
   const handleSignIn = async () => {
@@ -82,7 +85,7 @@ function Auth() {
             Don&apos;t have an account?{' '}
             <button
               onClick={() => setView(View.SIGN_UP)}
-              className="text-blue-500"
+              className="text-blue-500 link"
             >
               Sign Up
             </button>
@@ -118,13 +121,27 @@ function Auth() {
               Already have an account?{' '}
               <button
                 onClick={() => setView(View.SIGN_IN)}
-                className="text-blue-500"
+                className="text-blue-500 link"
               >
                 Sign In
               </button>
             </p>
           </div>
         </>
+      );
+    case View.CHECK_EMAIL:
+      return (
+        <div className="flex flex-col items-center justify-center">
+          <p className="text-gray-500 mb-4">
+            Check your email for the confirmation link.
+          </p>
+          <button
+            className="btn btn-outline btn-accent mb-4"
+            onClick={() => setView(View.SIGN_IN)}
+          >
+            Sign in
+          </button>
+        </div>
       );
   }
 }
