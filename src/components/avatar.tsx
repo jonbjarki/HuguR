@@ -17,7 +17,7 @@ export default function Avatar() {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+        className="dropdown-content z-[1] menu shadow bg-base-100 w-56 p-0 [&_li>*]:rounded-none"
       >
         <li>
           <Link href="/profile">Profile</Link>

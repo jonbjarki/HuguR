@@ -20,5 +20,5 @@ export default function Logout({ children }) {
     router.refresh();
   };
 
-  return <span onClick={signOut}>{children}</span>;
+  return <div onClick={signOut}>{children}</div>;
 }

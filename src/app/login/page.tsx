@@ -1,12 +1,11 @@
 'use client';
 
-import Modal from '@/components/modal';
 import Auth from '@/components/Auth';
 
 export default function Login() {
   return (
-    <Modal>
+    <div className="flex items-center justify-center h-screen">
       <Auth />
-    </Modal>
+    </div>
   );
 }

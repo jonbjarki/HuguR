@@ -3,9 +3,8 @@ import Image from 'next/image';
 import hamburgerIcon from '/public/images/hamburger.svg';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import Logout from './buttons/Logout';
-import Avatar from './avatar';
 import LoginButton from '@/components/buttons/LoginButton';
+import Avatar from '@/components/Avatar';
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
