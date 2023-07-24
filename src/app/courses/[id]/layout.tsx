@@ -22,7 +22,8 @@ export default function IndividualCourse({children}) {
             <div className="w-1/5 flex">
                 <Sidebar selected={OVERVIEW} items={sidebarItems}></Sidebar>
             </div>
-            <div className="w-4/5 flex">{children}</div>
+            {/* TODO: DaisyUI theme bg */}
+            <div className="w-4/5 flex bg-white">{children}</div>
         </div>
     )
 }
