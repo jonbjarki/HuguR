@@ -3,6 +3,7 @@ import { Tool } from "@/components/tool";
 
 export default function CourseToolbox() {
     let day = new Date(); // Placeholder
+    // TODO: fetch descriptions + dates + titles from database
     return (
         <div className="w-full flex flex-col items-center">
             <h1 className="text-4xl text-lm-medium-dark py-8">Toolbox</h1>
