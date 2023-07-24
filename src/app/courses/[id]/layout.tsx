@@ -18,9 +18,12 @@ export default function IndividualCourse({children}) {
         {title: TOOLBOX, link: '/courses/' + id + '/toolbox'}, 
         {title: GOALS, link: '/courses/' + id + '/goals'});
     return (
-        <div className="flex flex-row">
-            <Sidebar selected={OVERVIEW} items={sidebarItems}></Sidebar>
-            <div className="flex grow">{children}</div>
+        <div className="flex flex-row h-auto min-h-screen">
+            <div className="w-1/5 flex">
+                <Sidebar selected={OVERVIEW} items={sidebarItems}></Sidebar>
+            </div>
+            {/* TODO: DaisyUI theme bg */}
+            <div className="w-4/5 flex bg-white">{children}</div>
         </div>
     )
 }

@@ -5,6 +5,19 @@ export interface courseRoadmapProps {
 }
 
 export default function CourseRoadmap({units}: courseRoadmapProps) {
+
+    // Hide the outgoing arrow on the last unit
+    let lastIndex = units.length - 1;
+    units[lastIndex].showArrow = false;
+
+    // Alternate unit alignment to left and right
+    for (let i = 0; i < units.length; i++) {
+        const element = units[i];
+        if (i - 1 >= 0) {
+            element.isRight = !(units[i-1].isRight)
+        }
+    }
+
     return(
         <div className="bg-lm-whitesmoke-default rounded-3xl p-8">
             <div className="flex flex-col">
