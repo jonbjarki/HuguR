@@ -28,7 +28,6 @@ export default function Auth() {
   }, [view]);
 
   const handleSignUp = async () => {
-    console.log('handleSignUp');
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -94,7 +93,7 @@ export default function Auth() {
             </p>
           </div>
           {err && (
-            <div className="alert alert-error mt-2">
+            <div className="alert alert-error mt-2 max-w-sm m-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="stroke-current shrink-0 h-6 w-6"
@@ -150,7 +149,7 @@ export default function Auth() {
             </p>
           </div>
           {err && (
-            <div className="alert alert-error mt-2">
+            <div className="alert alert-error mt-2 max-w-sm m-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="stroke-current shrink-0 h-6 w-6"

@@ -3,7 +3,7 @@
 import { useParallax, ParallaxProvider } from 'react-scroll-parallax';
 import HomeCover from '@/components/HomeCover';
 
-export default function Hero({ name = '' }) {
+export default function Hero() {
   return (
     <ParallaxProvider>
       <div className="w-full h-96">
@@ -11,7 +11,7 @@ export default function Hero({ name = '' }) {
           <HomeCover />
         </figure>
         <figcaption className="-translate-y-36 text-right text-lm-light drop-shadow-text-white mr-5">
-          <h1 className="text-6xl font-bold">Welcome to HuguR {name}!</h1>
+          <h1 className="text-6xl font-bold">Welcome to HuguR!</h1>
           <p className="text-lg">
             our goal is to provide free access to mental health support and
             advice

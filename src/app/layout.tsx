@@ -26,10 +26,10 @@ export default function RootLayout(props: {
     <html lang="en">
       <body className={inter.className + ' h-screen'}>
         <Header />
-        <div className="w-full h-auto m-auto relative z-10">
+        <div className="w-full h-fit m-auto relative z-10">
           {props.children}
+          {props.authModal}
         </div>
-        {props.authModal}
       </body>
     </html>
   );
