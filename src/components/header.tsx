@@ -27,7 +27,7 @@ export default async function Header() {
       </Link>
 
       <nav className="hidden md:flex flex-row flex-nowrap text-lg gap-6">
-        <Link href="/" className="">
+        <Link href="/reading" className="">
           Reading
         </Link>
         <Link href="/courses" className="" prefetch>
