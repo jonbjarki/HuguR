@@ -1,0 +1,33 @@
+.article {
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* Adding base styles for markdown compatibility */
+
+.article h1 {
+  font-size: 2rem;
+}
+
+.article h2 {
+  font-size: 1.5rem;
+}
+.article h3 {
+  font-size: 1.25rem;
+}
+.article h4 {
+  font-size: 1rem;
+}
+.article h5 {
+  font-size: 0.875rem;
+}
+.article h6 {
+  font-size: 0.75rem;
+}
+
+.article p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
