@@ -14,7 +14,7 @@ export default async function Header() {
   } = await supabase.auth.getUser();
 
   return (
-    <header className="sticky h-16 bg-lm-very-light top-0 z-[99] flex flex-row flex-nowrap justify-between items-center shadow-md px-4">
+    <header className="sticky h-16 bg-lm-very-light top-0 z-[99] flex flex-row flex-nowrap justify-between items-center shadow-md md:px-4">
       <HomeIcon />
 
       <nav className="hidden md:flex flex-row flex-nowrap text-lg gap-6">

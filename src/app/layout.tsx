@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 // import styles from './page.module.css'
 import hamburgerIcon from '/public/images/hamburger.svg';
-import Header from '@/components/navbar/header';
+import Header from '@/components/navbar/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +23,7 @@ export default function RootLayout(props: {
   authModal: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="lightmode">
       <body className={inter.className + ' h-screen'}>
         <Header />
         <div className="w-full h-fit m-auto relative z-10">

@@ -19,9 +19,9 @@ export default function CourseRoadmap({units}: courseRoadmapProps) {
     }
 
     return(
-        <div className="bg-lm-whitesmoke-default rounded-3xl p-8">
+        <div className="bg-secondary rounded-3xl p-8">
             <div className="flex flex-col">
-                <h1 className="text-3xl text-lm-medium-dark self-center mb-8 mt-4 tracking-widest">Course Roadmap</h1>
+                <h1 className="text-3xl text-secondary-content opacity-60 self-center mb-8 mt-4 tracking-widest">Course Roadmap</h1>
             </div>
             {/* Mapping happens here */}
             {units.map(unit => (

@@ -62,14 +62,14 @@ export default function Auth() {
           <div className="flex flex-col items-center justify-between h-auto">
             <h1 className="text-5xl font-bold mb-4">Sign In</h1>
             <input
-              className="input input-bordered input-accent w-full max-w-xs mb-4"
+              className="input input-bordered input-primary w-full max-w-xs mb-4"
               name="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               placeholder="Email"
             />
             <input
-              className="input input-bordered input-accent w-full max-w-xs mb-4"
+              className="input input-bordered input-primary w-full max-w-xs mb-4"
               type="password"
               name="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -77,7 +77,7 @@ export default function Auth() {
               placeholder="Password"
             />
             <button
-              className="btn btn-outline btn-accent mb-2"
+              className="btn btn-outline btn-primary mb-2"
               onClick={handleSignIn}
             >
               Sign in
@@ -118,14 +118,14 @@ export default function Auth() {
           <div className="flex flex-col items-center justify-center h-auto">
             <h1 className="text-5xl font-bold mb-4">Sign Up</h1>
             <input
-              className="input input-bordered input-accent w-full max-w-xs mb-4"
+              className="input input-bordered input-primary w-full max-w-xs mb-4"
               name="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               placeholder="Email"
             />
             <input
-              className="input input-bordered input-accent w-full max-w-xs mb-4"
+              className="input input-bordered input-primary w-full max-w-xs mb-4"
               type="password"
               name="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -133,7 +133,7 @@ export default function Auth() {
               placeholder="Password"
             />
             <button
-              className="btn btn-outline btn-accent mb-2"
+              className="btn btn-outline btn-primary mb-2"
               onClick={handleSignUp}
             >
               Sign up
@@ -178,7 +178,7 @@ export default function Auth() {
             Check your email for the confirmation link.
           </p>
           <button
-            className="btn btn-outline btn-accent mb-4"
+            className="btn btn-outline btn-primary mb-4"
             onClick={() => {
               setView(View.SIGN_IN);
               router.back();
