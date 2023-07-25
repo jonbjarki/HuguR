@@ -82,7 +82,7 @@ export default function Auth() {
             >
               Sign in
             </button>
-            <p className="text-gray-500 mb-2">
+            <p className="text-gray-500 mb-2 text-center">
               Don&apos;t have an account?{' '}
               <button
                 onClick={() => setView(View.SIGN_UP)}
@@ -138,7 +138,7 @@ export default function Auth() {
             >
               Sign up
             </button>
-            <p className="text-gray-500">
+            <p className="text-gray-500 text-center">
               Already have an account?{' '}
               <button
                 onClick={() => setView(View.SIGN_IN)}

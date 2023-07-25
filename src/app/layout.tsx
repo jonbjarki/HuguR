@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 // import styles from './page.module.css'
 import hamburgerIcon from '/public/images/hamburger.svg';
-import Header from '@/components/header';
+import Header from '@/components/navbar/header';
 
 const inter = Inter({ subsets: ['latin'] });
 

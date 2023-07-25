@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import hamburgerIcon from '/public/images/hamburger.svg';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import LoginButton from '@/components/buttons/LoginButton';
-import Avatar from '@/components/Avatar';
+import Avatar from '@/components/navbar/Avatar';
+import HamburgerMenu from './HamburgerMenu';
+import { HomeIcon } from './HomeIcon';
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -14,16 +14,8 @@ export default async function Header() {
   } = await supabase.auth.getUser();
 
   return (
-    <header className="sticky bg-lm-very-light top-0 z-40 flex flex-row flex-nowrap justify-between items-center px-4 shadow-md">
-      <Link href="/">
-        <Image
-          src="/images/RU.png"
-          width={87}
-          height={87}
-          alt="Reykjavik University Logo"
-          className=""
-        />
-      </Link>
+    <header className="sticky h-16 bg-lm-very-light top-0 z-[99] flex flex-row flex-nowrap justify-between items-center shadow-md px-4">
+      <HomeIcon />
 
       <nav className="hidden md:flex flex-row flex-nowrap text-lg gap-6">
         <Link href="/" className="">
@@ -40,6 +32,8 @@ export default async function Header() {
         </Link>
       </nav>
 
+      <h1 className="text-3xl md:hidden">HuguR</h1>
+
       <menu className="hidden md:flex flex-row flex-nowrap gap-6">
         <li>
           <button className="">Get Support</button>
@@ -49,17 +43,15 @@ export default async function Header() {
         </li>
       </menu>
 
-      {user ? <Avatar /> : <LoginButton />}
+      {user ? (
+        <Avatar />
+      ) : (
+        <div className="hidden md:block">
+          <LoginButton />
+        </div>
+      )}
 
-      {/* Mobile Nav */}
-
-      <h1 className="text-3xl md:hidden">HuguR</h1>
-      <Image
-        className="md:hidden"
-        src={hamburgerIcon}
-        alt="navigation menu toggle"
-      />
-      <nav className="hidden"></nav>
+      <HamburgerMenu />
     </header>
   );
 }
