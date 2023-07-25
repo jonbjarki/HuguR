@@ -27,12 +27,12 @@ export default function CourseOverview() {
             <ParallaxProvider>
                 <div className="w-full h-fit relative">
                     <HomeCover imageSrc="/images/stress-header.png" />
-                    <h1 className='absolute bottom-10 left-1/2 -translate-x-1/2 text-6xl text-center text-lm-very-light drop-shadow-text-white'>Stress Management</h1>
+                    <h1 className='absolute bottom-10 left-1/2 -translate-x-1/2 text-6xl text-center text-white drop-shadow-text-white'>Stress Management</h1>
                 </div>
             </ParallaxProvider>
             </div>
             <div className="flex flex-col my-3 mx-auto gap-3 items-center">
-                <h1 className="text-lm-dark text-3xl">Course Overview</h1>
+                <h1 className="text-base-content text-3xl">Course Overview</h1>
                 <div className="flex flex-row items-center gap-2">
                     <Image
                     src="/images/clock.svg"
@@ -41,9 +41,9 @@ export default function CourseOverview() {
                     alt="clock icon"
                     />
                     {/* TODO: Fetch duration and description from database */}
-                    <h1 className="text-xl text-lm-medium-dark">Estimated course duration: 5 weeks</h1>
+                    <h1 className="text-xl text-base-content opacity-60">Estimated course duration: 5 weeks</h1>
                 </div>
-                <p className="text-lg text-lm-dark text-left w-3/4">{DESC}</p>
+                <p className="text-lg text-base-content text-left w-3/4">{DESC}</p>
             </div>
             {/* Course Roadmap */}
             <div className="w-fit h-fit flex m-auto pt-6">
