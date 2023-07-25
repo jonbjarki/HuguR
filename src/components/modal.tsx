@@ -35,7 +35,7 @@ export default function Modal({ children }) {
     >
       <div
         ref={wrapper}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9/12 sm:w-10/12 md:w-7/12 lg:w-4/12 p-8 bg-white rounded-lg h-1/2"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9/12 sm:w-10/12 md:w-7/12 lg:w-4/12 p-8 bg-base-100 rounded-lg h-1/2"
       >
         {children}
       </div>

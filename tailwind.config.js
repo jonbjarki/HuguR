@@ -43,6 +43,31 @@ module.exports = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["autumn", "forest"],
+    themes: [
+      {
+        lightmode: {
+          "primary": "#dcae96",
+          "secondary": "#F5F5F5",
+          "accent": "#E52C08",
+          "neutral": "#373737",
+          "base-100": "#ffffff",
+          "info": "#86efac",
+          "success": "#bef264",
+          "warning": "#fdba74",
+          "error": "#fb7185",
+        },
+        darkmode: {
+          "primary": "#a77f6a",
+          "secondary": "#222222",
+          "accent": "#B32205",
+          "neutral": "#e6e6e6",
+          "base-100": "#111111",
+          "info": "#065f46",
+          "success": "#3f6212",
+          "warning": "#854d0e",
+          "error": "#9f1239",
+          }
+      },
+    ],
   },
 };
