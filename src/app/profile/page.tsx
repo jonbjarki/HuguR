@@ -1,9 +1,9 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import Image from 'next/image';
 import LoginButton from '@/components/buttons/LoginButton';
 import ProfileImage from '@/components/profile/ProfileImage';
 import ProfileProgress from '@/components/profile/ProfileProgress';
+import { Trophy } from '../../components/profile/Trophy';
 
 export default async function Profile() {
   const supabase = createServerComponentClient({ cookies });
@@ -14,11 +14,16 @@ export default async function Profile() {
 
   if (!user) {
     return (
-      <div className="h-screen w-screen flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center gap-4 p-16">
         <h1>You need to be signed in to view your profile</h1>
         <LoginButton />
       </div>
     );
+  }
+
+  // TODO: Temp until we have trophies in the DB remove later
+  function getD(): any {
+    return Date().toLocaleString().slice(0, 15);
   }
 
   return (
@@ -32,24 +37,18 @@ export default async function Profile() {
           I&apos;ve been here since {user.created_at.slice(0, 10)}
         </h1>
       </div>
-      <div className="divider">My Progress</div>
-      <div className="grid h-fit card bg-base-300 rounded-box place-items-center lg:px-32 md:px-16 sm:px-8 px-4">
-        <ProfileProgress title="Exercises Completed" progress={10} />
-        <ProfileProgress title="Courses Completed" progress={40} />
+      <div className="divider ">My Progress</div>
+      <div className="grid h-fit card rounded-box place-items-center lg:px-32 md:px-16 sm:px-8 px-4">
+        <ProfileProgress
+          title="Exercises Completed"
+          progress={10}
+          total={100}
+        />
+        <ProfileProgress title="Courses Completed" progress={40} total={100} />
       </div>
       <div className="divider">Trophy Case</div>
-      <div className="grid h-fit card bg-base-300 rounded-box place-items-center">
-        <div className="m-2">
-          <div className="rounded-full bg-slate-600 p-4">
-            <Image
-              src="/images/badge1.svg"
-              alt="badge 1"
-              width={40}
-              height={40}
-            />
-          </div>
-          <label className="label label-text">First Visit</label>
-        </div>
+      <div className="flex flex-row flex-wrap h-fit card rounded-box place-content-center">
+        <Trophy name="First Visit" icon="badge1.svg" date={getD()} />
       </div>
     </div>
   );

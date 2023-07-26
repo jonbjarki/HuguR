@@ -43,13 +43,9 @@ export default async function Header() {
         </li>
       </menu>
 
-      {user ? (
-        <Avatar />
-      ) : (
-        <div className="hidden md:block">
-          <LoginButton />
-        </div>
-      )}
+      <div className="hidden md:block">
+        {user ? <Avatar /> : <LoginButton />}
+      </div>
 
       <HamburgerMenu />
     </header>
