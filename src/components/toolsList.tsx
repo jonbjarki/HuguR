@@ -31,7 +31,8 @@ export function ToolsList({tools=[]}: {tools: Array<ReactNode>}) {
                 </button>
                 <div className={addingEntry ? "visible" : "hidden"}>
                     <NewEntry title="New Toolbox Entry" onClose={handleClose}>
-                        Pick a title for your entry
+                        <p className="m-10">Pick a title for your entry</p>
+                        <input className="input input-bordered mb-6"></input>
                     </NewEntry>
                 </div>
             </div>
