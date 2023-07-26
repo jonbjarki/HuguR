@@ -1,6 +1,6 @@
-"use client";
-import { useCallback, useRef, useEffect, MouseEventHandler } from "react";
-import { useRouter } from "next/navigation";
+'use client';
+import { useCallback, useRef, MouseEventHandler } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Modal({ children }) {
   const overlay = useRef(null);
@@ -24,7 +24,7 @@ export default function Modal({ children }) {
         if (onDismiss) onDismiss();
       }
     },
-    [onDismiss, overlay, wrapper]
+    [onDismiss, overlay, wrapper],
   );
 
   return (
@@ -35,7 +35,7 @@ export default function Modal({ children }) {
     >
       <div
         ref={wrapper}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9/12 sm:w-10/12 md:w-7/12 lg:w-4/12 p-8 bg-base-100 rounded-lg h-1/2"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9/12 sm:w-10/12 md:w-7/12 lg:w-4/12 p-8 bg-white rounded-lg h-1/2 justify-center items-center"
       >
         {children}
       </div>
