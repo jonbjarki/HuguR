@@ -14,7 +14,7 @@ export interface SidebarItemProps {
 }
 
 export default function SidebarItem({link, isSelected=false, setSelected}: SidebarItemProps){
-    const selectedSettings = isSelected ? 'bg-lm-whitesmoke-dark font-bold' : '';
+    const selectedSettings = isSelected ? 'bg-secondary-focus font-bold' : '';
 
     // Highlight selected item
     function handleClick() {
@@ -24,7 +24,7 @@ export default function SidebarItem({link, isSelected=false, setSelected}: Sideb
     }
 
     return (
-        <Link href={link.link} onClick={handleClick} className={'py-3 hover:bg-lm-light flex flex-row text-lg text-lm-dark ' + selectedSettings}>
+        <Link href={link.link} onClick={handleClick} className={'py-3 hover:bg-secondary-focus flex flex-row text-lg text-secondary-content ' + selectedSettings}>
             <div className='w-7'>{isSelected ? '—' : ''}</div>
             <h1>{link.title}</h1>
         </Link>

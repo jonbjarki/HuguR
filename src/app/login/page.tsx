@@ -1,12 +1,11 @@
 'use client';
 
-import Modal from '@/components/modal';
 import Auth from '@/components/auth/Auth';
 
 export default function Login() {
   return (
-    <Modal>
-      <Auth />
-    </Modal>
+    <div className="w-full h-fit justify-center align-middle">
+      <Auth />;
+    </div>
   );
 }

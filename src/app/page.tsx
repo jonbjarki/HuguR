@@ -3,7 +3,7 @@ import Bubble from '@/components/bubble';
 import HomeLine from '@/components/HomeLine';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import Hero from '@/components/hero';
+import Hero from '@/components/Hero';
 
 export default async function Home() {
   const supabase = createServerComponentClient({ cookies });
@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     // Parallax Cover Banner
     <div className="w-full h-fit">
-      <Hero name={user?.email.split('@')[0]} />
+      <Hero />
       {/* Main */}
       <main className="flex flex-col items-center gap-16 xl:w-10/12 max-w-6xl mx-auto mt-10">
         {/* Line for HuguR Introduction replaced with Banner
