@@ -1,6 +1,7 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
 import { cookies } from 'next/headers';
+import Link from 'next/link';
 
 export default async function ArticleSidebar() {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -24,7 +25,7 @@ export default async function ArticleSidebar() {
             key={article.id}
             className="text-lg min-h-12 hover:bg-lm-light p-4"
           >
-            <a href={`/reading/${article.id}`}>{article.title}</a>
+            <Link prefetch href={`/reading/${article.id}`}>{article.title}</Link>
           </li>
         ))}
       </ul>
