@@ -14,10 +14,8 @@ export default function ArticleCard({
   id,
   image,
 }: ArticleCardProps) {
-  console.log(image);
-
   return (
-    <div className="card card-side card-bordered bg-base-100 shadow-xl max-w-screen-2xl m-auto">
+    <div className="hover:bg-opacity-80 card card-side card-bordered bg-base-100 shadow-xl max-w-screen-2xl m-auto">
       <figure>
         <Image
           src={image}
