@@ -5,6 +5,7 @@ import LoginButton from '@/components/buttons/LoginButton';
 import Avatar from '@/components/navbar/Avatar';
 import HamburgerMenu from './HamburgerMenu';
 import { HomeIcon } from './HomeIcon';
+import LanguageMenu from './LanguageMenu';
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -38,9 +39,7 @@ export default async function Header() {
         <li>
           <button className="">Get Support</button>
         </li>
-        <li>
-          <button className="">EN v</button>
-        </li>
+        <LanguageMenu />
       </menu>
 
       <div className="hidden md:block">

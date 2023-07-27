@@ -1,0 +1,25 @@
+{
+    "courses": [
+        {
+            "ID": 1,
+            "title": "Introduction to Programming",
+            "duration": "4 weeks",
+            "content": "Learn the basics of programming with Python",
+            "imgSrc": ""
+        },
+        {
+            "ID": 2,
+            "title": "Web Development",
+            "duration": "6 weeks",
+            "content": "Learn how to build websites with HTML, CSS, and JavaScript",
+            "imgSrc": ""
+        },
+        {
+            "ID": 3,
+            "title": "Data Science",
+            "duration": "8 weeks",
+            "content": "Learn how to analyze and visualize data with Python",
+            "imgSrc": ""
+        }
+    ]
+}

@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import LoginButton from '@/components/buttons/LoginButton';
 import ProfileImage from '@/components/profile/ProfileImage';
 import ProfileProgress from '@/components/profile/ProfileProgress';
-import { Trophy } from '../../components/profile/Trophy';
+import Trophy from '@/components/profile/Trophy';
 
 export default async function Profile() {
   const supabase = createServerComponentClient({ cookies });
