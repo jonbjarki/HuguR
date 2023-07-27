@@ -1,24 +1,69 @@
+import { mdiClose, mdiArrowRight, mdiArrowLeft, mdiCheck } from "@mdi/js";
+import Icon from "@mdi/react";
 import { ReactNode, useState } from "react";
+import { IconButton } from "./iconButton";
+
+export enum newEntryVariants {
+    Start,
+    Middle,
+    End,
+    Single
+}
 
 export interface newEntryProps {
     title: string,
     children: ReactNode,
-    onClose: React.MouseEventHandler
+    onClose: React.MouseEventHandler,
+    variant?: newEntryVariants
 }
 
-export function NewEntry({title, children, onClose}: newEntryProps) {
+export function NewEntry({title, children, onClose, variant=newEntryVariants.Middle}: newEntryProps) {
+
+    const navButtons = () => {
+        switch (variant) {
+            case newEntryVariants.Start:
+                return (
+                    <div>
+                        <IconButton onClick={() => {}} iconPath={mdiArrowRight} />
+                    </div>
+                )
+            case newEntryVariants.Middle:
+                return (
+                    <div>
+                        <IconButton onClick={() => {}} iconPath={mdiArrowLeft} />
+                        <IconButton onClick={() => {}} iconPath={mdiArrowRight} />
+                    </div>
+                )
+            case newEntryVariants.End:
+                return (
+                    <div>
+                        <IconButton onClick={() => {}} iconPath={mdiArrowLeft} />
+                        <IconButton onClick={() => {}} iconPath={mdiCheck} />
+                    </div>
+                )
+            case newEntryVariants.Single:
+            default:
+                return (
+                    <div>
+                        <IconButton onClick={() => {}} iconPath={mdiCheck} />
+                    </div>
+                )
+        }
+    }
+
     return (
         <div className="border border-base-content rounded-md p-4 m-8">
             <div className="relative w-full">
                 {/* Close/cancel button */}
-                <button onClick={onClose} className="btn btn-primary btn-circle btn-outline btn-sm border-2 absolute top-0 right-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+                <div className="absolute top-0 right-0 w-8 h-8">
+                    <IconButton onClick={onClose} iconPath={mdiClose} btnSize="sm" />
+                </div>
                 <h1 className="font-thin tracking-widest text-2xl text-center">{title}</h1>
             </div>
             <div className="m-4 text-center">{children}</div>
+            <div className="flex justify-center w-full">
+                {navButtons()}
+            </div>
         </div>
     )
 }
