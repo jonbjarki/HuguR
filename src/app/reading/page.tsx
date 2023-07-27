@@ -16,6 +16,7 @@ export default async function Reading() {
 
   if (error) {
     console.log(error);
+    return <div>Error loading articles</div>
   }
   console.log(data);
   return (
