@@ -95,3 +95,7 @@ $$This article offers essential insights and actionable tips for embarking on a 
 $$In this thought-provoking article, we delve into the significance of vulnerability in the context of mental health. Discover how embracing vulnerability can lead to healing, growth, and authentic connections. Uncover practical ways to open up, both to yourself and others, as you embark on a transformative journey towards emotional well-being.$$,
 '/images/diarypic.png');
     
+CREATE POLICY "Enable read access for all users" ON "public"."articles"
+AS PERMISSIVE FOR SELECT
+TO public
+USING (true);
