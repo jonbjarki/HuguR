@@ -21,7 +21,7 @@ export default async function ArticleSidebar() {
       </div>
       <nav className="flex flex-col">
         {data.map((article) => (
-            <Link className='w-full h-full min-h-16 pl-4 text-lg flex items-center  hover:bg-lm-light' prefetch href={`/reading/${article.id}`}>{article.title}</Link>
+            <Link key={article.id} className='w-full h-full min-h-16 pl-4 text-lg flex items-center  hover:bg-lm-light' prefetch href={`/reading/${article.id}`}>{article.title}</Link>
         ))}
       </nav>
     </aside>
