@@ -1,10 +1,12 @@
 'use client';
 
-import { useLocale } from 'next-intl';
+import clsx from 'clsx';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next-intl/client';
 import { ChangeEvent, useTransition } from 'react';
 
 export default function LocaleSwitcher() {
+  const t = useTranslations('LocaleSwitcher');
   const [isPending, startTransition] = useTransition();
   const locale = useLocale();
   const router = useRouter();
@@ -18,22 +20,25 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <label className={'relative text-gray-400'}>
-      <p className="sr-only">{'Language'}</p>
+    <label
+      className={clsx(
+        'relative text-gray-400',
+        isPending && 'transition-opacity [&:disabled]:opacity-30',
+      )}
+    >
       <select
-        className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
+        className="select select-primary select-sm w-full max-w-xs"
         defaultValue={locale}
         disabled={isPending}
         onChange={onSelectChange}
       >
-        <option key="is" value="is">
-          Íslenska
+        <option key={'is'} value={'is'}>
+          IS
         </option>
-        <option key="en" value="en">
-          English
+        <option key={'en'} value={'en'}>
+          EN
         </option>
       </select>
-      <span className="pointer-events-none absolute top-[8px] right-2">⌄</span>
     </label>
   );
 }

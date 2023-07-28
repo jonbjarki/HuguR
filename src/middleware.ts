@@ -5,7 +5,7 @@ import createIntlMiddleware from 'next-intl/middleware';
 
 export default async function middleware(req: NextRequest) {
   const handleI18nRouting = createIntlMiddleware({
-    locales: ['en', 'is'],
+    locales: ['is', 'en'],
     defaultLocale: 'is',
   });
   const res = handleI18nRouting(req);

@@ -14,7 +14,6 @@ export default function Hero() {
           <HomeCover />
         </figure>
         <figcaption className="-translate-y-36 text-right text-lm-light drop-shadow-text-white mr-5">
-          {/* <h1 className="text-6xl font-bold">Welcome to HuguR!</h1> */}
           <div className="flex flex-col w-full place-items-end">
             <h1 className="text-6xl font-bold">{t('title')}</h1>
             <p className="text-lg max-w-lg flex-wrap">{t('desc')}</p>

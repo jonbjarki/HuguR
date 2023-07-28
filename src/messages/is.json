@@ -1,6 +1,22 @@
 {
     "Home": {
-        "title": "Halló Heimur!",
+        "title": "Velkomin á HuguR!",
         "desc": "Markmið okkar er að veita nemendum ókeypis aðgang að geðheilbrigðisstuðningi og ráðgjöf fyrir nemendur"
+    },
+    "Button": {
+        "login": "Innskráning"
+    },
+    "Navigation": {
+        "reading": "Greinar",
+        "courses": "Námskeið",
+        "exercises": "Æfingar",
+        "diary": "Dagbók"
+    },
+    "Avatar": {
+        "profile": "Mín Síða",
+        "logout": "Útskráning"
+    },
+    "Header": {
+        "support": "Stuðningur"
     }
 }
