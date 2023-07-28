@@ -19,16 +19,11 @@ export default async function ArticleSidebar() {
           Quick Navigation
         </span>
       </div>
-      <ul className="flex flex-col">
+      <nav className="flex flex-col">
         {data.map((article) => (
-          <li
-            key={article.id}
-            className="text-lg min-h-12 hover:bg-lm-light p-4"
-          >
-            <Link prefetch href={`/reading/${article.id}`}>{article.title}</Link>
-          </li>
+            <Link className='w-full h-full min-h-16 pl-4 text-lg flex items-center  hover:bg-lm-light' prefetch href={`/reading/${article.id}`}>{article.title}</Link>
         ))}
-      </ul>
+      </nav>
     </aside>
   );
 }
