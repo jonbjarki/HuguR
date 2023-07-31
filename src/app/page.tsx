@@ -51,6 +51,15 @@ export default async function Home() {
           btnText="Go to Diary"
           btnLink="/exercises"
         />
+
+        <HomeLine
+          title="Reading"
+          content="Our articles provide information on all things mental health, read up on general advice, or educate yourself on different mental health condition"
+          imgSrc="/images/readingpic.png"
+          isRight={false}
+          btnText="Go To Reading"
+          btnLink="/reading"
+        />
       </main>
     </div>
   );
