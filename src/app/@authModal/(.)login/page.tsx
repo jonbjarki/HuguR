@@ -39,6 +39,9 @@ function Auth() {
     await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: `${location.origin}/auth/callback`,
+      },
     });
     router.back();
     router.refresh();

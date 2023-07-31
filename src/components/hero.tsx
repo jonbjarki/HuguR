@@ -10,9 +10,9 @@ export default function Hero({ name = '' }) {
         <figure>
           <HomeCover />
         </figure>
-        <figcaption className="-translate-y-36 text-right text-lm-light drop-shadow-text-white mr-5">
-          <h1 className="text-6xl font-bold">Welcome to HuguR {name}!</h1>
-          <p className="text-lg">
+        <figcaption className="-translate-y-36 text-right text-base-100 drop-shadow-text-white mr-5">
+          <h1 className="text-6xl font-bold text-white">Welcome to HuguR {name}!</h1>
+          <p className="text-lg text-white">
             our goal is to provide free access to mental health support and
             advice
             <br /> for students made by students
