@@ -23,7 +23,7 @@ export default function RootLayout(props: {
   authModal: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="lightmode">
+    <html lang="en">
       <body className={inter.className + " h-screen"}>
         <Header />
         <div className="w-full h-auto m-auto relative z-10">

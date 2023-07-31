@@ -15,9 +15,9 @@ export interface sidebarProps {
 export default function Sidebar({ selected, items }: sidebarProps){
     const [selectedItem, setSelected] = useState(selected);
     return (
-        <div className='flex flex-col h-auto w-full bg-secondary'>
-            <div className='bg-primary py-3 flex flex-col justify-center items-center content-center'>
-                <h3 className='w-56 text-2xl text-base-100 drop-shadow-text shadow-primary-content text-center'>Stress Management</h3>
+        <div className='flex flex-col h-auto w-full bg-lm-whitesmoke-default'>
+            <div className='bg-lm-rose-default py-3 flex flex-col justify-center items-center content-center'>
+                <h3 className='w-56 text-2xl text-lm-very-light drop-shadow-text shadow-lm-rose-very-dark text-center'>Stress Management</h3>
                 <div className='w-full flex-row justify-center items-center'>
                     {/* TODO: useContext from react to get progress */}
                     <ProgressBar progress={0.69}></ProgressBar>
