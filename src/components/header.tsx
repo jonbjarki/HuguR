@@ -15,7 +15,7 @@ export default async function Header() {
   console.log(user);
 
   return (
-    <header className="sticky bg-base-100 top-0 z-40 flex flex-row flex-nowrap justify-between items-center px-4 shadow-md">
+    <header className="sticky bg-lm-very-light top-0 z-40 flex flex-row flex-nowrap justify-between items-center px-4 shadow-md">
       <Link href="/">
         <Image
           src="/images/RU.png"
