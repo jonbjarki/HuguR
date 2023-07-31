@@ -3,7 +3,7 @@ import Bubble from '@/components/bubble';
 import HomeLine from '@/components/HomeLine';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import Hero from '@/components/Hero';
+import Hero from '@/components/hero';
 
 export default async function Home() {
   const supabase = createServerComponentClient({ cookies });
