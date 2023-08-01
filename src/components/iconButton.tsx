@@ -1,10 +1,10 @@
-import Icon from "@mdi/react";
+import Icon from '@mdi/react'
 
 export function IconButton({onClick, iconPath, btnSize="md"}) {
-    const style = "btn btn-primary btn-circle btn-outline border-2 btn-" + btnSize;
+    let style = "btn btn-primary btn-outline p-1 rounded-full aspect-square border-2 btn-" + btnSize;
     return (
         <button onClick={onClick} className={style}>
-            <Icon path={iconPath} className="w-3/4 h-3/4" />
+            <Icon path={iconPath} className="h-full w-full" />
         </button>
     )
 }
