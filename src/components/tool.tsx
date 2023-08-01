@@ -4,7 +4,13 @@ import { EntryFrame } from "./entryFrame";
 import Image from "next/image";
 import { useState } from "react";
 
-export function Tool({title, description, date}) {
+export interface toolProps {
+    title: string,
+    description: string,
+    date: string
+}
+
+export function Tool({title, description, date}: toolProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     function toggleOpen() {
