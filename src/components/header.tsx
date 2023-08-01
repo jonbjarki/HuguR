@@ -36,7 +36,7 @@ export default async function Header() {
         <Link href="/" className="">
           Exercises
         </Link>
-        <Link href="/" className="">
+        <Link href="/diary" className="">
           Diary
         </Link>
       </nav>

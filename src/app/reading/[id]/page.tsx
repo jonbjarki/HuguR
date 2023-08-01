@@ -18,6 +18,7 @@ export default async function Article({ params }: { params: { id: number } }) {
 
   if (error) {
     console.log(error);
+    return <div>Error loading article</div>;
   }
 
   // convert markdown to html
@@ -25,6 +26,7 @@ export default async function Article({ params }: { params: { id: number } }) {
   const articleContent = content.toString();
   return (
     <div className="flex min-h-screen flex-row">
+      {/* @ts-expect-error Server Component */}
       <ArticleSidebar />
       <main
         dangerouslySetInnerHTML={{ __html: articleContent }}
