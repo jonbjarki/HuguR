@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import Icon from '@mdi/react';
+import { mdiClockOutline } from '@mdi/js';
 
 export interface CourseProps {
   title: string;
@@ -24,12 +26,7 @@ export default function Course({ ID, title, duration, content, imgSrc }) {
             className="m-auto"
           />
           <div className="flex items-center gap-2">
-            <Image
-              src="/images/clock.svg"
-              width={35}
-              height={35}
-              alt="clock icon"
-            />
+            <Icon path={mdiClockOutline} className="w-8 h-8 text-primary-focus" />
             <p>{duration}</p>
           </div>
           <p className="">{content}</p>

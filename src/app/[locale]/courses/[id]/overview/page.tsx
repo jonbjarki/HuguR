@@ -3,6 +3,9 @@
 import HomeCover from "@/components/HomeCover";
 import CourseRoadmap from "@/components/course/courseRoadmap";
 import { roadmapUnitProps } from "@/components/course/roadmapUnit";
+import { mdiClockOutline } from "@mdi/js";
+import { mdiClock } from "@mdi/js";
+import Icon from "@mdi/react";
 import Image from "next/image";
 import { ParallaxProvider } from "react-scroll-parallax";
 
@@ -34,12 +37,7 @@ export default function CourseOverview() {
             <div className="flex flex-col my-3 mx-auto gap-3 items-center">
                 <h1 className="text-base-content text-3xl">Course Overview</h1>
                 <div className="flex flex-row items-center gap-2">
-                    <Image
-                    src="/images/clock.svg"
-                    width={35}
-                    height={35}
-                    alt="clock icon"
-                    />
+                    <Icon path={mdiClockOutline} className="w-8 h-8 text-primary" />
                     {/* TODO: Fetch duration and description from database */}
                     <h1 className="text-xl text-base-content opacity-60">Estimated course duration: 5 weeks</h1>
                 </div>

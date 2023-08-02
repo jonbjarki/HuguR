@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Icon from '@mdi/react';
+import { mdiCheckCircle } from '@mdi/js';
 
 export interface contentUnitProps {
     title: string,
@@ -11,7 +12,7 @@ export default function ContentUnit({ title, link="/", completed=false }: conten
     const icon = completed ? "/images/circle-check.svg" : "/images/circle.svg";
     return(
         <div className="text-xl text-base-content text-left flex items-center gap-8">
-            <Image src={icon} alt="" width={40} height={40} />
+            <Icon path={mdiCheckCircle} className="w-10 h-10 text-primary-focus" />
             <Link href={link}>{title}</Link>
         </div>
     )

@@ -1,6 +1,8 @@
+import Icon from "@mdi/react"
 import { contentUnitProps } from "./contentUnit"
 import ContentUnit from "./contentUnit"
 import Image from "next/image"
+import { mdiCheckCircle, mdiCircleOutline, mdiArrowDownDropCircleOutline } from "@mdi/js"
 
 export interface contentSectionProps {
     title: string,
@@ -8,9 +10,9 @@ export interface contentSectionProps {
 }
 
 export default function ContentSection({ title, units }: contentSectionProps) {
-    const NOT_STARTED = "/images/circle.svg"
-    const IN_PROGRESS = "/images/circle-arrow.svg"
-    const FINISHED = "/images/circle-check.svg"
+    const NOT_STARTED = mdiCircleOutline
+    const IN_PROGRESS = mdiArrowDownDropCircleOutline
+    const FINISHED = mdiCheckCircle
     let state = NOT_STARTED;
     // TODO: maybe do the progress check somewhere else?
     let finishedCount = 0;
@@ -24,7 +26,7 @@ export default function ContentSection({ title, units }: contentSectionProps) {
         <details className="cursor-pointer w-full group" open={(state == IN_PROGRESS)}>
             <summary className="list-none w-full flex items-center justify-between p-6">
                 <span className="flex items-center gap-4 text-3xl text-base-content">
-                    <Image width={40} height={40} src={state} alt="" />
+                    <Icon path={state} className="w-10 h-10 text-primary-focus" />
                     {title}
                 </span>
                 <span className="transition ease-in-out group-open:rotate-180">
