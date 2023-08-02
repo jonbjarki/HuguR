@@ -12,10 +12,10 @@ export interface sidebarProps {
 }
 
 // Takes title of selected item and an array of items as props. Uses state to keep track of selected item.
-export default function Sidebar({ selected, items }: sidebarProps){
+export default function Sidebar({ selected, items=[] }: sidebarProps){
     const [selectedItem, setSelected] = useState(selected);
     return (
-        <div className='flex flex-col h-auto w-full bg-secondary'>
+        <aside className='flex flex-col h-auto w-full bg-secondary'>
             <div className='bg-primary py-3 flex flex-col justify-center items-center content-center'>
                 <h3 className='w-56 text-2xl text-base-100 drop-shadow-text shadow-primary-content text-center'>Stress Management</h3>
                 <div className='w-full flex-row justify-center items-center'>
@@ -32,6 +32,6 @@ export default function Sidebar({ selected, items }: sidebarProps){
                 setSelected={setSelected}
                 ></SidebarItem>
             ))}
-        </div>
+        </aside>
     )
 }
