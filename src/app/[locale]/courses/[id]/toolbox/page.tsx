@@ -1,7 +1,5 @@
-import { NewEntry } from "@/components/newEntry";
-import { Tool } from "@/components/tool";
-import { ToolsList } from "@/components/toolsList";
-import { useState } from "react"
+import { Tool } from "@/components/course/tool";
+import { ToolsList } from "@/components/course/toolsList";
 
 export default function CourseToolbox() {
 

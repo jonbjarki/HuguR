@@ -1,5 +1,5 @@
-import ContentSection from '@/components/contentSection';
-import { contentUnitProps } from '@/components/contentUnit';
+import ContentSection from '@/components/course/contentSection';
+import { contentUnitProps } from '@/components/course/contentUnit';
 
 export default function CourseContent() {
   // TODO: fetch the data from the database

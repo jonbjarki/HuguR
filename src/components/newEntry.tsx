@@ -1,7 +1,7 @@
 import { mdiClose, mdiArrowRight, mdiArrowLeft, mdiCheck } from "@mdi/js";
 import Icon from "@mdi/react";
 import { ReactNode, useState } from "react";
-import { IconButton } from "./iconButton";
+import { IconButton } from "./buttons/iconButton";
 
 export enum newEntryVariants {
     Start,

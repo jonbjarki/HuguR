@@ -1,8 +1,8 @@
 'use client'
 
 import HomeCover from "@/components/HomeCover";
-import CourseRoadmap from "@/components/courseRoadmap";
-import { roadmapUnitProps } from "@/components/roadmapUnit";
+import CourseRoadmap from "@/components/course/courseRoadmap";
+import { roadmapUnitProps } from "@/components/course/roadmapUnit";
 import Image from "next/image";
 import { ParallaxProvider } from "react-scroll-parallax";
 

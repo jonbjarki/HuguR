@@ -1,6 +1,6 @@
 'use client'
 
-import { EntryFrame } from "./entryFrame";
+import { EntryFrame } from "../entryFrame";
 import Image from "next/image";
 import { useState } from "react";
 
