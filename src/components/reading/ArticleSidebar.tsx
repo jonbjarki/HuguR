@@ -1,7 +1,7 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
 import { cookies } from 'next/headers';
-import Link from 'next/link';
+import { ArticleButton } from '../buttons/ArticleButton';
 
 export default async function ArticleSidebar() {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -21,7 +21,11 @@ export default async function ArticleSidebar() {
       </div>
       <nav className="flex flex-col">
         {data.map((article) => (
-            <Link key={article.id} className='w-full h-full min-h-16 pl-4 text-lg flex items-center  hover:bg-lm-light' prefetch href={`/reading/${article.id}`}>{article.title}</Link>
+          <ArticleButton
+            key={article.id}
+            title={article.title}
+            id={article.id}
+          />
         ))}
       </nav>
     </aside>

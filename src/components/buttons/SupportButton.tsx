@@ -7,7 +7,7 @@ export default function SupportButton() {
   const t = useTranslations('Button');
 
   return (
-    <Link href="/support">
+    <Link href="/">
       <button className="btn btn-info btn-sm">{t('support')}</button>
     </Link>
   );

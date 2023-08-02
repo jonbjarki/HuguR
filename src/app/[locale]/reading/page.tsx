@@ -1,11 +1,7 @@
-import Image from 'next/image';
-import { remark } from 'remark';
-import html from 'remark-html';
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
-import ArticleCard from '@/components/ArticleCard';
-import Link from 'next/link';
+import ArticleCard from '@/components/reading/ArticleCard';
 
 export default async function Reading() {
   // Fetch title, description, id and image path of articles from superbase database
@@ -16,7 +12,7 @@ export default async function Reading() {
 
   if (error) {
     console.log(error);
-    return <div>Error loading articles</div>
+    return <div>Error loading articles</div>;
   }
   console.log(data);
   return (

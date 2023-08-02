@@ -1,7 +1,7 @@
 'use client';
 
 import classNames from 'classnames/bind';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 
 // let cx = classNames.bind(styles);
 
@@ -10,7 +10,7 @@ export interface BubbleProps {
   content: string;
   isRight?: boolean;
   btnText?: string;
-  btnLink?: string;
+  btnLink: string;
 }
 
 export default function Bubble({

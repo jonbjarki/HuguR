@@ -1,5 +1,5 @@
-import HomeLine from '@/components/HomeLine';
-import Hero from '@/components/hero';
+import HomeLine from '@/components/home/HomeLine';
+import Hero from '@/components/home/hero';
 
 export default function Home() {
   return (

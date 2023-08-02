@@ -16,12 +16,7 @@ export default function Modal({ children }) {
     (e) => {
       if (e.target === overlay.current) {
         if (onDismiss) onDismiss();
-      } else if (
-        wrapper.current &&
-        wrapper.current.contains(e.target as Node)
-      ) {
-        // Clicked inside the wrapper, do nothing
-      } else {
+      } else if (!wrapper.current) {
         if (onDismiss) onDismiss();
       }
     },

@@ -1,7 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-import styles from '../app/courses/courses.module.css';
+import Link from 'next-intl/link';
 import Image from 'next/image';
 
 export interface CourseProps {
