@@ -1,5 +1,3 @@
-'use client';
-
 import Modal from '@/components/modal';
 import Auth from '@/components/auth/Auth';
 

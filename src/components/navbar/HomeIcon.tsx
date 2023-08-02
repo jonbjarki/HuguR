@@ -1,9 +1,11 @@
-import Link from 'next/link';
+'use client';
+
+import Link from 'next-intl/link';
 import Image from 'next/image';
 
 export function HomeIcon() {
   return (
-    <div className="relative h-12 w-12">
+    <label className="btn btn-ghost btn-circle avatar">
       <Link href="/">
         <Image
           src="/images/RU.png"
@@ -12,6 +14,6 @@ export function HomeIcon() {
           className=""
         />
       </Link>
-    </div>
+    </label>
   );
 }

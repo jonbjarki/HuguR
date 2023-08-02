@@ -1,0 +1,20 @@
+{
+    "Home": {
+        "title": "Welcome to HuguR!",
+        "desc": "Our goal is to provide free access to mental health support and advice for students made by students"
+    },
+    "Button": {
+        "login": "Sign In",
+        "support": "Get Support"
+    },
+    "Navigation": {
+        "reading": "Reading",
+        "courses": "Courses",
+        "exercises": "Exercises",
+        "diary": "Diary"
+    },
+    "Avatar": {
+        "profile": "Profile",
+        "logout": "Logout"
+    }
+}

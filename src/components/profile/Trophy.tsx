@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export function Trophy({ name, icon, date }) {
+export default function Trophy({ name, icon, date }) {
   return (
     <div className="flex flex-col m-2 place-items-center">
       <div
