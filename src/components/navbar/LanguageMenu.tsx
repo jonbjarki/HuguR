@@ -1,12 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next-intl/client';
 import { ChangeEvent, useTransition } from 'react';
 
 export default function LocaleSwitcher() {
-  const t = useTranslations('LocaleSwitcher');
   const [isPending, startTransition] = useTransition();
   const locale = useLocale();
   const router = useRouter();
@@ -22,7 +21,7 @@ export default function LocaleSwitcher() {
   return (
     <label
       className={clsx(
-        'relative text-gray-400',
+        'relative min-w-fit',
         isPending && 'transition-opacity [&:disabled]:opacity-30',
       )}
     >

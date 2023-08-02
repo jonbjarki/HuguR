@@ -6,6 +6,7 @@ import HamburgerMenu from './HamburgerMenu';
 import { HomeIcon } from './HomeIcon';
 import LanguageMenu from './LanguageMenu';
 import Navigation from './Navigation';
+import SupportButton from '@/components/buttons/SupportButton';
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -24,9 +25,9 @@ export default async function Header() {
         <Navigation />
       </div>
       <div className="navbar-end gap-4">
-        <button className="btn btn-success btn-sm hidden md:block">
-          Get Support
-        </button>
+        <div className="hidden md:block">
+          <SupportButton />
+        </div>
         <LanguageMenu />
 
         <div className="hidden md:block">

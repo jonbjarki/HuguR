@@ -4,7 +4,8 @@
         "desc": "Our goal is to provide free access to mental health support and advice for students made by students"
     },
     "Button": {
-        "login": "Sign In"
+        "login": "Sign In",
+        "support": "Get Support"
     },
     "Navigation": {
         "reading": "Reading",
@@ -15,8 +16,5 @@
     "Avatar": {
         "profile": "Profile",
         "logout": "Logout"
-    },
-    "Header": {
-        "support": "Get Support"
     }
 }
