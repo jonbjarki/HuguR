@@ -6,13 +6,12 @@ import { NewEntry } from "../newEntry";
 
 export function ToolsList({tools=[]}: {tools: Array<ReactNode>}) {
 
-    let day = new Date(); // Placeholder
+    let day = new Date() // placeholder
 
     const [toolsList, setToolsList] = useState(tools);
     const [addingEntry, setAddingEntry] = useState(true);
 
     function addToolClicked() {
-        // setToolsList([toolsList.concat(<Tool title="Don't be sad" description="Just don't do it. It's that easy!" date={day.toLocaleDateString()} />)])
         setAddingEntry(true);
     }
 
@@ -22,6 +21,7 @@ export function ToolsList({tools=[]}: {tools: Array<ReactNode>}) {
 
     function addNewEntry() {
         // TODO: Add new entry from input
+        setToolsList([toolsList.concat(<Tool title="Don't be sad" description="Just don't do it. It's that easy!" date={day.toLocaleDateString()} />)])
         setAddingEntry(false);
     }
 

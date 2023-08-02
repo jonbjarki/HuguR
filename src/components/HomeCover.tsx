@@ -1,8 +1,6 @@
 'use client'
 
-import Image from "next/image"
-import homeHeader from "/public/images/homeheader2.png"
-import { useParallax, useParallaxController, ParallaxBanner } from 'react-scroll-parallax'
+import { ParallaxBanner } from 'react-scroll-parallax'
 
 
 export default function HomeCover({imageSrc = "/images/homeheader2.png"}) {
