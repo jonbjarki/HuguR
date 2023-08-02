@@ -19,9 +19,9 @@ export default function RoadmapUnit({
 
     return(
         <div className="flex flex-row w-full h-fit">
-            <div className="bg-primary h-48 w-96 order-2 rounded-2xl p-2 drop-shadow-[10px_10px_0px_rgba(244,220,208,1)]">
-                <h1 className="text-base-100 text-3xl">{title}</h1>
-                <div className="text-base-content text-lg p-2">{content}</div>
+            <div className="bg-lm-rose-default h-48 w-96 order-2 rounded-2xl p-2 drop-shadow-[10px_10px_0px_rgba(244,220,208,1)]">
+                <h1 className="text-lm-very-light text-3xl">{title}</h1>
+                <div className="text-lm-dark text-lg p-2">{content}</div>
             </div>
             <Image 
                 src="/images/roadmap-arrow.svg" 

@@ -23,7 +23,7 @@ export default function ContentSection({ title, units }: contentSectionProps) {
     return(
         <details className="cursor-pointer w-full group" open={(state == IN_PROGRESS)}>
             <summary className="list-none w-full flex items-center justify-between p-6">
-                <span className="flex items-center gap-4 text-3xl text-base-content">
+                <span className="flex items-center gap-4 text-3xl text-lm-dark">
                     <Image width={40} height={40} src={state} alt="" />
                     {title}
                 </span>

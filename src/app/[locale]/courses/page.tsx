@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './courses.module.css';
 import Course from '@/components/course';
-import data from '../../mockdata.json';
+import data from '@/mockdata.json';
 
 export default async function CourseHome() {
   return (
