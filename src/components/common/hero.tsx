@@ -1,7 +1,7 @@
 'use client';
 
-import { useParallax, ParallaxProvider } from 'react-scroll-parallax';
-import HomeCover from '@/components/HomeCover';
+import { ParallaxProvider } from 'react-scroll-parallax';
+import HomeCover from '@/components/home/HomeCover';
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {

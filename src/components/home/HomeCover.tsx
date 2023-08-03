@@ -4,7 +4,6 @@ import { ParallaxBanner } from 'react-scroll-parallax'
 
 
 export default function HomeCover({imageSrc = "/images/homeheader2.png"}) {
-  //const parallax = useParallax<HTMLImageElement>({  })
 
     return (
     <ParallaxBanner

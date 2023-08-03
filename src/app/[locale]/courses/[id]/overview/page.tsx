@@ -1,12 +1,10 @@
 'use client'
 
-import HomeCover from "@/components/HomeCover";
+import HomeCover from "@/components/home/HomeCover";
 import CourseRoadmap from "@/components/course/courseRoadmap";
 import { roadmapUnitProps } from "@/components/course/roadmapUnit";
 import { mdiClockOutline } from "@mdi/js";
-import { mdiClock } from "@mdi/js";
 import Icon from "@mdi/react";
-import Image from "next/image";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 export default function CourseOverview() {

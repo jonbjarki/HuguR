@@ -2,7 +2,7 @@
 
 import { ReactNode, useState } from "react"
 import { Tool } from "./tool"
-import { NewEntry } from "../newEntry";
+import { NewEntry } from "../common/newEntry";
 
 export function ToolsList({tools=[]}: {tools: Array<ReactNode>}) {
 

@@ -1,9 +1,6 @@
 'use client';
 
-import classNames from 'classnames/bind';
 import Link from 'next/link';
-
-// let cx = classNames.bind(styles);
 
 export interface BubbleProps {
   title: string;
@@ -20,16 +17,6 @@ export default function Bubble({
   btnText,
   btnLink,
 }: BubbleProps) {
-  // let legendClass = cx({
-  //     bubbleTitle: true,
-  //     bubbleTitleRight: isRight
-  // })
-
-  // let fieldClass = cx({
-  //     bubble: true,
-  //     bubbleRight: isRight
-  // })
-
   const legendSettings = isRight
     ? 'md:mr-5 md:text-right'
     : 'md:ml-5 md:text-left';
