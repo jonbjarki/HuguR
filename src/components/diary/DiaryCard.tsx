@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -6,59 +9,121 @@ import { cookies } from 'next/headers';
 type Emotion = { emotion: string; intensity: number };
 
 interface DiaryCardProps {
-  id?: number;
+  id: number;
   mood: string;
   date: string;
-  emotions: Emotion[];
   circumstance: string;
+  emotions?: Emotion[];
+  symptoms?: string[];
+  thoughts?: string;
+  reassessment?: string;
+  coping_strategies?: string;
+  behaviour?: string;
 }
 
-export default async function DiaryCard({
+export default function DiaryCard({
   id,
   mood,
   date,
   emotions,
   circumstance,
+  thoughts,
+  symptoms,
+  reassessment,
+  coping_strategies,
+  behaviour,
 }: DiaryCardProps) {
-  return (
-    <Link
-      href="/diary/view/1"
-      className="indicator border border-black rounded-lg cursor-pointer"
-    >
-      <span className="indicator-item indicator-start badge bg-lm-rose-light py-5 px-2 rounded-lg">
-        {date}
-      </span>
-      <div className="p-4 flex flex-row flex-nowrap gap-10 m-6 items-start">
-        <figure className="relative w-16 h-16 self-center">
-          <Image
-            src={`/images/mood/mood-${mood}.svg`}
-            fill
-            alt="Image depicting mood"
-          />
-        </figure>
-        <div>
-          <p className="text-center text-xl text-primary-focus mb-2">
-            Emotions
-          </p>
-          <ul className="flex flex-col gap-1">
-            {emotions.map((emotion, index) => (
-              <li key={index} className="flex justify-start items-center">
-                <span className="w-16">{emotion.emotion}</span>
-                <progress
-                  className="progress progress-primary w-40 ml-3"
-                  value={emotion.intensity}
-                  max="10"
-                ></progress>
-              </li>
-            ))}
-          </ul>
-        </div>
+  const [isExpanded, setIsExpanded] = useState(false);
 
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  return (
+    <div className="indicator border border-black rounded-lg">
+      <div className='flex flex-col'>
         <div>
-          <p className="text-center text-xl text-primary-focus">Circumstance</p>
-          {circumstance}
+        <span className="indicator-item indicator-start badge bg-lm-rose-light py-5 px-2 rounded-lg">
+          {date}
+        </span>
+        <div className="p-4 flex flex-row flex-nowrap gap-10 m-6 items-start">
+          <figure className="relative w-16 h-16 self-center">
+            <Image
+              src={`/images/mood/mood-${mood}.svg`}
+              fill
+              alt="Image depicting mood"
+            />
+          </figure>
+          <div>
+            <p className="text-center text-xl text-primary-focus mb-2">
+              Emotions
+            </p>
+            <ul className="flex flex-col gap-1">
+              {emotions.map((emotion, index) => (
+                <li key={index} className="flex justify-start items-center">
+                  <span className="w-16">{emotion.emotion}</span>
+                  <progress
+                    className="progress progress-primary w-40 ml-3"
+                    value={emotion.intensity}
+                    max="10"
+                  ></progress>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className='flex flex-col gap-2 '>
+            <div>
+            <h2 className="text-center text-xl text-primary-focus">
+              Circumstance
+            </h2>
+            {circumstance}
+          </div>
+            { isExpanded && (
+            <div>
+              <div>
+              <h2 className="text-center text-xl text-primary-focus">
+                Thoughts
+              </h2>
+              {thoughts}
+              </div>
+            
+              <div>
+              <h2 className="text-center text-xl text-primary-focus">
+                Physical Symptoms
+              </h2>
+              <ul className='flex flex-col'>
+              {symptoms?.map((symptom, index) => (
+                <li key={index}>
+                  {symptom}
+                </li>
+              ))}
+              </ul>
+              </div>
+
+            </div>
+          
+          )}
+          </div>
         </div>
       </div>
-    </Link>
+      
+      <div className="flex justify-center">
+        {isExpanded && (
+          <div className="flex flex-col">
+            <button onClick={toggleExpand} className='w-full'>
+              <Image src="/images/diary/collapse.svg" className='mx-auto mb-2' alt="Collapse" width={20} height={20}/>
+            </button>
+          </div>
+        )}
+        {!isExpanded && (
+          <button onClick={toggleExpand} className='w-full'>
+            <Image src="/images/diary/expand.svg" className='mx-auto mb-2' alt="Expand" width={20} height={20}/>
+          </button>
+        )}
+      </div>
+
+      </div>
+    </div>
   );
 }

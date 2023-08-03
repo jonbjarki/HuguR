@@ -12,20 +12,8 @@ create table "public"."diary" (
 
 alter table "public"."diary" enable row level security;
 
-alter table "public"."articles" alter column "image" set default '''/images/peopletalking.jpg''''''''::''::text'::text;
-
-alter table "public"."articles" enable row level security;
-
 CREATE UNIQUE INDEX diary_pkey ON public.diary USING btree (id);
 
 alter table "public"."diary" add constraint "diary_pkey" PRIMARY KEY using index "diary_pkey";
-
-create policy "Enable read access for all users"
-on "public"."articles"
-as permissive
-for select
-to public
-using (true);
-
 
 
