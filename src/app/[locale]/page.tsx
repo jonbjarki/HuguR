@@ -1,21 +1,11 @@
-import Image from 'next/image';
-import Bubble from '@/components/bubble';
 import HomeLine from '@/components/HomeLine';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
 import Hero from '@/components/hero';
 
-export default async function Home() {
-  const supabase = createServerComponentClient({ cookies });
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+export default function Home() {
   return (
     // Parallax Cover Banner
     <div className="w-full h-fit">
-      <Hero name={user?.email.split('@')[0]} />
+      <Hero />
       {/* Main */}
       <main className="flex flex-col items-center gap-16 xl:w-10/12 max-w-6xl mx-auto mt-10">
         {/* Line for HuguR Introduction replaced with Banner
@@ -50,6 +40,15 @@ export default async function Home() {
           isRight={true}
           btnText="Go to Diary"
           btnLink="/exercises"
+        />
+
+        <HomeLine
+          title="Reading"
+          content="Our articles provide information on all things mental health, read up on general advice, or educate yourself on different mental health condition"
+          imgSrc="/images/readingpic.png"
+          isRight={false}
+          btnText="Go To Reading"
+          btnLink="/reading"
         />
       </main>
     </div>

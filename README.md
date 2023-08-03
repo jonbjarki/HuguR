@@ -62,6 +62,12 @@ npx supabase projects list
 npx supabase start
 ```
 
+**There is currently a bug in the Supabase CLI that causes signup email verification to fail. Until next release use:**
+
+```
+npx supabase@beta start
+```
+
 5. Start the development server
 
 ```
@@ -75,22 +81,26 @@ Refer to the [Supabase CLI documentation on Managing Environments](https://supab
 <span style="color: red;"> This needs to be done for changes to the database schema or environment. </span>
 To generate from the database schema, run
 
+For Windows:
+
 ```
-npx supabase gen types typescript > src/lib/database.types.ts
+scripts/gentypes.bat [FLAG]
 ```
 
-With the appropriate flag:
-Local:
+For Linux/Mac:
+
+```
+./scripts/gentypes.sh [FLAG]
+```
+
+Flags:
 
 ```
 --local
+--project-id <project id>
 ```
 
-Staging:
-
-```
---project-id <project-id>
-```
+For local and staging respectively.
 
 ## Authentications
 
