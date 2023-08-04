@@ -8,3 +8,8 @@ create table
     image text not null default '/images/peopletalking.jpg'::text,
     constraint articles_pkey primary key (id)
   ) tablespace pg_default;
+
+CREATE POLICY "Enable read access for all users" ON "public"."articles"
+AS PERMISSIVE FOR SELECT
+TO public
+USING (true);

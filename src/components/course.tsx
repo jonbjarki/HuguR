@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import styles from '../app/courses/courses.module.css';
 import Image from 'next/image';
 
 export interface CourseProps {
@@ -31,7 +30,7 @@ export default function Course({ ID, title, duration, content, imgSrc }) {
               height={35}
               alt="clock icon"
             />
-            <p>{duration}</p>
+            <p>~{duration} weeks</p>
           </div>
           <p className="">{content}</p>
         </fieldset>
