@@ -21,7 +21,7 @@ export default async function Article({ params }: { params: { id: number } }) {
   }
 
   // convert markdown to html
-  const content = await remark().use(html).process(data.content);
+  const content = await remark().use(html).process(data!.content);
   const articleContent = content.toString();
   return (
     <div className="flex min-h-screen flex-row">

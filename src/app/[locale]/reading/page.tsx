@@ -12,9 +12,8 @@ export default async function Reading() {
 
   if (error) {
     console.log(error);
-    return <div>Error loading articles</div>
+    return <div>Error loading articles</div>;
   }
-  console.log(data);
   return (
     <div>
       <h1 className="text-3xl font-bold text-center m-6">Reading</h1>

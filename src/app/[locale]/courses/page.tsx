@@ -1,6 +1,6 @@
 import styles from './courses.module.css';
-import Course from '@/components/course/course';
-import data from '../../mockdata.json';
+import Course from '@/components/course';
+import data from '@/mockdata.json';
 
 export default async function CourseHome() {
   return (

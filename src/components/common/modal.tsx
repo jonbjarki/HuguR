@@ -14,14 +14,7 @@ export default function Modal({ children }) {
 
   const onClick: MouseEventHandler = useCallback(
     (e) => {
-      if (e.target === overlay.current) {
-        if (onDismiss) onDismiss();
-      } else if (
-        wrapper.current &&
-        wrapper.current.contains(e.target as Node)
-      ) {
-        // Clicked inside the wrapper, do nothing
-      } else {
+      if (e.target === overlay.current || !wrapper.current) {
         if (onDismiss) onDismiss();
       }
     },
