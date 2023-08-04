@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import Icon from '@mdi/react';
+import Icon from '@mdi/react'
 import { mdiClockOutline } from '@mdi/js';
 
 export interface CourseProps {

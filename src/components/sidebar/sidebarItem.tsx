@@ -1,5 +1,5 @@
 'use client'
-import Link from 'next/link';
+import Link from 'next-intl/link';
 
 // The title of the link in the sidebar, and where it leads to.
 export interface sidebarLink {
