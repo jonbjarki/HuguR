@@ -9,7 +9,7 @@ export function ToolsList({tools=[]}: {tools: Array<ReactNode>}) {
     let day = new Date() // placeholder
 
     const [toolsList, setToolsList] = useState(tools);
-    const [addingEntry, setAddingEntry] = useState(true);
+    const [addingEntry, setAddingEntry] = useState(false);
 
     function addToolClicked() {
         setAddingEntry(true);
