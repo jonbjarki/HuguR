@@ -23,21 +23,21 @@ export default function Home() {
           btnLink="/courses"
         />
 
-        <HomeLine
+        {/* <HomeLine
           title="Exercises"
           content="The diary allows you to write down how you felt during some situation, and how it affected you. So you can have a clear view of your progress."
           imgSrc="/images/exercisespic.png"
           isRight={false}
           btnText="Go To Exercises"
           btnLink="/diary"
-        />
+        /> */}
 
         <HomeLine
           title="Diary"
           content="Not ready to commit to a course?
           Try our individual exercises, designed to give you quick and easy to access mental health advice"
           imgSrc="/images/diarypic.png"
-          isRight={true}
+          isRight={false}
           btnText="Go to Diary"
           btnLink="/exercises"
         />
@@ -46,7 +46,7 @@ export default function Home() {
           title="Reading"
           content="Our articles provide information on all things mental health, read up on general advice, or educate yourself on different mental health condition"
           imgSrc="/images/readingpic.png"
-          isRight={false}
+          isRight={true}
           btnText="Go To Reading"
           btnLink="/reading"
         />
