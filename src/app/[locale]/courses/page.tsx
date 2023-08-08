@@ -1,5 +1,5 @@
 import styles from './courses.module.css';
-import Course from '@/components/course';
+import Course from '@/components/course/course';
 import data from '@/mockdata.json';
 
 export default async function CourseHome() {
@@ -17,13 +17,6 @@ export default async function CourseHome() {
             imgSrc={item.imgSrc}
           />
         ))}
-        {/* <Course
-          ID={1}
-          title="Stress Management"
-          duration="2 weeks"
-          content="Short description of course and what it entails.
-          In this course you will lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed pharetra arcu. Phasellus posuere dictum maximus."
-          imgSrc="/images/personsofa.png" /> */}
       </ul>
     </main>
   );

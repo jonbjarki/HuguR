@@ -1,4 +1,4 @@
-import Header from '@/components/navbar/Header';
+import Header from '@/components/navbar/header';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';

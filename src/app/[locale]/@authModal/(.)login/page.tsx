@@ -1,4 +1,4 @@
-import Modal from '@/components/modal';
+import Modal from '@/components/common/modal';
 import Auth from '@/components/auth/Auth';
 
 export default function Login() {

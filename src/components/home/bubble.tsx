@@ -1,9 +1,6 @@
 'use client';
 
-import classNames from 'classnames/bind';
-import Link from 'next/link';
-
-// let cx = classNames.bind(styles);
+import Link from 'next-intl/link';
 
 export interface BubbleProps {
   title: string;
@@ -20,22 +17,12 @@ export default function Bubble({
   btnText,
   btnLink,
 }: BubbleProps) {
-  // let legendClass = cx({
-  //     bubbleTitle: true,
-  //     bubbleTitleRight: isRight
-  // })
-
-  // let fieldClass = cx({
-  //     bubble: true,
-  //     bubbleRight: isRight
-  // })
-
   const legendSettings = isRight
     ? 'md:mr-5 md:text-right'
     : 'md:ml-5 md:text-left';
 
   return (
-    <fieldset className="m-auto border-2 rounded-larger border-red-600 w-4/6 h-fit px-8 pt-8 pb-12 flex items-center flex-col lg:flex-row text-2xl text-center md:text-left font-light font-sans shadow-md">
+    <fieldset className="m-auto border-2 rounded-larger border-accent w-4/6 h-fit px-8 pt-8 pb-12 flex items-center flex-col lg:flex-row text-2xl text-center md:text-left font-light font-sans shadow-md">
       <legend className={'md:m-0 text-4xl p-5 font-thin ' + legendSettings}>
         {title}
       </legend>
