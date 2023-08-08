@@ -1,8 +1,8 @@
 'use client';
+import { Database } from '@/lib/database.types';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import type { Database } from '@/lib/database.types';
 
 /**
  * Enum representing the different views for the authentication modal.

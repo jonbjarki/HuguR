@@ -1,15 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import Link from 'next-intl/link';
+import { useRouter } from 'next/navigation';
 
 export default function Avatar() {
-  const router = useRouter();
-
-  // Create a Supabase client configured to use cookies
+  const t = useTranslations('Avatar');
   const supabase = createClientComponentClient();
+  const router = useRouter();
 
   const signOut = async () => {
     await supabase.auth.signOut();
@@ -19,22 +19,22 @@ export default function Avatar() {
 
   return (
     <div className="dropdown dropdown-end">
-      <div className="avatar" tabIndex={0}>
-        <div className="w-12 rounded-full relative">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
           <Image src="/images/user-icon.svg" alt="user icon" fill />
         </div>
-      </div>
+      </label>
       <ul
         tabIndex={0}
-        className="dropdown-content z-[1] menu shadow bg-base-100 w-56 p-0 [&_li>*]:rounded-none"
+        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
       >
         <li>
-          <Link href="/profile">Profile</Link>
+          <Link href="/profile">{t('profile')}</Link>
         </li>
         <li>
-          <div className="btn-error" onClick={signOut}>
-            Log Out
-          </div>
+          <a onClick={signOut} className="bg-error">
+            {t('logout')}
+          </a>
         </li>
       </ul>
     </div>

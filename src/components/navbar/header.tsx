@@ -1,10 +1,12 @@
-import Link from 'next/link';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import LoginButton from '@/components/buttons/LoginButton';
 import Avatar from '@/components/navbar/Avatar';
 import HamburgerMenu from './HamburgerMenu';
 import { HomeIcon } from './HomeIcon';
+import LanguageMenu from './LanguageMenu';
+import Navigation from './Navigation';
+import SupportButton from '@/components/buttons/SupportButton';
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -14,6 +16,7 @@ export default async function Header() {
   } = await supabase.auth.getUser();
 
   return (
+<<<<<<< HEAD
     <header className="sticky h-16 bg-lm-very-light top-0 z-[99] flex flex-row flex-nowrap justify-between items-center shadow-md md:px-4">
       <HomeIcon />
 
@@ -45,9 +48,28 @@ export default async function Header() {
 
       <div className="hidden md:block">
         {user ? <Avatar /> : <LoginButton />}
+=======
+    <header className="navbar sticky bg-lm-very-light z-[99] shadow-md top-0 justify-evenly">
+      <div className="navbar-start flex-shrink">
+        <HomeIcon />
+>>>>>>> 20d08bb392992db894bf242a1ab0a341d7dd1ea1
       </div>
+      <h1 className="text-3xl md:hidden">HuguR</h1>
+      <div className="hidden md:block navbar-center">
+        <Navigation />
+      </div>
+      <div className="navbar-end gap-4">
+        <div className="hidden md:block">
+          <SupportButton />
+        </div>
+        <LanguageMenu />
 
-      <HamburgerMenu />
+        <div className="hidden md:block">
+          {user ? <Avatar /> : <LoginButton />}
+        </div>
+
+        <HamburgerMenu />
+      </div>
     </header>
   );
 }
