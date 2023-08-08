@@ -1,10 +1,11 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+'use client';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
 import { cookies } from 'next/headers';
 import Link from 'next-intl/link';
 
 export default async function ArticleSidebar() {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createClientComponentClient<Database>();
   const { data, error } = await supabase.from('articles').select('title, id');
 
   if (error) {
@@ -21,7 +22,14 @@ export default async function ArticleSidebar() {
       </div>
       <nav className="flex flex-col">
         {data.map((article) => (
-            <Link key={article.id} className='w-full h-full min-h-16 pl-4 text-lg flex items-center  hover:bg-lm-light' prefetch href={`/reading/${article.id}`}>{article.title}</Link>
+          <Link
+            key={article.id}
+            className="w-full h-full min-h-16 pl-4 text-lg flex items-center  hover:bg-lm-light"
+            prefetch
+            href={`/reading/${article.id}`}
+          >
+            {article.title}
+          </Link>
         ))}
       </nav>
     </aside>

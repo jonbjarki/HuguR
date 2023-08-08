@@ -26,7 +26,6 @@ export default async function Article({ params }: { params: { id: number } }) {
   const articleContent = content.toString();
   return (
     <div className="flex min-h-screen flex-row">
-      {/* @ts-expect-error Server Component */}
       <ArticleSidebar />
       <main
         dangerouslySetInnerHTML={{ __html: articleContent }}

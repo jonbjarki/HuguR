@@ -35,6 +35,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} data-theme="lightmode">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className + ' h-screen'}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />

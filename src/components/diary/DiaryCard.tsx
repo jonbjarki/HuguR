@@ -61,7 +61,7 @@ export default function DiaryCard({
                   Emotions
                 </p>
                 <ul className="flex flex-col gap-1">
-                  {emotions.map((emotion, index) => (
+                  {emotions?.map((emotion, index) => (
                     <li key={index} className="flex justify-start items-center">
                       <span className="w-16">{emotion.name}</span>
                       <progress

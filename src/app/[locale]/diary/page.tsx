@@ -3,8 +3,10 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import DiarySidebar from '@/components/diary/DiarySidebar';
+import DiaryList from '@/components/diary/DiaryList';
 
 export default async function Diary() {
+  // Require User to be logged in
   const supabase = createServerComponentClient({ cookies });
   const {
     data: { user },
@@ -12,6 +14,7 @@ export default async function Diary() {
 
   if (!user) return redirect('/login');
 
+  // Fetches diary entries from database
   const { data, error } = await supabase
     .from('diary')
     .select('*,emotion (name, intensity),symptoms (name)')
@@ -24,36 +27,16 @@ export default async function Diary() {
   if (data.length === 0) {
     return <div>You have no diary entries</div>;
   }
-  // print all symptoms and emotions for each entry in data
-  data.forEach((entry) => {
-    console.log(entry.emotion);
-    console.log(entry.symptoms);
-  });
+
   return (
-    <div className="flex min-h-screen flex-row">
+    // <div className="flex min-h-screen flex-row">
+    <div className="grid place-items-center">
       {/* Diary Sidebar */}
-      <DiarySidebar />
+      {/* <DiarySidebar /> */}
       <div className="grid place-items-center">
         <main className="mb-20">
           <h1 className="text-3xl m-10 font-medium text-center">Diary</h1>
-          <ul>
-            {data.map((entry) => (
-              <li key={entry.id}>
-                <DiaryCard
-                  id={entry.id}
-                  date={entry.created_at}
-                  mood={entry.mood}
-                  emotions={entry.emotion}
-                  circumstance={entry.circumstance}
-                  symptoms={entry.symptoms}
-                  thoughts={entry.thoughts}
-                  reassessment={entry.reassessment}
-                  coping_strategies={entry.coping_strategies}
-                  behaviour={entry.behaviour}
-                />
-              </li>
-            ))}
-          </ul>
+          <DiaryList entries={data} />
         </main>
       </div>
     </div>
