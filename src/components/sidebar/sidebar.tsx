@@ -8,6 +8,7 @@ export interface sidebarProps {
   title: string;
   selected?: string;
   items?: Array<sidebarLink>;
+  progress?: number;
 }
 
 export interface sidebarLink {
@@ -17,8 +18,19 @@ export interface sidebarLink {
 }
 
 // Takes title of selected item and an array of items as props. Uses state to keep track of selected item.
-export default function Sidebar({ title, selected, items = [] }: sidebarProps) {
+export default function Sidebar({
+  title,
+  selected,
+  items = [],
+  progress,
+}: sidebarProps) {
   const [selectedItem, setSelected] = useState(selected);
+  function checkProgress() {
+    if (progress != undefined && progress > 0) {
+      if (progress > 1) return <ProgressBar progress={1}></ProgressBar>;
+      else return <ProgressBar progress={progress}></ProgressBar>;
+    }
+  }
   return (
     <aside className="flex flex-col h-auto w-full bg-secondary">
       <div className="bg-primary py-3 flex flex-col justify-center items-center content-center">
@@ -26,8 +38,7 @@ export default function Sidebar({ title, selected, items = [] }: sidebarProps) {
           {title}
         </h3>
         <div className="w-full flex-row justify-center items-center">
-          {/* TODO: useContext from react to get progress */}
-          <ProgressBar progress={0.69}></ProgressBar>
+          {checkProgress()}
         </div>
       </div>
       {items.map((item) => (

@@ -22,11 +22,12 @@ export default function UnitLayout({ children, params }) {
         >
           <Icon path={mdiChevronLeft} />
         </Link>
-        {/* TODO: Get week from database */}
+        {/* TODO: Get week data and progress from database */}
         <Sidebar
           title="Week 1"
           selected={'Unit ' + unit}
           items={sidebarItems}
+          progress={0.3}
         ></Sidebar>
       </div>
       <div className="w-4/5 flex bg-base-100">{children}</div>

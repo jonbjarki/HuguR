@@ -16,6 +16,7 @@ export default function IndividualCourse({ children }) {
     { title: CONTENT, link: '/courses/' + id + '/content' },
     { title: TOOLBOX, link: '/courses/' + id + '/toolbox' },
   );
+  // TODO: Get progress for sidebar from database
   return (
     <div className="flex flex-row h-auto min-h-screen">
       <div className="w-1/5 flex">
@@ -23,6 +24,7 @@ export default function IndividualCourse({ children }) {
           title={COURSE}
           selected={OVERVIEW}
           items={sidebarItems}
+          progress={0.69}
         ></Sidebar>
       </div>
       <div className="w-4/5 flex bg-base-100">{children}</div>
