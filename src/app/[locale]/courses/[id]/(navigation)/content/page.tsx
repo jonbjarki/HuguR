@@ -1,39 +1,44 @@
 import ContentSection from '@/components/course/contentSection';
 import { contentUnitProps } from '@/components/course/contentUnit';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
-export default function CourseContent() {
-  // TODO: fetch the data from the database
+export default async function CourseContent({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const supabase = createServerComponentClient({ cookies });
 
-  const WEEK1 = Array<contentUnitProps>(
-    { title: 'Unit 1', link: '/courses/1/1', completed: true },
-    { title: 'Unit 2', link: '/courses/1/1', completed: true },
-    { title: 'Unit 3', link: '/courses/1/1', completed: true },
-    { title: 'Unit 4', link: '/courses/1/1', completed: true },
-    { title: 'Unit 5', link: '/courses/1/1', completed: true },
-  );
+  const { data } = await supabase
+    .from('units')
+    .select('*, user_unit_completion (completed)')
+    .eq('course_id', params.id);
 
-  const WEEK2 = Array<contentUnitProps>(
-    { title: 'Unit 1', link: '/courses/1/1', completed: true },
-    { title: 'Unit 2', link: '/courses/1/1', completed: true },
-    { title: 'Unit 3', link: '/courses/1/1', completed: true },
-    { title: 'Unit 4', link: '/courses/1/1', completed: false },
-    { title: 'Unit 5', link: '/courses/1/1', completed: false },
-  );
+  const weeks: Array<Array<contentUnitProps>> = [];
 
-  const WEEK3 = Array<contentUnitProps>(
-    { title: 'Unit 1', link: '/', completed: false },
-    { title: 'Unit 2', link: '/', completed: false },
-    { title: 'Unit 3', link: '/', completed: false },
-    { title: 'Unit 4', link: '/', completed: false },
-    { title: 'Unit 5', link: '/', completed: false },
-  );
+  // Two dimensional array indexed by week number
+  // e.g. weeks[1] = week 1
+  data!.forEach((unit) => {
+    if (!weeks[unit.week]) {
+      weeks[unit.week] = [];
+    }
+    weeks[unit.week].push({
+      title: unit.title,
+      link: `/courses/${params.id}/${unit.id}`,
+      completed:
+        unit.user_unit_completion.length > 0
+          ? unit.user_unit_completion[0].completed
+          : false,
+    });
+  });
 
   return (
     <div className="h-full w-2/3 flex flex-col items-center mx-auto">
       <h1 className="text-lm-medium-dark text-4xl mt-8 mb-16">Modules</h1>
-      <ContentSection title="Week 1" units={WEEK1} />
-      <ContentSection title="Week 2" units={WEEK2} />
-      <ContentSection title="Week 3" units={WEEK3} />
+      {weeks.map((week, index) => (
+        <ContentSection key={index} title={`Week ${index}`} units={week} />
+      ))}
     </div>
   );
 }

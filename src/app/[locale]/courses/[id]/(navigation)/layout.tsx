@@ -1,20 +1,22 @@
-'use client';
-
 import Sidebar, { sidebarLink } from '@/components/sidebar/sidebar';
-import { useParams } from 'next/navigation';
+import { ReactNode } from 'react';
 
 const OVERVIEW = 'Course Overview';
 const CONTENT = 'Course Content';
 const TOOLBOX = 'Toolbox';
 const COURSE = 'Stress Management';
 
-export default function IndividualCourse({ children }) {
-  const params = useParams();
-  const id = params != null ? params.id : '0'; // default to id=0 if params are null
+export default function IndividualCourse({
+  children,
+  params: { id },
+}: {
+  children: ReactNode;
+  params: { id: string };
+}) {
   let sidebarItems = Array<sidebarLink>(
-    { title: OVERVIEW, link: '/courses/' + id + '/overview' },
-    { title: CONTENT, link: '/courses/' + id + '/content' },
-    { title: TOOLBOX, link: '/courses/' + id + '/toolbox' },
+    { title: OVERVIEW, link: `/courses/${id}/overview` },
+    { title: CONTENT, link: `/courses/${id}/content` },
+    { title: TOOLBOX, link: `/courses/${id}/toolbox` },
   );
   // TODO: Get progress for sidebar from database
   return (
