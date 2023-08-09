@@ -4,10 +4,8 @@ import Sidebar, { sidebarLink } from '@/components/sidebar/sidebar';
 import Icon from '@mdi/react';
 import { mdiChevronLeft } from '@mdi/js';
 import Link from 'next-intl/link';
-import { useParams } from 'next/navigation';
 
-export default function UnitLayout({ children }) {
-  const params = useParams();
+export default function UnitLayout({ children, params }) {
   const id = params != null ? params.id : '0'; // default to id=0 if params are null
   const unit = params != null ? params.unit : '0'; // default to unit=0 if params are null
   let sidebarItems = Array<sidebarLink>(
