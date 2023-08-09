@@ -17,8 +17,7 @@ export default async function Diary() {
   // Fetches diary entries from database
   const { data, error } = await supabase
     .from('diary')
-    .select('*,emotion (name, intensity),symptoms (name)')
-    .eq('user_id', user?.id);
+    .select('*,emotion (name, intensity),symptoms (name)');
 
   if (error) {
     console.error(error);
