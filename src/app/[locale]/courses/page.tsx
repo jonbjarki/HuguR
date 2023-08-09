@@ -6,7 +6,7 @@ import { cookies } from 'next/headers';
 export default async function CourseHome() {
   const supabase = createServerComponentClient({ cookies });
 
-  let { data: courses, error } = await supabase.from('courses').select('*');
+  const { data: courses, error } = await supabase.from('courses').select('*');
 
   return (
     <main className="mt-6 w-11/12 m-auto">
