@@ -5,19 +5,19 @@ export default function CourseContent() {
   // TODO: fetch the data from the database
 
   const WEEK1 = Array<contentUnitProps>(
-    { title: 'Unit 1', link: '/', completed: true },
-    { title: 'Unit 2', link: '/', completed: true },
-    { title: 'Unit 3', link: '/', completed: true },
-    { title: 'Unit 4', link: '/', completed: true },
-    { title: 'Unit 5', link: '/', completed: true },
+    { title: 'Unit 1', link: '/courses/1/1', completed: true },
+    { title: 'Unit 2', link: '/courses/1/1', completed: true },
+    { title: 'Unit 3', link: '/courses/1/1', completed: true },
+    { title: 'Unit 4', link: '/courses/1/1', completed: true },
+    { title: 'Unit 5', link: '/courses/1/1', completed: true },
   );
 
   const WEEK2 = Array<contentUnitProps>(
-    { title: 'Unit 1', link: '/', completed: true },
-    { title: 'Unit 2', link: '/', completed: true },
-    { title: 'Unit 3', link: '/', completed: true },
-    { title: 'Unit 4', link: '/', completed: false },
-    { title: 'Unit 5', link: '/', completed: false },
+    { title: 'Unit 1', link: '/courses/1/1', completed: true },
+    { title: 'Unit 2', link: '/courses/1/1', completed: true },
+    { title: 'Unit 3', link: '/courses/1/1', completed: true },
+    { title: 'Unit 4', link: '/courses/1/1', completed: false },
+    { title: 'Unit 5', link: '/courses/1/1', completed: false },
   );
 
   const WEEK3 = Array<contentUnitProps>(
