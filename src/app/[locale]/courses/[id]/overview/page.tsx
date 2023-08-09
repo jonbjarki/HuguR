@@ -8,8 +8,6 @@ import Icon from '@mdi/react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
 export default function CourseOverview() {
-  console.log('>>>>>>>>>>>>>>>>>>HERE');
-
   // PLACEHOLDER
   // TODO: fetch data (title and content) from elsewhere
   const LIPSUM =
