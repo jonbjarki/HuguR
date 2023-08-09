@@ -1,5 +1,5 @@
-import styles from './courses.module.css';
 import Course from '@/components/course';
+import styles from './courses.module.css';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
