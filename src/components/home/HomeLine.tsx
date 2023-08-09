@@ -1,11 +1,7 @@
 'use client'
 
 import Bubble from "./bubble"
-// import styles from '../app/home.module.css'
 import Image from "next/image"
-import classNames from "classnames/bind"
-
-// let cx = classNames.bind(styles)
 
 import { BubbleProps } from "./bubble"
 

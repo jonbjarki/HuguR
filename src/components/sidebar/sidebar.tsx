@@ -1,6 +1,6 @@
 'use client';
 
-import ProgressBar from './progressBar';
+import ProgressBar from '../common/progressBar';
 import SidebarItem from './sidebarItem';
 import { sidebarLink } from './sidebarItem';
 import { useState } from 'react';

@@ -1,4 +1,4 @@
-import Course from '@/components/course';
+import Course from '@/components/course/course';
 import styles from './courses.module.css';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';

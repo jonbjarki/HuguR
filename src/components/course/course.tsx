@@ -1,9 +1,11 @@
 'use client';
 
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import Image from 'next/image';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
+import Icon from '@mdi/react';
+import { mdiClockOutline } from '@mdi/js';
 
 export interface CourseProps {
   title: string;
@@ -33,13 +35,11 @@ export default function Course({ ID, title, duration, content, imgSrc }) {
             />
           </div>
           <div className="flex items-center gap-2">
-            <Image
-              src="/images/clock.svg"
-              width={35}
-              height={35}
-              alt="clock icon"
+            <Icon
+              path={mdiClockOutline}
+              className="w-8 h-8 text-primary-focus"
             />
-            <p className="text-gray-400">~{duration} weeks</p>
+            <p>{duration} weeks</p>
           </div>
           <p className="">{content}</p>
         </fieldset>

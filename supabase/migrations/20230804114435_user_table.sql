@@ -14,6 +14,8 @@ returns trigger as $$
 begin
   insert into public.user (id)
   values (new.id);
+  insert into public.user_in_course (course_id, user_id)
+  select id, new.id from public.courses;
   return new;
 end;
 $$ language plpgsql security definer;

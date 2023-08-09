@@ -5,7 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 import styles from '@/styles/Article.module.css';
-import ArticleSidebar from '@/components/ArticleSidebar';
+import ArticleSidebar from '@/components/article/ArticleSidebar';
 
 export default async function Article({ params }: { params: { id: number } }) {
   // fetch article from database
