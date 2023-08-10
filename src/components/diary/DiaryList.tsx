@@ -1,20 +1,22 @@
 'use client';
-import { useState } from 'react';
+
+import Image from 'next/image';
+import { ReactElement, useEffect, useState } from 'react';
 import DiaryCard from './DiaryCard';
 import { NewEntry } from '../common/newEntry';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
+import MoodSelector from './MoodSelector';
+import DropdownSelector from './DropdownSelector';
 
-export default async function DiaryList({ entries }) {
+export default function DiaryList({ entries }) {
   const [diaryEntries, setDiaryEntries] = useState(entries);
   const [addingEntry, setAddingEntry] = useState(false);
 
-  const supabase = createClientComponentClient<Database>();
-
-  const { data, error } = await supabase.storage.from('images').list('mood', {
-    limit: 100,
-  });
-  console.log(data);
+  const setMood = (mood: string): void => {
+    setEntry({ ...entry, mood: mood });
+    console.log(entry);
+  };
 
   const [entry, setEntry] = useState({
     date: '',
@@ -28,22 +30,36 @@ export default async function DiaryList({ entries }) {
     behaviour: '',
   });
 
+  // ! REMOVE THIS LATER
+  useEffect(() => {
+    console.log(entry);
+  }, [entry]);
+
   const newEntryStages = [
-    <div key="0">
-      <p className="m-10">What circumstances do you want to log today?</p>
-      <textarea className="textarea textarea-bordered" />
+    <div key="0" className="my-4">
+      <p className="mb-4">What circumstances do you want to log today?</p>
+      <textarea
+        className="textarea textarea-bordered mb-4"
+        value={entry.circumstance}
+        id="circumstance"
+        onChange={(e) => setEntry({ ...entry, circumstance: e.target.value })}
+      />
     </div>,
 
-    <div key="1">
-      <p className="m-10">How did the circumstances make you feel?</p>
-      {/* Input with a scale from 1 to 5 with each scale represented by an emoji */}
-      <div className="flex flex-row justify-center gap-10">
-        <div className="flex flex-row items-center">
-          <input type="radio" name="mood" value="1" />
-          <label className="ml-2">😭</label>
-        </div>
-      </div>
+    <MoodSelector currentMood={entry.mood} setMood={setMood} key="1" />,
+
+    <div key="2" className="my-4">
+      <p className="mb-4">What were you thinking while this was happening?</p>
+      <input
+        type="text"
+        className="textarea textarea-bordered mb-4"
+        value={entry.thoughts}
+        id="thoughts"
+        onChange={(e) => setEntry({ ...entry, thoughts: e.target.value })}
+      />
     </div>,
+
+    <DropdownSelector key="3" />,
   ];
 
   function addEntryClicked(): void {

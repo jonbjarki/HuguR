@@ -9,16 +9,15 @@ export default async function Diary() {
   // Require User to be logged in
   const supabase = createServerComponentClient({ cookies });
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
 
-  if (!user) return redirect('/login');
+  if (!session) return redirect('/login');
 
   // Fetches diary entries from database
   const { data, error } = await supabase
     .from('diary')
-    .select('*,emotion (name, intensity),symptoms (name)')
-    .eq('user_id', user?.id);
+    .select('*,emotion (name, intensity),symptoms (name)');
 
   if (error) {
     console.error(error);
