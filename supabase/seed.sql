@@ -14,21 +14,21 @@ INSERT INTO courses (name, duration, description, image_url) VALUES (
     'Positive Psychology: The Science of Happiness', 8, 'Explore the principles of positive psychology and learn evidence-based strategies to cultivate happiness and well-being in your life.', 'personsofa.png'
 );
 
-INSERT INTO units (number, content, week, course_id, task)
+INSERT INTO units (number, week, course_id)
 VALUES
-    (1, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 1, 1, 'write your thoughts'),
-    (2, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 1, 1, 'write your thoughts'),
-    (3, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 1, 1, 'write your thoughts'),
-    (4, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 1, 1, 'write your thoughts'),
-    (1, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 2, 1, 'write your thoughts'),
-    (2, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 2, 1, 'write your thoughts'),
-    (3, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 2, 1, 'write your thoughts'),
-    (4, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 2, 1, 'write your thoughts'),
-    (1, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 3, 1, 'write your thoughts'),
-    (2, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 3, 1, 'write your thoughts'),
-    (3, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 3, 1, 'write your thoughts'),
-    (4, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 3, 1, 'write your thoughts'),
-    (1, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 4, 1, 'write your thoughts'),
-    (2, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 4, 1, 'write your thoughts'),
-    (3, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 4, 1, 'write your thoughts'),
-    (4, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 4, 1, 'write your thoughts');
+    (1, 1, 1),
+    (2, 1, 1),
+    (3, 1, 1),
+    (4, 1, 1),
+    (1, 2, 1),
+    (2, 2, 1),
+    (3, 2, 1),
+    (4, 2, 1),
+    (1, 3, 1),
+    (2, 3, 1),
+    (3, 3, 1),
+    (4, 3, 1),
+    (1, 4, 1),
+    (2, 4, 1),
+    (3, 4, 1),
+    (4, 4, 1);

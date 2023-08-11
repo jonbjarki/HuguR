@@ -16,5 +16,17 @@
     "Avatar": {
         "profile": "Profile",
         "logout": "Logout"
+    },
+    "Units": {
+        "unit1": {
+            "title": "What is mental health?",
+            "content": "What is mental health and how can we take care of it?",
+            "task": "Write down 3 things you can do to take care of your mental health"
+        },
+        "unit2": {
+            "title": "What is stress?",
+            "content": "What is stress and how can we manage it?",
+            "task": "Write down 3 things you can do to manage stress"
+        }
     }
 }
