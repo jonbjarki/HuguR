@@ -17,7 +17,7 @@ export default function Home() {
         <HomeLine
           title="Try Our Courses"
           content="We have carefully crafted psychologist approved courses that are designed to help you manage your mental health and provide you with advice for the future"
-          imgSrc="/images/wavingwoman.png"
+          imgSrc="/images/courses-img.svg"
           isRight={true}
           btnText="Go To Courses"
           btnLink="/courses"
@@ -34,18 +34,17 @@ export default function Home() {
 
         <HomeLine
           title="Diary"
-          content="Not ready to commit to a course?
-          Try our individual exercises, designed to give you quick and easy to access mental health advice"
-          imgSrc="/images/diarypic.png"
+          content="The diary allows you to write down how you felt during some situation, and how it affected you. So you can have a clear view of your progress."
+          imgSrc="/images/diary-img.svg"
           isRight={false}
           btnText="Go to Diary"
-          btnLink="/exercises"
+          btnLink="/diary"
         />
 
         <HomeLine
           title="Reading"
           content="Our articles provide information on all things mental health, read up on general advice, or educate yourself on different mental health condition"
-          imgSrc="/images/readingpic.png"
+          imgSrc="/images/reading-img.svg"
           isRight={true}
           btnText="Go To Reading"
           btnLink="/reading"
