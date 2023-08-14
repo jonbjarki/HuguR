@@ -2,12 +2,19 @@
  * @type {import('next').NextConfig}
  */
 
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
+    mdxRs: true,
   },
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'picsum.photos'],
+  },
+  options: {
+    providerImportSource: '@mdx-js/react',
   },
 };
+
+const withMDX = require('@next/mdx')();
+module.exports = withMDX(nextConfig);

@@ -7,24 +7,41 @@ import {
   mdiCircleOutline,
   mdiArrowDownDropCircleOutline,
 } from '@mdi/js';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 export interface contentSectionProps {
-  title: string;
+  name: string;
   units: Array<contentUnitProps>;
+  params: { id: string; locale: string };
 }
 
-export default function ContentSection({ title, units }: contentSectionProps) {
-  const NOT_STARTED = mdiCircleOutline;
-  const IN_PROGRESS = mdiArrowDownDropCircleOutline;
-  const FINISHED = mdiCheckCircle;
+const NOT_STARTED = mdiCircleOutline;
+const IN_PROGRESS = mdiArrowDownDropCircleOutline;
+const FINISHED = mdiCheckCircle;
+
+export default async function ContentSection({
+  name,
+  units,
+  params,
+}: contentSectionProps) {
+  const supabase = createServerComponentClient({ cookies });
+  const { data, error } = await supabase.auth.getSession();
   let state = NOT_STARTED;
-  // TODO: maybe do the progress check somewhere else?
-  let finishedCount = 0;
-  units.forEach((unit) => {
-    if (unit.completed) finishedCount++;
-  });
-  if (finishedCount >= units.length) state = FINISHED;
-  else if (finishedCount > 0) state = IN_PROGRESS;
+
+  // if (data.session) {
+  //   const finished = units.every((unit) => {
+  //     return unit.user_unit_completion?.[0].completed;
+  //   });
+
+  //   const started = units.some((unit) => {
+  //     return unit.user_unit_completion?.[0].completed;
+  //   });
+
+  //   if (units.length > 0 && finished) state = FINISHED;
+  //   else if (started) state = IN_PROGRESS;
+  //   else state = NOT_STARTED;
+  // }
 
   return (
     <details
@@ -34,7 +51,7 @@ export default function ContentSection({ title, units }: contentSectionProps) {
       <summary className="list-none w-full flex items-center justify-between p-6">
         <span className="flex items-center gap-4 text-3xl text-base-content">
           <Icon path={state} className="w-10 h-10 text-primary-focus" />
-          {title}
+          {name}
         </span>
         <span className="transition ease-in-out group-open:rotate-180">
           <Image
@@ -48,10 +65,14 @@ export default function ContentSection({ title, units }: contentSectionProps) {
       <div className="flex flex-col items-start ml-20 gap-4">
         {units.map((unit) => (
           <ContentUnit
-            key={unit.title}
-            title={unit.title}
-            link={unit.link}
-            completed={unit.completed}
+            key={unit.id}
+            name={unit.name[params.locale]}
+            link={`/courses/${params.id}/${unit.id}`}
+            // completed={
+            //   unit.user_unit_completion
+            //     ? unit.user_unit_completion[0].completed
+            //     : false
+            // }
           />
         ))}
       </div>

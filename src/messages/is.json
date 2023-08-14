@@ -17,16 +17,8 @@
         "profile": "Mín Síða",
         "logout": "Útskráning"
     },
-    "Units": {
-        "unit1": {
-            "title": "Hvað er streita?",
-            "content": "Hvað er geðheilsa og hvernig getum við haldið henni heilbrigðri?",
-            "task": "Hvað getur þú gert til að halda þér heilbrigðum?"
-        },
-        "unit2": {
-            "title": "Hvernig er geðheilsa tengd líkamlegri heilsu?",
-            "content": "Hvernig er geðheilsa tengd líkamlegri heilsu og hvernig getum við haldið okkur heilbrigðum?",
-            "task": "Hvað getur þú gert til að halda þér heilbrigðum?"
-        }
+    "Unit": {
+        "task": "Æfing",
+        "save": "Vista"
     }
 }
