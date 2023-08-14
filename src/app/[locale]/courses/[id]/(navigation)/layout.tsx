@@ -1,18 +1,33 @@
 import Sidebar, { sidebarLink } from '@/components/sidebar/sidebar';
+import { Database } from '@/lib/database.types';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 
 const OVERVIEW = 'Course Overview';
 const CONTENT = 'Course Content';
 const TOOLBOX = 'Toolbox';
-const COURSE = 'Stress Management';
 
-export default function IndividualCourse({
+export default async function IndividualCourse({
   children,
   params: { id },
 }: {
   children: ReactNode;
   params: { id: string };
 }) {
+  const supabase = createServerComponentClient<Database>({ cookies });
+  const { data, error } = await supabase
+    .from('courses')
+    .select('duration, name, description')
+    .eq('id', id)
+    .limit(1)
+    .single();
+
+  if (error) {
+    console.log(error);
+    return <div>Error loading course</div>;
+  }
+
   let sidebarItems = Array<sidebarLink>(
     { title: OVERVIEW, link: `/courses/${id}/overview` },
     { title: CONTENT, link: `/courses/${id}/content` },
@@ -23,7 +38,7 @@ export default function IndividualCourse({
     <div className="flex flex-row h-auto min-h-screen">
       <div className="w-1/5 flex">
         <Sidebar
-          title={COURSE}
+          title={data.name}
           selected={OVERVIEW}
           items={sidebarItems}
           progress={0.69}
