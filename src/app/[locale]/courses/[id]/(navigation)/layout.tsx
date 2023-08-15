@@ -16,6 +16,14 @@ export default async function IndividualCourse({
   params: { id: string };
 }) {
   const supabase = createServerComponentClient<Database>({ cookies });
+
+  // Get user ID
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+  const userId = session?.user.id;
+
+  // Get course data
   const { data, error } = await supabase
     .from('courses')
     .select('duration, name, description')
@@ -28,12 +36,30 @@ export default async function IndividualCourse({
     return <div>Error loading course</div>;
   }
 
+  // Get user's progress in course
+  async function getProgress() {
+    const { data, error } = await supabase
+      .from('user_in_course')
+      .select('progress')
+      .match({ course_id: id, user_id: userId })
+      .limit(1)
+      .single();
+
+    if (error) {
+      console.log(error);
+    }
+    return data?.progress;
+  }
+
+  const progress = await getProgress();
+
   let sidebarItems = Array<sidebarLink>(
     { title: OVERVIEW, link: `/courses/${id}/overview` },
     { title: CONTENT, link: `/courses/${id}/content` },
     { title: TOOLBOX, link: `/courses/${id}/toolbox` },
   );
-  // TODO: Get progress for sidebar from database
+
+  // TODO: Make sure to adjust progress based on range from progress column in user_in_course table
   return (
     <div className="flex flex-row h-auto min-h-screen">
       <div className="w-1/5 flex">
@@ -41,7 +67,7 @@ export default async function IndividualCourse({
           title={data.name}
           selected={OVERVIEW}
           items={sidebarItems}
-          progress={0.69}
+          progress={progress}
         ></Sidebar>
       </div>
       <div className="w-4/5 flex bg-base-100">{children}</div>
