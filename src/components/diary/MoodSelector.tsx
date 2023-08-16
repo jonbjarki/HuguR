@@ -1,5 +1,3 @@
-'use client';
-
 import { Database } from '@/lib/database.types';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Image from 'next/image';
@@ -20,7 +18,7 @@ export default function MoodSelector({
     } = supabase.storage.from('mood').getPublicUrl(`mood-${mood}.svg`);
 
     return (
-      <div>
+      <div key={mood}>
         <input
           onClick={() => setMood(mood)}
           type="radio"
@@ -40,6 +38,7 @@ export default function MoodSelector({
             height={50}
             alt="mood indicator"
             className="border-primary rounded-full"
+            loading="eager"
           />
         </label>
       </div>
@@ -47,8 +46,11 @@ export default function MoodSelector({
   };
 
   return (
-    <div key="1" className="flex flex-col items-center my-4">
-      <p className="mb-4">How did the circumstances make you feel?</p>
+    <div className="flex flex-col items-center my-4">
+      <p className="mb-4 flex flex-col">
+        How did the circumstances make you feel?
+        <span className="text-red-500">* required</span>
+      </p>
       {/* Input with a scale from 1 to 5 with each scale represented by an emoji */}
       <div className="flex flex-row justify-center items-center mb-4">
         <div className="flex flex-row items-center gap-1 self-center h-fit">

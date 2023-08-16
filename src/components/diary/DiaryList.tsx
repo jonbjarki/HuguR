@@ -1,107 +1,59 @@
 'use client';
 
-import Image from 'next/image';
-import { ReactElement, useEffect, useState } from 'react';
+// import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+// import { Database } from '@/lib/database.types';
+// import Image from 'next/image';
+import { useState } from 'react';
+import type { Emotion, Symptom } from './DiaryCard';
 import DiaryCard from './DiaryCard';
-import { NewEntry } from '../common/newEntry';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '@/lib/database.types';
-import MoodSelector from './MoodSelector';
-import DropdownSelector from './DropdownSelector';
+import NewDiaryEntry from './NewDiaryEntry';
 
-export default function DiaryList({ entries }) {
-  const [diaryEntries, setDiaryEntries] = useState(entries);
+export interface DiaryEntry {
+  id: number;
+  date: string;
+  mood: string;
+  emotions?: Emotion[];
+  circumstance: string;
+  symptoms?: Symptom[];
+  thoughts?: string;
+  reassessment?: string;
+  coping_strategies?: string;
+  behaviour?: string;
+}
+
+export default function DiaryList({
+  entries,
+  symptomsOptions,
+  emotionsOptions,
+}: {
+  entries: DiaryEntry[];
+  symptomsOptions: string[];
+  emotionsOptions: string[];
+}) {
+  const [diaryEntries, setDiaryEntries] = useState<DiaryEntry[]>(entries);
   const [addingEntry, setAddingEntry] = useState(false);
 
-  const setMood = (mood: string): void => {
-    setEntry({ ...entry, mood: mood });
-    console.log(entry);
-  };
-
-  const [entry, setEntry] = useState({
-    date: '',
-    mood: '',
-    emotions: [],
-    circumstance: '',
-    symptoms: [],
-    thoughts: '',
-    reassessment: '',
-    coping_strategies: [],
-    behaviour: '',
-  });
-
-  // ! REMOVE THIS LATER
-  useEffect(() => {
-    console.log(entry);
-  }, [entry]);
-
-  const newEntryStages = [
-    <div key="0" className="my-4">
-      <p className="mb-4">What circumstances do you want to log today?</p>
-      <textarea
-        className="textarea textarea-bordered mb-4"
-        value={entry.circumstance}
-        id="circumstance"
-        onChange={(e) => setEntry({ ...entry, circumstance: e.target.value })}
-      />
-    </div>,
-
-    <MoodSelector currentMood={entry.mood} setMood={setMood} key="1" />,
-
-    <div key="2" className="my-4">
-      <p className="mb-4">What were you thinking while this was happening?</p>
-      <input
-        type="text"
-        className="textarea textarea-bordered mb-4"
-        value={entry.thoughts}
-        id="thoughts"
-        onChange={(e) => setEntry({ ...entry, thoughts: e.target.value })}
-      />
-    </div>,
-
-    <DropdownSelector key="3" />,
-  ];
-
-  function addEntryClicked(): void {
-    setAddingEntry(true);
+  function setAddingHelper(value: boolean) {
+    setAddingEntry(value);
   }
 
-  function handleClose(): void {
-    setAddingEntry(false);
-  }
-
-  function addEntry(): void {
-    setDiaryEntries([
-      diaryEntries.concat(
-        // Diary card with generic mock values
-        <DiaryCard
-          id={0}
-          date={'2023-08-06'}
-          mood={'5'}
-          emotions={[
-            { name: 'Happy', intensity: 5 },
-            { name: 'Nostalgic', intensity: 3 },
-          ]}
-          circumstance={'I was walking down the street and saw a dog'}
-          thoughts={'I thought about how cute the dog was'}
-          // leaves symptoms, coping and reassessment blank
-          behaviour={'I pet the dog'}
-        />,
-      ),
-    ]);
-    setAddingEntry(false);
+  function addEntry(entry: DiaryEntry): void {
+    setDiaryEntries([entry, ...diaryEntries]);
   }
 
   return (
     <div className="flex flex-col">
-      <ul className="flex flex-col">
+      <ul className="flex flex-col gap-10 text-center">
+        {diaryEntries.length === 0 && !addingEntry && (
+          <p className="text-2xl m-auto">No entries yet..</p>
+        )}
         {diaryEntries.map((entry) => (
           <li key={entry.id}>
             <DiaryCard
               id={entry.id}
-              date={entry.created_at}
+              date={entry.date}
               mood={entry.mood}
-              emotions={entry.emotion}
+              emotions={entry.emotions}
               circumstance={entry.circumstance}
               symptoms={entry.symptoms}
               thoughts={entry.thoughts}
@@ -112,24 +64,13 @@ export default function DiaryList({ entries }) {
           </li>
         ))}
       </ul>
-      {/* Button for adding new Diary Entry */}
-      {!addingEntry && (
-        <button
-          onClick={addEntryClicked}
-          className="btn btn-primary self-center m-4 "
-        >
-          New Entry
-        </button>
-      )}
-      {/* New Entry Form */}
-      {addingEntry && (
-        <NewEntry
-          title="New Diary Entry"
-          stages={newEntryStages}
-          onClose={handleClose}
-          onFinish={addEntry}
-        />
-      )}
+      <NewDiaryEntry
+        setAddingHelper={setAddingHelper}
+        addingEntry={addingEntry}
+        addNewEntry={addEntry}
+        emotionsOptions={emotionsOptions}
+        symptomsOptions={symptomsOptions}
+      />
     </div>
   );
 }
