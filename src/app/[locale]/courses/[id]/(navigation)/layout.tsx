@@ -36,30 +36,13 @@ export default async function IndividualCourse({
     return <div>Error loading course</div>;
   }
 
-  // Get user's progress in course
-  async function getProgress() {
-    const { data, error } = await supabase
-      .from('user_in_course')
-      .select('progress')
-      .match({ course_id: id, user_id: userId })
-      .limit(1)
-      .single();
-
-    if (error) {
-      console.log(error);
-    }
-    return data?.progress;
-  }
-
-  const progress = await getProgress();
-
   let sidebarItems = Array<sidebarLink>(
     { title: OVERVIEW, link: `/courses/${id}/overview` },
     { title: CONTENT, link: `/courses/${id}/content` },
     { title: TOOLBOX, link: `/courses/${id}/toolbox` },
   );
 
-  // TODO: Make sure to adjust progress based on range from progress column in user_in_course table
+  // TODO: fetch progress from database
   return (
     <div className="flex flex-col md:flex-row h-auto min-h-screen">
       <div className="w-full h-fit md:h-auto md:w-1/5 flex">
@@ -67,7 +50,7 @@ export default async function IndividualCourse({
           title={data.name}
           selected={OVERVIEW}
           items={sidebarItems}
-          progress={progress}
+          progress={0.69}
         ></Sidebar>
       </div>
       <div className="w-full md:w-4/5 flex bg-base-100">{children}</div>
