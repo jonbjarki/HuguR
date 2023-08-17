@@ -18,8 +18,12 @@ export default async function Diary() {
   // Fetches diary entries from database
   const { data, error } = await supabase
     .from('diary')
+<<<<<<< HEAD
     .select('*,emotions (name, intensity),symptoms (name)')
     .order('date', { ascending: false });
+=======
+    .select('*,emotion (name, intensity),symptoms (name)');
+>>>>>>> 4ca42ed99e0855ae8fcf5e7f1d4d8e9584cfd759
 
   if (error) {
     console.error(error);

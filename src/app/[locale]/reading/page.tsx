@@ -25,7 +25,10 @@ export default async function Reading() {
                 title={article.title}
                 description={article.description}
                 id={article.id}
-                image={article.image}
+                image={
+                  supabase.storage.from('images').getPublicUrl(article.image)
+                    .data.publicUrl
+                }
               />
             </li>
           ))}

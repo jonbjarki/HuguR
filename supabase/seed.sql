@@ -1,11 +1,3 @@
-INSERT INTO articles (title, content, description, image) VALUES (
-'How to be a good listener', '
-# How to be a Good Listener
-
-In this article, you will learn how to improve your listening skills. Being a good listener is an important skill to have in both personal and professional relationships. By following the tips outlined in this article, you can become a better listener and improve your communication skills.
-', 'Learn how to improve your listening skills in this article.', 'peopletalking.jpg'
-);
-
 INSERT INTO articles (title, content,description,image) VALUES (
     'Getting Started',
     $$# Unlocking Inner Resilience: A Guide to Initiating Your Mental Health Journey
