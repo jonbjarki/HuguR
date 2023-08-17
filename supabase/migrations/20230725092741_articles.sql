@@ -9,7 +9,14 @@ create table
     constraint articles_pkey primary key (id)
   ) tablespace pg_default;
 
-CREATE POLICY "Enable read access for all users" ON "public"."articles"
-AS PERMISSIVE FOR SELECT
-TO public
-USING (true);
+
+alter table "public"."articles" alter column "image" set default '''/images/peopletalking.jpg''''''''::''::text'::text;
+
+alter table "public"."articles" enable row level security;
+
+create policy "Enable read access for all users"
+on "public"."articles"
+as permissive
+for select
+to public
+using (true);
