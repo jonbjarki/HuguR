@@ -105,7 +105,7 @@ INSERT INTO emotion (name, intensity, diary_id) VALUES ('Sadness', 4, 1);
 INSERT INTO emotion (name, intensity, diary_id) VALUES ('Anger', 2, 1);
 
 INSERT INTO symptoms (name, diary_id) VALUES ('Crying', 1);
-=======
+
 INSERT INTO articles (title, content, description, image) VALUES (
 'How to be a good listener', '
 # How to be a Good Listener
