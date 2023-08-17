@@ -61,8 +61,8 @@ export default async function IndividualCourse({
 
   // TODO: Make sure to adjust progress based on range from progress column in user_in_course table
   return (
-    <div className="flex flex-row h-auto min-h-screen">
-      <div className="w-1/5 flex">
+    <div className="flex flex-col md:flex-row h-auto min-h-screen">
+      <div className="w-full h-fit md:h-auto md:w-1/5 flex">
         <Sidebar
           title={data.name}
           selected={OVERVIEW}
@@ -70,7 +70,7 @@ export default async function IndividualCourse({
           progress={progress}
         ></Sidebar>
       </div>
-      <div className="w-4/5 flex bg-base-100">{children}</div>
+      <div className="w-full md:w-4/5 flex bg-base-100">{children}</div>
     </div>
   );
 }
