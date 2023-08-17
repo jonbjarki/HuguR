@@ -13,10 +13,6 @@ export default function MoodSelector({
   const supabase = createClientComponentClient<Database>();
 
   const getMood = (mood: number): ReactElement => {
-    const {
-      data: { publicUrl },
-    } = supabase.storage.from('mood').getPublicUrl(`mood-${mood}.svg`);
-
     return (
       <div key={mood}>
         <input
@@ -33,7 +29,7 @@ export default function MoodSelector({
           className="ml-2 hover:opacity-70 peer-checked:[&>*:first-child]:border-4 h-[50px] w-[50px]"
         >
           <Image
-            src={publicUrl}
+            src={`/images/mood/mood-${mood}.svg`}
             width={50}
             height={50}
             alt="mood indicator"

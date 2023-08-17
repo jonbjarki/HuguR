@@ -106,16 +106,16 @@ $$In this thought-provoking article, we delve into the significance of vulnerabi
 
 /* DIARY SEED */
 
-INSERT INTO diary(id, mood, thoughts,behaviour,coping_strategies,reassessment,circumstance,created_at,user_id)
+INSERT INTO diary(id, mood, thoughts,behaviour,coping_strategies,reassessment,circumstance,date,user_id)
 VALUES (1, 3, 'I was mad at myself for not remembering how to center a div', 'I ran out of the room crying', 'I looked up how to center a div', 'I now know how to center a div', 'Programming','2023-08-02','f50ab6cd-0a2e-4f61-b994-78fb295a4bc2');
 
-INSERT INTO emotion (name, intensity, diary_id) VALUES ('Sadness', 4, 1);
-INSERT INTO emotion (name, intensity, diary_id) VALUES ('Anger', 2, 1);
+INSERT INTO emotions (name, intensity, diary_id) VALUES ('Sadness', 4, 1);
+INSERT INTO emotions (name, intensity, diary_id) VALUES ('Anger', 2, 1);
 
 INSERT INTO symptoms (name, diary_id) VALUES ('Crying', 1);
 
 
-INSERT INTO courses (name, duration, description, image_url) VALUES (
+INSERT INTO "public"."courses" (name, duration, description, image_url) VALUES (
     'Stress Management', 6, 'Learn effective strategies to manage stress and anxiety, including mindfulness techniques and stress-reduction exercises.', 'personsofa.png'
 ), (
     'Building Resilience', 4, 'Discover techniques to enhance your resilience and develop coping mechanisms to deal with life''s challenges.', 'personsofa.png'
@@ -123,7 +123,7 @@ INSERT INTO courses (name, duration, description, image_url) VALUES (
     'Positive Psychology: The Science of Happiness', 8, 'Explore the principles of positive psychology and learn evidence-based strategies to cultivate happiness and well-being in your life.', 'personsofa.png'
 );
 
-INSERT INTO units (number, content, week, course_id, task)
+INSERT INTO "public"."units" (number, content, week, course_id, task)
 VALUES
     (1, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 1, 1, 'write your thoughts'),
     (2, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 1, 1, 'write your thoughts'),
@@ -141,3 +141,12 @@ VALUES
     (2, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 4, 1, 'write your thoughts'),
     (3, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 4, 1, 'write your thoughts'),
     (4, '[{"title": "some title", "content": "some cotent"}, {"title": "some other title", "content": "some more content"}]', 4, 1, 'write your thoughts');
+
+
+-- Emotions Options
+insert into emotions_options (name) values
+('Anger'), ('Anxiety'), ('Fear'), ('Sadness'), ('Stress');
+
+-- Symptoms Options
+insert into symptoms_options (name) values
+('Sweating'), ('Hyperventilating'), ('Tremors'), ('Crying'), ('Headache');
