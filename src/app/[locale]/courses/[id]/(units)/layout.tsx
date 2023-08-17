@@ -15,7 +15,7 @@ export default function UnitLayout({ children, params }) {
   );
   return (
     <div className="flex flex-col md:flex-row h-auto min-h-screen">
-      <div className="w-full h-fit md:h-full md:w-1/5 flex">
+      <div className="w-full h-fit md:h-auto md:w-1/5 flex">
         <Link
           href={'/courses/' + id + '/content'}
           className="absolute z-10 top-2 left-1 h-10 w-10 text-base-100 drop-shadow-text"
