@@ -101,8 +101,8 @@ $$In this thought-provoking article, we delve into the significance of vulnerabi
 INSERT INTO diary(id, mood, thoughts,behaviour,coping_strategies,reassessment,circumstance,created_at,user_id)
 VALUES (1, 3, 'I was mad at myself for not remembering how to center a div', 'I ran out of the room crying', 'I looked up how to center a div', 'I now know how to center a div', 'Programming','2023-08-02','f50ab6cd-0a2e-4f61-b994-78fb295a4bc2');
 
-INSERT INTO emotions (name, intensity, diary_id) VALUES ('Sadness', 4, 1);
-INSERT INTO emotions (name, intensity, diary_id) VALUES ('Anger', 2, 1);
+INSERT INTO emotion (name, intensity, diary_id) VALUES ('Sadness', 4, 1);
+INSERT INTO emotion (name, intensity, diary_id) VALUES ('Anger', 2, 1);
 
 INSERT INTO symptoms (name, diary_id) VALUES ('Crying', 1);
 =======
