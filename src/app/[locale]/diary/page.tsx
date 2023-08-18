@@ -4,28 +4,39 @@ import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import DiarySidebar from '@/components/diary/DiarySidebar';
 import DiaryList from '@/components/diary/DiaryList';
+import { Database } from '@/lib/database.types';
 
 export default async function Diary() {
   // Require User to be logged in
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createServerComponentClient<Database>({ cookies });
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
 
-  if (!user) return redirect('/login');
+  if (!session) return redirect('/login');
 
   // Fetches diary entries from database
   const { data, error } = await supabase
     .from('diary')
+<<<<<<< HEAD
+    .select('*,emotions (name, intensity),symptoms (name)')
+    .order('date', { ascending: false });
+=======
     .select('*,emotion (name, intensity),symptoms (name)');
+>>>>>>> 4ca42ed99e0855ae8fcf5e7f1d4d8e9584cfd759
 
   if (error) {
     console.error(error);
     return <div>Error loading diary</div>;
   }
-  if (data.length === 0) {
-    return <div>You have no diary entries</div>;
-  }
+
+  const emotionsOptions = (
+    await supabase.from('emotions_options').select('name')
+  ).data?.map((e) => e.name) as string[];
+
+  const symptomsOptions = (
+    await supabase.from('symptoms_options').select('name')
+  ).data?.map((s) => s.name) as string[];
 
   return (
     // <div className="flex min-h-screen flex-row">
@@ -35,7 +46,11 @@ export default async function Diary() {
       <div className="grid place-items-center">
         <main className="mb-20">
           <h1 className="text-3xl m-10 font-medium text-center">Diary</h1>
-          <DiaryList entries={data} />
+          <DiaryList
+            entries={data}
+            symptomsOptions={symptomsOptions}
+            emotionsOptions={emotionsOptions}
+          />
         </main>
       </div>
     </div>

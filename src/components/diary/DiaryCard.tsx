@@ -6,8 +6,9 @@ import Link from 'next/link';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-type Emotion = { name: string; intensity: number };
-type Symptom = { name: string };
+export type Emotion = { name: string; intensity: number };
+export type Symptom = { name: string };
+
 interface DiaryCardProps {
   id: number;
   mood: string;
@@ -103,6 +104,13 @@ export default function DiaryCard({
 
                   <div>
                     <h2 className="text-left text-xl text-primary-focus">
+                      Behaviour
+                    </h2>
+                    {behaviour}
+                  </div>
+
+                  <div>
+                    <h2 className="text-left text-xl text-primary-focus">
                       Reassessment
                     </h2>
                     {reassessment}
@@ -113,13 +121,6 @@ export default function DiaryCard({
                       Coping Strategies
                     </h2>
                     {coping_strategies}
-                  </div>
-
-                  <div>
-                    <h2 className="text-left text-xl text-primary-focus">
-                      Behaviour
-                    </h2>
-                    {behaviour}
                   </div>
                 </div>
               )}
