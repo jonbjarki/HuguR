@@ -1,14 +1,14 @@
+'use client';
+
 import ContentSection from '@/components/course/contentSection';
-// import { contentUnitProps } from '@/components/course/contentUnit';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export default async function CourseContent({
   params,
 }: {
   params: { id: string; locale: string };
 }) {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createClientComponentClient();
 
   const { data } = await supabase
     .from('modules')
@@ -25,6 +25,7 @@ export default async function CourseContent({
           name={module.name[params.locale]}
           units={module.units}
           params={params}
+          moduleId={module.id}
         />
       ))}
     </div>

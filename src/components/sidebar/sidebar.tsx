@@ -7,11 +7,13 @@ import { useState } from 'react';
 export interface sidebarProps {
   title: string;
   selected?: string;
-  items?: Array<sidebarLink>;
-  progress?: number;
+  items: Array<sidebarLink>;
+  progress: number;
+  user: boolean;
 }
 
 export interface sidebarLink {
+  id: number;
   title: string;
   link: string;
   finished?: boolean;
@@ -21,12 +23,13 @@ export interface sidebarLink {
 export default function Sidebar({
   title,
   selected,
-  items = [],
+  items,
   progress,
+  user,
 }: sidebarProps) {
   const [selectedItem, setSelected] = useState(selected);
   function checkProgress() {
-    if (progress != undefined && progress > 0) {
+    if (user) {
       if (progress > 1) return <ProgressBar progress={1}></ProgressBar>;
       else return <ProgressBar progress={progress}></ProgressBar>;
     }
@@ -43,7 +46,7 @@ export default function Sidebar({
       </div>
       {items.map((item) => (
         <SidebarItem
-          key={item.title}
+          key={item.id}
           title={item.title}
           link={item.link}
           isSelected={selectedItem == item.title}

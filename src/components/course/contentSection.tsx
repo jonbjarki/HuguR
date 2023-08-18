@@ -1,3 +1,5 @@
+'use client';
+
 import Icon from '@mdi/react';
 import { contentUnitProps } from './contentUnit';
 import ContentUnit from './contentUnit';
@@ -7,13 +9,14 @@ import {
   mdiCircleOutline,
   mdiArrowDownDropCircleOutline,
 } from '@mdi/js';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export interface contentSectionProps {
   name: string;
   units: Array<contentUnitProps>;
   params: { id: string; locale: string };
+  moduleId: number;
+  completed?: any;
 }
 
 const NOT_STARTED = mdiCircleOutline;
@@ -24,24 +27,25 @@ export default async function ContentSection({
   name,
   units,
   params,
+  moduleId,
 }: contentSectionProps) {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createClientComponentClient();
   const { data, error } = await supabase.auth.getSession();
   let state = NOT_STARTED;
 
-  // if (data.session) {
-  //   const finished = units.every((unit) => {
-  //     return unit.user_unit_completion?.[0].completed;
-  //   });
+  if (data.session) {
+    const finished = units.every((unit) => {
+      return unit.user_unit_completion?.[0].completed;
+    });
 
-  //   const started = units.some((unit) => {
-  //     return unit.user_unit_completion?.[0].completed;
-  //   });
+    const started = units.some((unit) => {
+      return unit.user_unit_completion?.[0].completed;
+    });
 
-  //   if (units.length > 0 && finished) state = FINISHED;
-  //   else if (started) state = IN_PROGRESS;
-  //   else state = NOT_STARTED;
-  // }
+    if (units.length > 0 && finished) state = FINISHED;
+    else if (started) state = IN_PROGRESS;
+    else state = NOT_STARTED;
+  }
 
   return (
     <details
@@ -68,11 +72,13 @@ export default async function ContentSection({
             key={unit.id}
             name={unit.name[params.locale]}
             link={`/courses/${params.id}/${unit.id}`}
-            // completed={
-            //   unit.user_unit_completion
-            //     ? unit.user_unit_completion[0].completed
-            //     : false
-            // }
+            id={unit.id}
+            moduleId={moduleId}
+            completed={
+              unit.user_unit_completion!.length > 0
+                ? unit.user_unit_completion![0].completed
+                : false
+            }
           />
         ))}
       </div>
