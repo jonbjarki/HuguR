@@ -13,7 +13,8 @@ export default async function Diary() {
     data: { session },
   } = await supabase.auth.getSession();
 
-  if (!session) return redirect('/login');
+  // ! BUG: The redirect doesn't account for locales
+  if (!session) redirect('/login');
 
   // Fetches diary entries from database
   const { data, error } = await supabase

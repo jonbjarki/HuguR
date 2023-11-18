@@ -28,6 +28,8 @@ export default async function LocaleLayout({
 }) {
   let messages;
   try {
+    // ! BUG: locale gets set to 'login' when redirect to login modal happens
+    console.log(`${locale}`);
     messages = (await import(`../../messages/${locale}.json`)).default;
   } catch (error) {
     notFound();
