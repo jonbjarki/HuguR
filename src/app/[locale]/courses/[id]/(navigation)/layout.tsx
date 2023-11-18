@@ -1,4 +1,5 @@
 import Sidebar, { sidebarLink } from '@/components/sidebar/sidebar';
+import { Database } from '@/lib/database.types';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
@@ -6,7 +7,6 @@ import { ReactNode } from 'react';
 const OVERVIEW = 'Course Overview';
 const CONTENT = 'Course Content';
 const TOOLBOX = 'Toolbox';
-const COURSE = 'Stress Management';
 
 const fetchProgress = async (client, course_id) => {
   const { data, error } = await client
@@ -40,17 +40,17 @@ export default async function IndividualCourse({
     { id: 3, title: TOOLBOX, link: `/courses/${id}/toolbox` },
   );
   return (
-    <div className="flex flex-row h-auto min-h-screen">
-      <div className="w-1/5 flex">
+    <div className="flex flex-col md:flex-row h-auto min-h-screen">
+      <div className="w-full h-fit md:h-auto md:w-1/5 flex">
         <Sidebar
-          title={COURSE}
+          title={data.name}
           selected={OVERVIEW}
           items={sidebarItems}
           progress={progress / 100}
           user={!!user}
         ></Sidebar>
       </div>
-      <div className="w-4/5 flex bg-base-100">{children}</div>
+      <div className="w-full md:w-4/5 flex bg-base-100">{children}</div>
     </div>
   );
 }

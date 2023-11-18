@@ -8,6 +8,7 @@ import Icon from '@mdi/react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
+
 export default async function CourseOverview({ params }) {
   const supabase = createClientComponentClient();
 
@@ -31,21 +32,21 @@ export default async function CourseOverview({ params }) {
         <ParallaxProvider>
           <div className="w-full h-fit relative">
             <HomeCover imageSrc="/images/stress-header.png" />
-            <h1 className="absolute bottom-10 left-1/2 -translate-x-1/2 text-6xl text-center text-lm-very-light drop-shadow-text-white">
+            <h1 className="absolute bottom-10 left-1/2 -translate-x-1/2 text-6xl text-center text-base-100 drop-shadow-text-white">
               {data![0].courses.name[params.locale]}
             </h1>
           </div>
         </ParallaxProvider>
       </div>
       <div className="flex flex-col my-3 mx-auto gap-3 items-center">
-        <h1 className="text-lm-dark text-3xl">Course Overview</h1>
+        <h1 className="text-neutral text-3xl">Course Overview</h1>
         <div className="flex flex-row items-center gap-2">
           <Icon path={mdiClockOutline} className="w-8 h-8 text-primary" />
           <h1 className="text-xl text-lm-medium-dark">
             Estimated course duration: {data![0].courses.duration} weeks
           </h1>
         </div>
-        <p className="text-lg text-lm-dark text-left w-3/4">
+        <p className="text-lg text-neutral text-left w-3/4">
           {data![0].courses.description[params.locale]}
         </p>
       </div>
