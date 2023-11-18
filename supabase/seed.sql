@@ -24,7 +24,7 @@ INSERT INTO units (module_id, name, task) VALUES
 (1, '{"is": "Verkfærakistan - verkfærin", "en": "Toolbox - The Tools"}', NULL),
 (1, '{"is": "Varnagli", "en": "Precaution"}', NULL);
 
-INSERT INTO articles (title, content,description,image) VALUES (
+INSERT INTO articles (title, content, description, image) VALUES (
     'Getting Started',
     "$$# Unlocking Inner Resilience: A Guide to Initiating Your Mental Health Journey
 *Your mental health journey begins with a single step—a decision to prioritize your well-being and embrace a path of self-improvement. In this guide, we'll explore practical advice and time-tested strategies to help you kickstart your quest for improved mental health.*
@@ -49,8 +49,8 @@ INSERT INTO articles (title, content,description,image) VALUES (
 ## **10. Be Patient with Yourself**
 *Improving your mental health is a journey that takes time and effort. Be patient with yourself and don't expect immediate results. Allow yourself to embrace setbacks as learning opportunities and continue moving forward with compassion and determination.*
 Remember, seeking professional help is never a sign of weakness; it's a sign of strength and self-awareness. If you find that your mental health journey is overwhelming or too challenging to navigate on your own, consider reaching out to a mental health professional who can provide guidance and support along the way.
-*Take these steps to heart, and you'll find yourself on a path towards greater mental well-being and a more fulfilling life.*$$,
-$$This article offers essential insights and actionable tips for embarking on a transformative path towards mental well-being. From nurturing self-compassion to cultivating healthy habits, discover the key strategies to empower yourself and lay a solid foundation for a more balanced and fulfilling life.$$",
+*Take these steps to heart, and you'll find yourself on a path towards greater mental well-being and a more fulfilling life.*$$",
+"$$This article offers essential insights and actionable tips for embarking on a transformative path towards mental well-being. From nurturing self-compassion to cultivating healthy habits, discover the key strategies to empower yourself and lay a solid foundation for a more balanced and fulfilling life.$$",
 '/images/peopletalking.jpg'
 ),
 ('Embracing Vulnerability', "$$## **1. The Strength in Vulnerability**
@@ -74,8 +74,8 @@ $$This article offers essential insights and actionable tips for embarking on a 
 ## **10. Embracing Vulnerability as a Lifelong Journey**
 *Lastly, remember that embracing vulnerability is not a one-time event but a lifelong journey. Be patient and kind with yourself, as vulnerability may take time to fully integrate into your life. Embrace each step of this transformative process, knowing that you are embarking on a powerful quest to improve your mental health and emotional well-being.*
 **Conclusion:**
-*Incorporating vulnerability into your mental health journey can lead to remarkable personal growth and emotional healing. Embrace the power of vulnerability, recognize its strength, and discover the profound impact it can have on your overall well-being. Through openness and self-compassion, you can foster authentic connections with others and cultivate emotional resilience, leading to a more fulfilling and balanced life.*$$,
-$$In this thought-provoking article, we delve into the significance of vulnerability in the context of mental health. Discover how embracing vulnerability can lead to healing, growth, and authentic connections. Uncover practical ways to open up, both to yourself and others, as you embark on a transformative journey towards emotional well-being.$$",
+*Incorporating vulnerability into your mental health journey can lead to remarkable personal growth and emotional healing. Embrace the power of vulnerability, recognize its strength, and discover the profound impact it can have on your overall well-being. Through openness and self-compassion, you can foster authentic connections with others and cultivate emotional resilience, leading to a more fulfilling and balanced life.*$$",
+"$$In this thought-provoking article, we delve into the significance of vulnerability in the context of mental health. Discover how embracing vulnerability can lead to healing, growth, and authentic connections. Uncover practical ways to open up, both to yourself and others, as you embark on a transformative journey towards emotional well-being.$$",
 '/images/diarypic.png');
     
 /* DIARY SEED */
