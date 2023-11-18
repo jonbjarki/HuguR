@@ -18,6 +18,7 @@ export default async function Article({ params }: { params: { id: number } }) {
 
   if (error) {
     console.log(error);
+    return <div>Error loading article</div>;
   }
 
   // convert markdown to html

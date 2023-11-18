@@ -1,11 +1,3 @@
-INSERT INTO articles (title, content, description, image) VALUES (
-'How to be a good listener', '
-# How to be a Good Listener
-
-In this article, you will learn how to improve your listening skills. Being a good listener is an important skill to have in both personal and professional relationships. By following the tips outlined in this article, you can become a better listener and improve your communication skills.
-', 'Learn how to improve your listening skills in this article.', 'peopletalking.jpg'
-);
-
 INSERT INTO courses (name, duration, description, image_url) VALUES 
 ( '{"is": "Streita í háskólanámi", "en": "Stress in higher education"}', 6, '{"is": "Að öðlast þekkingu um streitu og fá innsýn í viðbrögð við streitu. Farið verður yfir bjargráð til þess að tækla streitu á áhrifaríkan hátt.", "en": "Gaining knowledge about stress and gaining insight into stress responses. Measures will be reviewed to tackle stress effectively."}', 'personsofa.png' ), 
 ( '{"is": "Þolmyndun", "en": "Building Resilience"}', 4, '{"is": "Kynntu þér tækni til að auka þol þitt og þróa meðferðarhætti til að takast á við áskoranir lífsins.", "en": "Discover techniques to enhance your resilience and develop coping mechanisms to deal with life''s challenges."}', 'personsofa.png' ), 
