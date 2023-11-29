@@ -8,33 +8,22 @@ import Icon from '@mdi/react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
-export default async function CourseOverview({
-  params: { id, locale },
-}: {
-  params: { id: string; locale: string };
-}) {
+
+export default async function CourseOverview({ params }) {
   const supabase = createClientComponentClient();
-  const { data, error } = await supabase
-    .from('courses')
-    .select('duration, name, description')
-    .eq('id', id)
-    .limit(1)
-    .single();
 
-  if (error) {
-    console.log(error);
-    return <div>Error loading course</div>;
-  }
+  const { data } = await supabase
+    .from('modules')
+    .select('*, courses(name, duration, description)')
+    .eq('course_id', params.id)
+    .order('order_number');
 
-  // PLACEHOLDER
-  // TODO: fetch roadmap descriptions from elsewhere
-  const LIPSUM =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut nulla et neque finibus pretium sed ac mauris.';
-  let units = Array<roadmapUnitProps>();
-
-  for (let i = 0; i < data.duration; i++) {
-    units.push({ title: 'Week ' + (i + 1), content: LIPSUM });
-  }
+  let modules = data!.map((module) => {
+    return {
+      title: module.name[params.locale],
+      content: '', // TODO: Needs a description column in the database
+    };
+  });
 
   return (
     <div className="w-full h-full flex flex-col place-content-center">
@@ -44,7 +33,7 @@ export default async function CourseOverview({
           <div className="w-full h-fit relative">
             <HomeCover imageSrc="/images/stress-header.png" />
             <h1 className="absolute bottom-10 left-1/2 -translate-x-1/2 text-6xl text-center text-base-100 drop-shadow-text-white">
-              {data.name}
+              {data![0].courses.name[params.locale]}
             </h1>
           </div>
         </ParallaxProvider>
@@ -54,16 +43,16 @@ export default async function CourseOverview({
         <div className="flex flex-row items-center gap-2">
           <Icon path={mdiClockOutline} className="w-8 h-8 text-primary" />
           <h1 className="text-xl text-lm-medium-dark">
-            Estimated course duration: {data.duration} weeks
+            Estimated course duration: {data![0].courses.duration} weeks
           </h1>
         </div>
         <p className="text-lg text-neutral text-left w-3/4">
-          {data.description}
+          {data![0].courses.description[params.locale]}
         </p>
       </div>
       {/* Course Roadmap */}
       <div className="w-fit h-fit flex m-auto pt-6">
-        <CourseRoadmap units={units}></CourseRoadmap>
+        <CourseRoadmap units={modules}></CourseRoadmap>
       </div>
     </div>
   );

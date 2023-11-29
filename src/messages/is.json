@@ -5,7 +5,8 @@
     },
     "Button": {
         "login": "Innskráning",
-        "support": "Stuðningur"
+        "support": "Stuðningur",
+        "complete": "Klára"
     },
     "Navigation": {
         "reading": "Greinar",
@@ -16,5 +17,9 @@
     "Avatar": {
         "profile": "Mín Síða",
         "logout": "Útskráning"
+    },
+    "Unit": {
+        "task": "Æfing",
+        "save": "Vista"
     }
 }

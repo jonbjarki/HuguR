@@ -5,7 +5,8 @@
     },
     "Button": {
         "login": "Sign In",
-        "support": "Get Support"
+        "support": "Get Support",
+        "complete": "Complete"
     },
     "Navigation": {
         "reading": "Reading",
@@ -16,5 +17,9 @@
     "Avatar": {
         "profile": "Profile",
         "logout": "Logout"
+    },
+    "Unit": {
+        "task": "Task",
+        "save": "Save"
     }
 }

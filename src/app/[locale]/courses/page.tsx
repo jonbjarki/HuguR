@@ -3,10 +3,14 @@ import styles from './courses.module.css';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-export default async function CourseHome() {
+export default async function CourseHome({ params: { locale } }) {
   const supabase = createServerComponentClient({ cookies });
 
   const { data: courses, error } = await supabase.from('courses').select('*');
+
+  if (error) {
+    console.error(error);
+  }
 
   return (
     <main className="mt-6 w-11/12 m-auto">
@@ -16,9 +20,9 @@ export default async function CourseHome() {
           <Course
             key={course.id}
             ID={course.id}
-            title={course.name}
+            title={course.name[locale]}
             duration={course.duration}
-            content={course.description}
+            content={course.description[locale]}
             imgSrc={course.image_url}
           />
         ))}
