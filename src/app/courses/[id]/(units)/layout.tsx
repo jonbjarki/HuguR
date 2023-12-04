@@ -3,7 +3,7 @@
 import Sidebar, { sidebarLink } from '@/components/sidebar/sidebar';
 import Icon from '@mdi/react';
 import { mdiChevronLeft } from '@mdi/js';
-import Link from 'next-intl/link';
+import Link from 'next/link';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useSelector } from '@/store/store';
 import { getModuleState } from '@/store/slices/moduleSlice';
@@ -24,7 +24,7 @@ export default async function UnitLayout({ children, params }) {
     ? units.map((unit) => {
         return {
           id: unit.id,
-          title: unit.name[params.locale],
+          title: unit.name,
           link: `/courses/${id}/${unit.id}`,
           finished:
             unit.user_unit_completion.length > 0
@@ -44,7 +44,7 @@ export default async function UnitLayout({ children, params }) {
           <Icon path={mdiChevronLeft} />
         </Link>
         <Sidebar
-          title={units ? units[0].modules.name[params.locale] : ''}
+          title={units ? units[0].modules.name : ''}
           selected={'Unit ' + unit}
           items={sidebarItems}
           progress={0}

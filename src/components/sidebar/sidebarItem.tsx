@@ -1,7 +1,7 @@
 'use client';
 import Icon from '@mdi/react';
 import { mdiCircleOutline, mdiCheckCircle } from '@mdi/js';
-import Link from 'next-intl/link';
+import Link from 'next/link';
 
 export interface SidebarItemProps {
   title: string;

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next-intl/link';
+import Link from 'next/link';
 
 export interface BubbleProps {
   title: string;

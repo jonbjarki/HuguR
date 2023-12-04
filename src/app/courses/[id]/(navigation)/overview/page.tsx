@@ -8,7 +8,6 @@ import Icon from '@mdi/react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
-
 export default async function CourseOverview({ params }) {
   const supabase = createClientComponentClient();
 
@@ -20,7 +19,7 @@ export default async function CourseOverview({ params }) {
 
   let modules = data!.map((module) => {
     return {
-      title: module.name[params.locale],
+      title: module.name,
       content: '', // TODO: Needs a description column in the database
     };
   });
@@ -33,7 +32,7 @@ export default async function CourseOverview({ params }) {
           <div className="w-full h-fit relative">
             <HomeCover imageSrc="/images/stress-header.png" />
             <h1 className="absolute bottom-10 left-1/2 -translate-x-1/2 text-6xl text-center text-base-100 drop-shadow-text-white">
-              {data![0].courses.name[params.locale]}
+              {data![0].courses.name}
             </h1>
           </div>
         </ParallaxProvider>
@@ -47,7 +46,7 @@ export default async function CourseOverview({ params }) {
           </h1>
         </div>
         <p className="text-lg text-neutral text-left w-3/4">
-          {data![0].courses.description[params.locale]}
+          {data![0].courses.description}
         </p>
       </div>
       {/* Course Roadmap */}

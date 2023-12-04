@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next-intl/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next-intl/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import hamburgerIcon from '/public/images/hamburger.svg';
 import { useRef } from 'react';
