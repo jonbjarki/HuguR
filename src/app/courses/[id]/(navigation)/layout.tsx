@@ -39,11 +39,21 @@ export default async function IndividualCourse({
     { id: 2, title: CONTENT, link: `/courses/${id}/content` },
     { id: 3, title: TOOLBOX, link: `/courses/${id}/toolbox` },
   );
+
+  const { data, error } = await supabase
+    .from('courses')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) throw error;
+  const courseData = data;
+
   return (
     <div className="flex flex-col md:flex-row h-auto min-h-screen">
       <div className="w-full h-fit md:h-auto md:w-1/5 flex">
         <Sidebar
-          title={data.name}
+          title={courseData.name}
           selected={OVERVIEW}
           items={sidebarItems}
           progress={progress / 100}
