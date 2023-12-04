@@ -32,13 +32,13 @@ alter table "public"."articles" disable row level security;
 
 alter table "public"."courses" alter column "description" set data type text using "description"::text;
 
-alter table "public"."courses" alter column "description" drop not null;
-
 alter table "public"."courses" alter column "description" set default ''::text;
 
-alter table "public"."courses" alter column "name" set default ''::text;
+alter table "public"."courses" alter column "description" drop not null;
 
 alter table "public"."courses" alter column "name" set data type text using "name"::text;
+
+alter table "public"."courses" alter column "name" set default ''::text;
 
 alter table "public"."units" drop column "file_url";
 
@@ -48,7 +48,7 @@ alter table "public"."units" drop column "name";
 
 alter table "public"."units" drop column "order_number";
 
-alter table "public"."units" add column "content" jsonb not null;
+alter table "public"."units" add column "content" text not null;
 
 alter table "public"."units" add column "course_id" bigint not null;
 
@@ -58,9 +58,9 @@ alter table "public"."units" add column "title" text default ''::text;
 
 alter table "public"."units" add column "week" smallint not null;
 
-alter table "public"."units" alter column "task" set default ''::text;
-
 alter table "public"."units" alter column "task" set data type text using "task"::text;
+
+alter table "public"."units" alter column "task" set default ''::text;
 
 CREATE UNIQUE INDEX units_unique_week_number ON public.units USING btree (week, number);
 

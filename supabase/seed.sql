@@ -3,25 +3,6 @@ INSERT INTO courses (name, duration, description, image_url) VALUES
 ( 'Building Resilience', 4, 'Discover techniques to enhance your resilience and develop coping mechanisms to deal with life''s challenges.', 'personsofa.png' ), 
 ( 'Positive Psychology: The Science of Happiness', 8, 'Explore the principles of positive psychology and learn evidence-based strategies to cultivate happiness and well-being in your life.', 'personsofa.png' );
 
-INSERT INTO modules (course_id, name) VALUES 
-(1, 'Course structure'),
-(1, 'What is stress?'),
-(1, 'Influencing stress-causing ways of thinking.'),
-(1, 'Problem solving'),
-(1, 'Review and the Future'),
-(2, 'Introduction'),
-(2, 'What is resilience?'),
-(2, 'How to deal with difficult situations'),
-(3, 'Introduction'),
-(3, 'What is positive psychology?'),
-(3, 'How to deal with difficult situations');
-
-INSERT INTO units (module_id, name, task) VALUES
-(1, 'Welcome', NULL),
-(1, 'Stress in Higher Education', NULL),
-(1, 'Toolbox - The Tools"', NULL),
-(1, 'Precaution', NULL);
-
 INSERT INTO articles (title, content, description, image) VALUES (
     'Getting Started',
     '# Unlocking Inner Resilience: A Guide to Initiating Your Mental Health Journey \n\n*Your mental health journey begins with a single step—a decision to prioritize your well-being and embrace a path of self-improvement. In this guide, we&apos;ll explore practical advice and time-tested strategies to help you kickstart your quest for improved mental health.*\n## **1. Acknowledge and Accept Your Feelings**\n*The first and most crucial step towards better mental health is acknowledging and accepting your feelings. It&apos;s normal to experience a wide range of emotions, and suppressing them can be detrimental to your well-being. Embrace your emotions, both positive and negative, and allow yourself to process them without judgment.*\n## **2. Seek Support and Connection**\n*Remember, you don&apos;t have to go through this journey alone. Reach out to friends, family members, or seek support from mental health professionals. Talking about your feelings and experiences with someone you trust can be incredibly therapeutic and help you gain new perspectives.*\n## **3. Practice Mindfulness and Meditation**\n*Mindfulness and meditation can be powerful tools in calming your mind and reducing stress. Take time each day to engage in mindfulness practices, such as deep breathing exercises or meditation. These practices can help you stay present and cultivate a sense of inner peace.*\n## **4. Prioritize Self-Care**\n*Self-care is not a luxury; it&apos;s a necessity for maintaining good mental health. Make time for activities that bring you joy and relaxation, whether it&apos;s reading a book, spending time in nature, or pursuing a hobby. Taking care of yourself will recharge your mind and improve your overall well-being.*\n## **5. Set Realistic Goals**\n*Start small and set achievable goals for yourself. Whether it&apos;s getting enough sleep, eating healthier meals, or engaging in regular physical activity, incremental changes can have a significant impact on your mental health. Celebrate your achievements, no matter how small they may seem.*\n## **6. Challenge Negative Thought Patterns**\n*Negative thought patterns can sabotage your mental health progress. Learn to recognize these patterns and challenge them. Replace negative thoughts with more positive and empowering ones. Cognitive-behavioral techniques can be helpful in breaking free from harmful thinking habits.*\n## **7. Limit Exposure to Stress**\n*Identify sources of stress in your life and take steps to reduce or manage them. Sometimes, it might mean setting boundaries, saying no to additional responsibilities, or seeking professional help to navigate through challenging situations.*\n## **8. Practice Gratitude**\n*Cultivate an attitude of gratitude by regularly acknowledging the things you are thankful for. Gratitude can shift your focus from what&apos;s lacking to what&apos;s already present in your life, fostering a sense of contentment and happiness.*\n## **9. Stay Active and Engaged**\n*Physical activity is not only beneficial for your body but also for your mind. Engage in regular exercise to release endorphins, which are natural mood boosters. Additionally, staying socially engaged and connecting with others can combat feelings of loneliness and isolation.*\n## **10. Be Patient with Yourself**\n*Improving your mental health is a journey that takes time and effort. Be patient with yourself and don&apos;t expect immediate results. Allow yourself to embrace setbacks as learning opportunities and continue moving forward with compassion and determination.*\nRemember, seeking professional help is never a sign of weakness; it&apos;s a sign of strength and self-awareness. If you find that your mental health journey is overwhelming or too challenging to navigate on your own, consider reaching out to a mental health professional who can provide guidance and support along the way.\n*Take these steps to heart, and you&apos;ll find yourself on a path towards greater mental well-being and a more fulfilling life.*',
