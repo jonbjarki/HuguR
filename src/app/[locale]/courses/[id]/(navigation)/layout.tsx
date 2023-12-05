@@ -43,7 +43,7 @@ export default async function IndividualCourse({
     <div className="flex flex-col md:flex-row h-auto min-h-screen">
       <div className="w-full h-fit md:h-auto md:w-1/5 flex">
         <Sidebar
-          title={data.name}
+          title="Week x" //{data.name}
           selected={OVERVIEW}
           items={sidebarItems}
           progress={progress / 100}

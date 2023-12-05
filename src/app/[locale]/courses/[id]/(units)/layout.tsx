@@ -7,6 +7,7 @@ import Link from 'next-intl/link';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useSelector } from '@/store/store';
 import { getModuleState } from '@/store/slices/moduleSlice';
+import { MDXProvider } from '@mdx-js/react';
 
 export default async function UnitLayout({ children, params }) {
   const id = params != null ? params.id : '0'; // default to id=0 if params are null
@@ -20,19 +21,25 @@ export default async function UnitLayout({ children, params }) {
     .eq('modules.course_id', id)
     .eq('module_id', module_id);
 
-  let sidebarItems: Array<sidebarLink> = units
-    ? units.map((unit) => {
-        return {
-          id: unit.id,
-          title: unit.name[params.locale],
-          link: `/courses/${id}/${unit.id}`,
-          finished:
-            unit.user_unit_completion.length > 0
-              ? unit.user_unit_completion[0].completed
-              : false,
-        };
-      })
-    : [];
+  if (error) {
+    console.error(error);
+    return <div>There was an error loading modules</div>;
+  }
+
+  let sidebarItems: Array<sidebarLink> =
+    units!.length > 0
+      ? units.map((unit) => {
+          return {
+            id: unit.id,
+            title: unit.name[params.locale],
+            link: `/courses/${id}/${unit.id}`,
+            finished:
+              unit.user_unit_completion.length > 0
+                ? unit.user_unit_completion[0].completed
+                : false,
+          };
+        })
+      : [];
 
   return (
     <div className="flex flex-col md:flex-row h-auto min-h-screen">
@@ -44,14 +51,14 @@ export default async function UnitLayout({ children, params }) {
           <Icon path={mdiChevronLeft} />
         </Link>
         <Sidebar
-          title={units ? units[0].modules.name[params.locale] : ''}
+          title={units!.length > 0 ? units[0].modules.name[params.locale] : ''}
           selected={'Unit ' + unit}
           items={sidebarItems}
           progress={0}
           user={false}
         ></Sidebar>
       </div>
-      <div className="w-full md:w-4/5 flex bg-base-100">{children}</div>
+      <div className="w-[50%] mx-auto bg-base-100 mt-[3rem]">{children}</div>
     </div>
   );
 }
