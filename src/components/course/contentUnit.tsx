@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next-intl/link';
+import Link from 'next/link';
 import Icon from '@mdi/react';
 import { mdiCheckCircle, mdiCircleOutline } from '@mdi/js';
 import { useDispatch, useSelector } from '@/store/store';

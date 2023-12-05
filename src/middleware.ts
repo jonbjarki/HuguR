@@ -1,18 +1,20 @@
 import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
-import type { NextRequest } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 import { Database } from '@/lib/database.types';
-import createIntlMiddleware from 'next-intl/middleware';
 
 export default async function middleware(req: NextRequest) {
-  const handleI18nRouting = createIntlMiddleware({
-    locales: ['is', 'en'],
-    defaultLocale: 'is',
-    localeDetection: false,
-  });
-  const res = handleI18nRouting(req);
+  const res = NextResponse.next();
 
   const supabase = createMiddlewareClient({ req, res });
-  await supabase.auth.getSession();
+  const {
+    data: { session },
+    error,
+  } = await supabase.auth.getSession();
+
+  if (error) {
+    res.cookies.delete('sb-localhost-auth-token:Array');
+    return res;
+  }
 
   return res;
 }

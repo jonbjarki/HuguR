@@ -1,13 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import Link from 'next-intl/link';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function Avatar() {
-  const t = useTranslations('Avatar');
   const supabase = createClientComponentClient();
   const router = useRouter();
 
@@ -29,11 +27,11 @@ export default function Avatar() {
         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
       >
         <li>
-          <Link href="/profile">{t('profile')}</Link>
+          <Link href="/profile">Profile</Link>
         </li>
         <li>
           <a onClick={signOut} className="bg-error">
-            {t('logout')}
+            Log out
           </a>
         </li>
       </ul>
