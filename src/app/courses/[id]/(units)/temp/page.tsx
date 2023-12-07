@@ -27,9 +27,7 @@ const fetchUnit = async (client, params) => {
 const fetchMarkdown = async (client, params) => {
   const {
     data: { publicUrl },
-  } = client.storage
-    .from('units')
-    .getPublicUrl(`${params.unit}-${params.locale}.mdx`);
+  } = client.storage.from('units').getPublicUrl(`${params.unit}.mdx`);
 
   console.log(publicUrl);
   const res = await fetch(publicUrl);

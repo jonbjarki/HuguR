@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useSelector } from '@/store/store';
 import { getModuleState } from '@/store/slices/moduleSlice';
+import { MDXProvider } from '@mdx-js/react';
 
 export default async function UnitLayout({ children, params }) {
   const id = params != null ? params.id : '0'; // default to id=0 if params are null
@@ -44,14 +45,14 @@ export default async function UnitLayout({ children, params }) {
           <Icon path={mdiChevronLeft} />
         </Link>
         <Sidebar
-          title={units ? units[0].modules.name : ''}
+          title={units ? units![0].modules.name : ''}
           selected={'Unit ' + unit}
           items={sidebarItems}
           progress={0}
           user={false}
         ></Sidebar>
       </div>
-      <div className="w-full md:w-4/5 flex bg-base-100">{children}</div>
+      <div className="w-[50%] mx-auto bg-base-100 mt-[3rem]">{children}</div>
     </div>
   );
 }
