@@ -15,14 +15,16 @@ export default async function UnitLayout({ children, params }) {
   const supabase = createClientComponentClient();
   const { module_id } = useSelector(getModuleState);
 
-  const { data: units, error } = await supabase
-    .from('units')
-    .select('*, modules(course_id, name), user_unit_completion(completed)')
-    .eq('modules.course_id', id)
-    .eq('module_id', module_id);
+  let data;
+  let units;
+  // const { data: units, error } = await supabase
+  //   .from('units')
+  //   .select('*, modules(course_id, name), user_unit_completion(completed)')
+  //   .eq('modules.course_id', id)
+  //   .eq('module_id', module_id);
 
   let sidebarItems: Array<sidebarLink> = units
-    ? units.map((unit) => {
+    ? units?.map((unit) => {
         return {
           id: unit.id,
           title: unit.name,
