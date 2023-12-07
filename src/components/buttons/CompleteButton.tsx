@@ -1,11 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export default function CompleteButton({ unit_id }: { unit_id: number }) {
-  const t = useTranslations('Button');
   const supabase = createClientComponentClient();
   const router = useRouter();
 
@@ -20,7 +18,7 @@ export default function CompleteButton({ unit_id }: { unit_id: number }) {
 
   return (
     <button className="btn btn-info btn-sm" onClick={completeUnit}>
-      {t('complete')}
+      Complete
     </button>
   );
 }

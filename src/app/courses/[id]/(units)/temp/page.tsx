@@ -43,7 +43,7 @@ const components = {
 export default async function UnitPage({
   params,
 }: {
-  params: { id: string; unit: number; locale: string };
+  params: { id: string; unit: number };
 }) {
   const supabase = createServerComponentClient({ cookies });
   const markdown: string = await fetchMarkdown(supabase, params);
@@ -56,9 +56,9 @@ export default async function UnitPage({
   return (
     <div className="flex w-screen h-full justify-center">
       <div className="flex flex-col gap-8 mt-8 w-full place-items-center p-8">
-        <h1 className="text-3xl font-bold">{unit.name![params.locale]}</h1>
+        <h1 className="text-3xl font-bold">{unit.name}</h1>
         <MDXRemote source={markdown} components={components} />
-        {unit.task && <UnitTask task={unit.task[params.locale]} />}
+        {unit.task && <UnitTask task={unit.task} />}
         {user && <CompleteButton unit_id={unit.id} />}
       </div>
     </div>

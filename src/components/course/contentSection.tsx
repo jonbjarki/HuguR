@@ -14,7 +14,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 export interface contentSectionProps {
   name: string;
   units: Array<contentUnitProps>;
-  params: { id: string; locale: string };
+  params: { id: string };
   moduleId: number;
   completed?: any;
 }
@@ -70,7 +70,7 @@ export default async function ContentSection({
         {units.map((unit) => (
           <ContentUnit
             key={unit.id}
-            name={unit.name[params.locale]}
+            name={unit.name}
             link={`/courses/${params.id}/${unit.id}`}
             id={unit.id}
             moduleId={moduleId}

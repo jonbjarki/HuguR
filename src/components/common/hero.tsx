@@ -2,11 +2,8 @@
 
 import { ParallaxProvider } from 'react-scroll-parallax';
 import HomeCover from '@/components/home/HomeCover';
-import { useTranslations } from 'next-intl';
 
 export default function Hero() {
-  const t = useTranslations('Home');
-
   return (
     <ParallaxProvider>
       <div className="w-full h-96">
@@ -15,8 +12,11 @@ export default function Hero() {
         </figure>
         <figcaption className="-translate-y-36 text-right text-lm-light drop-shadow-text-white mr-5">
           <div className="flex flex-col w-full place-items-end">
-            <h1 className="text-6xl font-bold">{t('title')}</h1>
-            <p className="text-lg max-w-lg flex-wrap">{t('desc')}</p>
+            <h1 className="text-6xl font-bold">Welcome to HuguR!</h1>
+            <p className="text-lg max-w-lg flex-wrap">
+              Our goal is to provide free access to mental health support and
+              advice for students made by students
+            </p>
           </div>
         </figcaption>
       </div>

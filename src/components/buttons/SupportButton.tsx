@@ -1,14 +1,11 @@
 'use client';
 
-import Link from 'next-intl/link';
-import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 export default function SupportButton() {
-  const t = useTranslations('Button');
-
   return (
     <Link href="/">
-      <button className="btn btn-info btn-sm">{t('support')}</button>
+      <button className="btn btn-info btn-sm">Get support</button>
     </Link>
   );
 }

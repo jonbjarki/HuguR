@@ -2,7 +2,7 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
 import { cookies } from 'next/headers';
-import Link from 'next-intl/link';
+import Link from 'next/link';
 
 export default async function ArticleSidebar() {
   const supabase = createClientComponentClient<Database>();

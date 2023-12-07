@@ -6,7 +6,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 export default async function CourseContent({
   params,
 }: {
-  params: { id: string; locale: string };
+  params: { id: string };
 }) {
   const supabase = createClientComponentClient();
 
@@ -22,7 +22,7 @@ export default async function CourseContent({
       {data?.map((module) => (
         <ContentSection
           key={module.id}
-          name={module.name[params.locale]}
+          name={module.name}
           units={module.units}
           params={params}
           moduleId={module.id}
