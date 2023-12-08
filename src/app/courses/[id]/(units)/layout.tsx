@@ -9,7 +9,7 @@ import { useSelector } from '@/store/store';
 import { getModuleState } from '@/store/slices/moduleSlice';
 import { MDXProvider } from '@mdx-js/react';
 
-export default async function UnitLayout({ children, params }) {
+export default async function UnitLayout({ children, params }: {children?: React.ReactNode, params: any}) {
   const id = params != null ? params.id : '0'; // default to id=0 if params are null
   const unit = params != null ? params.unit : '0'; // default to unit=0 if params are null
   const supabase = createClientComponentClient();
@@ -54,7 +54,7 @@ export default async function UnitLayout({ children, params }) {
           user={false}
         ></Sidebar>
       </div>
-      <div className="w-[50%] mx-auto bg-base-100 mt-[3rem] font-sans">
+      <div className="w-[50%] mx-auto bg-base-100 my-[3rem] font-sans">
         {children}
       </div>
     </div>
