@@ -54,7 +54,9 @@ export default async function UnitLayout({ children, params }) {
           user={false}
         ></Sidebar>
       </div>
-      <div className="w-[50%] mx-auto bg-base-100 mt-[3rem]">{children}</div>
+      <div className="w-[50%] mx-auto bg-base-100 mt-[3rem] font-sans">
+        {children}
+      </div>
     </div>
   );
 }

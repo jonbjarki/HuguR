@@ -8,12 +8,18 @@
   margin: 0;
 }
 
+.li > p {
+  display: inline;
+}
+
 .ul {
   list-style: square !important;
+  list-style-position: inside !important;
 }
 
 .ol {
   list-style: decimal !important;
+  list-style-position: inside;
 }
 
 /*
