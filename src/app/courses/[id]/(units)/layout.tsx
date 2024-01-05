@@ -9,11 +9,14 @@ import { useSelector } from '@/store/store';
 import { getModuleState } from '@/store/slices/moduleSlice';
 import { MDXProvider } from '@mdx-js/react';
 
-export default async function UnitLayout({ children, params }) {
+export default async function UnitLayout(props) {
+
+  const { children, params } = props ?? {};
+
   const id = params != null ? params.id : '0'; // default to id=0 if params are null
   const unit = params != null ? params.unit : '0'; // default to unit=0 if params are null
-  const supabase = createClientComponentClient();
-  const { module_id } = useSelector(getModuleState);
+  // const supabase = createClientComponentClient();
+  // const { module_id } = useSelector(getModuleState);
 
   let data;
   let units;
@@ -54,7 +57,9 @@ export default async function UnitLayout({ children, params }) {
           user={false}
         ></Sidebar>
       </div>
-      <div className="w-[50%] mx-auto bg-base-100 mt-[3rem]">{children}</div>
+      <div className="w-[50%] mx-auto bg-base-100 my-[3rem] font-sans">
+        {children}
+      </div>
     </div>
   );
-}
+  }
