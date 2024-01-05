@@ -6,7 +6,7 @@ export default function UnitNavButtons({nextUrl, prevUrl}: {nextUrl?: string, pr
     const prevBtnClass = classNames({"btn btn-primary text-center": true, "btn-disabled": !prevUrl});
 
     return (
-        <div className="flex justify-center gap-4 mt-2">
+        <div className="flex justify-center gap-4 mt-6">
             <Link className={prevBtnClass} href={prevUrl ? prevUrl : "."}>
             Prev
         </Link>
