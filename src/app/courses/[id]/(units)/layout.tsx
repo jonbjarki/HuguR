@@ -10,21 +10,19 @@ import { getModuleState } from '@/store/slices/moduleSlice';
 import { MDXProvider } from '@mdx-js/react';
 
 export default async function UnitLayout(props) {
-
   const { children, params } = props ?? {};
 
   const id = params != null ? params.id : '0'; // default to id=0 if params are null
+  const moduleId = params != null ? params.module : '0'; // default to moduleId=0 if params are null
   const unit = params != null ? params.unit : '0'; // default to unit=0 if params are null
-  // const supabase = createClientComponentClient();
-  // const { module_id } = useSelector(getModuleState);
+  const supabase = createClientComponentClient();
 
-  let data;
-  let units;
-  // const { data: units, error } = await supabase
-  //   .from('units')
-  //   .select('*, modules(course_id, name), user_unit_completion(completed)')
-  //   .eq('modules.course_id', id)
-  //   .eq('module_id', module_id);
+  // TODO: fetch module data from db with course id
+  const { data: units, error } = await supabase
+    .from('units')
+    .select('*, modules(id, name)')
+    .eq('modules.course_id', id)
+    .eq('module_id', moduleId);
 
   let sidebarItems: Array<sidebarLink> = units
     ? units?.map((unit) => {
@@ -62,4 +60,4 @@ export default async function UnitLayout(props) {
       </div>
     </div>
   );
-  }
+}
