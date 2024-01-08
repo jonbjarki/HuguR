@@ -36,7 +36,10 @@ export default function Auth() {
       },
     });
 
-    if (error) setErr(error.message);
+    if (error) {
+      setErr(error.message);
+      console.error(error);
+    }
     else {
       setView(View.CHECK_EMAIL);
     }
