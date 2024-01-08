@@ -17,10 +17,6 @@ export interface CourseProps {
 export default function Course({ ID, title, duration, content, imgSrc }) {
   const supabase = createClientComponentClient<Database>();
 
-  const { data: image_url } = supabase.storage
-    .from('courses')
-    .getPublicUrl(imgSrc);
-
   return (
     <li className="w-fit">
       <Link href={`/courses/${ID}/overview`}>
@@ -28,7 +24,7 @@ export default function Course({ ID, title, duration, content, imgSrc }) {
           <legend className="text-2xl text-center p-4">{title}</legend>
           <div className="relative w-full h-2/3">
             <Image
-              src={image_url.publicUrl}
+              src={imgSrc}
               alt="Avatar"
               className="avatar image"
               fill
