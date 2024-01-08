@@ -1,7 +1,7 @@
 INSERT INTO courses (name, duration, description, image_url) VALUES 
-( 'Stress in higher education', 6, 'Gaining knowledge about stress and gaining insight into stress responses. Measures will be reviewed to tackle stress effectively.', 'personsofa.png' ), 
-( 'Building Resilience', 4, 'Discover techniques to enhance your resilience and develop coping mechanisms to deal with life''s challenges.', 'personsofa.png' ), 
-( 'Positive Psychology: The Science of Happiness', 8, 'Explore the principles of positive psychology and learn evidence-based strategies to cultivate happiness and well-being in your life.', 'personsofa.png' );
+( 'Stress in higher education', 6, 'Gaining knowledge about stress and gaining insight into stress responses. Measures will be reviewed to tackle stress effectively.', '/images/courses/default_course_img.png' ), 
+( 'Building Resilience', 4, 'Discover techniques to enhance your resilience and develop coping mechanisms to deal with life''s challenges.', '/images/courses/default_course_img.png' ), 
+( 'Positive Psychology: The Science of Happiness', 8, 'Explore the principles of positive psychology and learn evidence-based strategies to cultivate happiness and well-being in your life.', '/images/courses/default_course_img.png' );
 
 INSERT INTO articles (title, content, description, image) VALUES (
     'Getting Started',
