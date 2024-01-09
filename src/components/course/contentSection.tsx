@@ -13,7 +13,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export interface contentSectionProps {
   name: string;
-  units: Array<contentUnitProps>;
+  units?: Array<contentUnitProps>;
   params: { id: string };
   moduleId: number;
   completed?: any;
@@ -33,7 +33,7 @@ export default async function ContentSection({
   const { data, error } = await supabase.auth.getSession();
   let state = NOT_STARTED;
 
-  if (data.session) {
+  if (data.session && units != undefined) {
     const finished = units.every((unit) => {
       return unit.user_unit_completion?.[0].completed;
     });
@@ -67,18 +67,14 @@ export default async function ContentSection({
         </span>
       </summary>
       <div className="flex flex-col items-start ml-20 gap-4">
-        {units.map((unit) => (
+        {units?.map((unit) => (
           <ContentUnit
             key={unit.id}
             name={unit.name}
-            link={`/courses/${params.id}/${unit.id}`}
+            link={`/courses/${params.id}/${unit.id}`} // TODO: fix link generation
             id={unit.id}
             moduleId={moduleId}
-            completed={
-              unit.user_unit_completion!.length > 0
-                ? unit.user_unit_completion![0].completed
-                : false
-            }
+            completed={false} // TODO: get unit completion from db
           />
         ))}
       </div>

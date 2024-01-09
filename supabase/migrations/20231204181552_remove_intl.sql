@@ -72,20 +72,6 @@ alter table "public"."units" validate constraint "units_fkey";
 
 set check_function_bodies = off;
 
-CREATE OR REPLACE FUNCTION public.set_unit_title()
- RETURNS trigger
- LANGUAGE plpgsql
- SECURITY DEFINER
-AS $function$
-begin
-    if new.title = '' then
-        new.title := 'Unit ' || new.number;
-    end if;
-    return new;
-end;
-$function$
-;
-
 CREATE OR REPLACE FUNCTION public.handle_new_user()
  RETURNS trigger
  LANGUAGE plpgsql
@@ -118,6 +104,5 @@ end;
 $function$
 ;
 
-CREATE TRIGGER set_unit_title_trigger BEFORE INSERT ON public.units FOR EACH ROW EXECUTE FUNCTION set_unit_title();
 
 

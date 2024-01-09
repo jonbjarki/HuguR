@@ -25,7 +25,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const unit = context.params?.unit;
 
   const source = fs.readFileSync(
-    path.join('database', unit as string, (unit + '.mdx') as string),
+    path.join('public', 'modules', unit as string, (unit + '.mdx') as string),
     'utf8',
   );
 
@@ -37,7 +37,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   };
 }
 
-function UnitPage({ source }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function UnitPage({
+  source,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
       <MDXRemote {...source} />

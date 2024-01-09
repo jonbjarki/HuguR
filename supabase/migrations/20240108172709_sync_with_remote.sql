@@ -39,19 +39,19 @@ CREATE UNIQUE INDEX if not exists modules_in_course_pkey ON public.modules_in_co
 
 CREATE UNIQUE INDEX if not exists modules_pkey ON public.modules USING btree (id);
 
--- alter table "public"."modules" add constraint "modules_pkey" PRIMARY KEY using index "modules_pkey";
+alter table "public"."modules" add constraint "modules_pkey" PRIMARY KEY using index "modules_pkey";
 
--- alter table "public"."modules_in_course" add constraint "modules_in_course_pkey" PRIMARY KEY using index "modules_in_course_pkey";
+alter table "public"."modules_in_course" add constraint "modules_in_course_pkey" PRIMARY KEY using index "modules_in_course_pkey";
 
--- alter table "public"."modules_in_course" add constraint "modules_in_course_course_id_fkey" FOREIGN KEY (course_id) REFERENCES courses(id) ON UPDATE CASCADE ON DELETE CASCADE not valid;
+alter table "public"."modules_in_course" add constraint "modules_in_course_course_id_fkey" FOREIGN KEY (course_id) REFERENCES courses(id) ON UPDATE CASCADE ON DELETE CASCADE not valid;
 
 alter table "public"."modules_in_course" validate constraint "modules_in_course_course_id_fkey";
 
--- alter table "public"."modules_in_course" add constraint "modules_in_course_module_id_fkey" FOREIGN KEY (module_id) REFERENCES modules(id) ON UPDATE CASCADE ON DELETE CASCADE not valid;
+alter table "public"."modules_in_course" add constraint "modules_in_course_module_id_fkey" FOREIGN KEY (module_id) REFERENCES modules(id) ON UPDATE CASCADE ON DELETE CASCADE not valid;
 
 alter table "public"."modules_in_course" validate constraint "modules_in_course_module_id_fkey";
 
--- alter table "public"."units" add constraint "units_module_id_fkey" FOREIGN KEY (module_id) REFERENCES modules(id) ON UPDATE CASCADE ON DELETE CASCADE not valid;
+alter table "public"."units" add constraint "units_module_id_fkey" FOREIGN KEY (module_id) REFERENCES modules(id) ON UPDATE CASCADE ON DELETE CASCADE not valid;
 
 alter table "public"."units" validate constraint "units_module_id_fkey";
 

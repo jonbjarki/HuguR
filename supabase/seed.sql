@@ -27,3 +27,15 @@ insert into emotions_options (name) values
 -- Symptoms Options
 insert into symptoms_options (name) values
 ('Sweating'), ('Hyperventilating'), ('Tremors'), ('Crying'), ('Headache');
+
+/* STRESS MODULES & UNITS */
+
+INSERT INTO modules (name, description) VALUES ('What is stress?', 'In this module, you will learn more about stress.');
+INSERT INTO modules (name, description) VALUES ('Dealing with stress', 'In this module, you will learn strategies for dealing with stress.');
+
+INSERT INTO modules_in_course (module_id, course_id) VALUES (1, 1);
+INSERT INTO modules_in_course (module_id, course_id) VALUES (2, 1);
+
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Welcome', '1-welcome');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'What is stress?', '2-what-is-stress');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Explaining stress', '3-explaining-stress');
