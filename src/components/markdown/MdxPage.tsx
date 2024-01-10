@@ -9,14 +9,14 @@ import TextareaInput from '../unit/TextareaInput';
 import UnitNavButtons from '../unit/UnitNavButtons';
 import UnitTask from '../unit/UnitTask';
 import SmallText from './SmallText';
-import { useMDXComponents } from '../../../mdx-components';
+import { styleComponents } from './StyleComponents';
 
 export default async function MdxPage({
   source,
 }: {
   source: MDXRemoteSerializeResult;
 }) {
-  const components = {
+  const unitComponents = {
     Divider,
     Exercise1_7,
     FullWidthImage,
@@ -25,8 +25,9 @@ export default async function MdxPage({
     UnitTask,
     SmallText,
   };
+  const components = { ...unitComponents, ...styleComponents };
   return (
-    <MDXProvider components={useMDXComponents}>
+    <MDXProvider components={styleComponents}>
       {/* TODO: Make styles actually work*/}
       <div>
         <MDXRemote {...source} components={components} />
