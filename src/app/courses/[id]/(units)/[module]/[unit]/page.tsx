@@ -1,48 +1,34 @@
-import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import MdxPage from '@/components/markdown/MdxPage';
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import fs from 'fs';
-import path from 'path';
-import Head from 'next/head';
+import { cookies } from 'next/headers';
 
-export async function getStaticPaths({
-  params,
-}: {
-  params: { module: string };
-}) {
-  const files = fs.readdirSync(`@/modules/${params.module}`);
-  return {
-    paths: files.map((file) => ({
-      params: {
-        slug: file,
-      },
-    })),
-    fallback: false,
-  };
+export default async function UnitPage(props) {
+  console.log(props.params.module);
+  const source = await getData(props.params.module, props.params.unit);
+  return <MdxPage source={source} />;
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
-  const unit = context.params?.unit;
+export async function getData(moduleId, unitId) {
+  const supabase = createServerComponentClient({ cookies });
 
-  const source = fs.readFileSync(
-    path.join('public', 'modules', unit as string, (unit + '.mdx') as string),
-    'utf8',
-  );
+  const { data, error } = await supabase
+    .from('modules')
+    .select('directory')
+    .eq('id', moduleId)
+    .limit(1)
+    .single();
 
-  const mdxSource = await serialize(source);
-  return {
-    props: {
-      source: mdxSource,
-    },
-  };
-}
+  const directory = `public/modules/${data?.directory}`;
 
-export default function UnitPage({
-  source,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  return (
-    <div>
-      <MDXRemote {...source} />
-    </div>
-  );
+  const file = fs.readFileSync(`${directory}/1-welcome/page.mdx`); // TODO: get this dynamically
+
+  const source = await serialize(file, {
+    parseFrontmatter: false,
+    mdxOptions: { development: process.env.NODE_ENV === 'development' },
+  });
+
+  return source;
 }

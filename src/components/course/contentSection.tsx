@@ -71,10 +71,10 @@ export default async function ContentSection({
           <ContentUnit
             key={unit.id}
             name={unit.name}
-            link={`/courses/${params.id}/${unit.id}`} // TODO: fix link generation
+            link={`/courses/${params.id}/${moduleId}/${unit.id}`} // TODO: Use module name instead of ID?
             id={unit.id}
             moduleId={moduleId}
-            completed={false} // TODO: get unit completion from db
+            completed={false} // TODO: Get unit completion from database
           />
         ))}
       </div>

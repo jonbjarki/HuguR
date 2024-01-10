@@ -32,6 +32,7 @@ export default async function CourseOverview({ params }) {
     .from('courses')
     .select('*')
     .eq('id', params.id)
+    .limit(1)
     .single();
   const course = data;
 

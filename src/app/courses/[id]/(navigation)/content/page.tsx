@@ -4,7 +4,10 @@ import ContentSection from '@/components/course/contentSection';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { contentUnitProps } from '@/components/course/contentUnit';
 
-export async function getUnitProps(module, courseId) {
+export async function getUnitProps(
+  module: { id: any; name: string },
+  courseId,
+) {
   const supabase = createClientComponentClient();
 
   const { data, error } = await supabase
@@ -16,7 +19,7 @@ export async function getUnitProps(module, courseId) {
     (unit) =>
       ({
         name: unit.name,
-        link: `/courses/${courseId}/${module.name}/${unit.name}`,
+        link: `/courses/${courseId}/${module.id}/${unit.id}`,
         id: unit.id,
         moduleId: module.id,
       } as contentUnitProps),
@@ -41,19 +44,8 @@ export default async function CourseContent({
   `,
     )
     .eq('id', params.id)
+    .limit(1)
     .single();
-
-  const modules = data?.modules;
-
-  const contentSection = data?.modules.map(async (module) => (
-    <ContentSection
-      key={module.id}
-      name={module.name}
-      units={await getUnitProps(module, params.id)}
-      params={params}
-      moduleId={module.id}
-    />
-  ));
 
   return (
     <div className="h-full w-2/3 flex flex-col items-center mx-auto">

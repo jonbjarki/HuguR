@@ -17,7 +17,6 @@ export default async function UnitLayout(props) {
   const unit = params != null ? params.unit : '0'; // default to unit=0 if params are null
   const supabase = createClientComponentClient();
 
-  // TODO: fetch module data from db with course id
   const { data: units, error } = await supabase
     .from('units')
     .select('*, modules(id, name)')
@@ -49,7 +48,7 @@ export default async function UnitLayout(props) {
         </Link>
         <Sidebar
           title={units ? units![0].modules.name : ''}
-          selected={'Unit ' + unit}
+          selected={unit?.name} // ! this might break
           items={sidebarItems}
           progress={0}
           user={false}
