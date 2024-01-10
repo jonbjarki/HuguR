@@ -8,31 +8,29 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useSelector } from '@/store/store';
 import { getModuleState } from '@/store/slices/moduleSlice';
 import { MDXProvider } from '@mdx-js/react';
+import { ReactNode } from 'react';
 
-export default async function UnitLayout(props) {
-  const { children, params } = props ?? {};
-
-  const id = params != null ? params.id : '0'; // default to id=0 if params are null
-  const moduleId = params != null ? params.module : '0'; // default to moduleId=0 if params are null
-  const unit = params != null ? params.unit : '0'; // default to unit=0 if params are null
+export default async function UnitLayout({
+  children,
+  params: { id, module },
+}: {
+  children: ReactNode;
+  params: { id: string; module: string };
+}) {
   const supabase = createClientComponentClient();
 
   const { data: units, error } = await supabase
     .from('units')
     .select('*, modules(id, name)')
-    .eq('modules.course_id', id)
-    .eq('module_id', moduleId);
+    .eq('module_id', module);
 
   let sidebarItems: Array<sidebarLink> = units
     ? units?.map((unit) => {
         return {
           id: unit.id,
           title: unit.name,
-          link: `/courses/${id}/${unit.id}`,
-          finished:
-            unit.user_unit_completion.length > 0
-              ? unit.user_unit_completion[0].completed
-              : false,
+          link: `/courses/${id}/${module}/${unit.id}`,
+          finished: false,
         };
       })
     : [];
@@ -48,7 +46,7 @@ export default async function UnitLayout(props) {
         </Link>
         <Sidebar
           title={units ? units![0].modules.name : ''}
-          selected={unit?.name} // ! this might break
+          selected={''} // ! fix
           items={sidebarItems}
           progress={0}
           user={false}

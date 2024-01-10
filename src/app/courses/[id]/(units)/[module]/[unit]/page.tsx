@@ -13,16 +13,23 @@ export default async function UnitPage(props) {
 export async function getData(moduleId, unitId) {
   const supabase = createServerComponentClient({ cookies });
 
-  const { data, error } = await supabase
+  const { data: moduleData, error: moduleError } = await supabase
     .from('modules')
     .select('directory')
     .eq('id', moduleId)
     .limit(1)
     .single();
 
-  const directory = `public/modules/${data?.directory}`;
+  const { data: unitData, error: unitError } = await supabase
+    .from('units')
+    .select('directory')
+    .eq('id', unitId)
+    .limit(1)
+    .single();
 
-  const file = fs.readFileSync(`${directory}/1-welcome/page.mdx`); // TODO: get this dynamically
+  const directory = `public/modules/${moduleData?.directory}/${unitData?.directory}`;
+
+  const file = fs.readFileSync(`${directory}/page.mdx`);
 
   const source = await serialize(file, {
     parseFrontmatter: false,

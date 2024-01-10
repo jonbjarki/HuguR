@@ -30,8 +30,8 @@ insert into symptoms_options (name) values
 
 /* STRESS MODULES & UNITS */
 
-INSERT INTO modules (name, description) VALUES ('What is stress?', 'In this module, you will learn more about stress.');
-INSERT INTO modules (name, description) VALUES ('Dealing with stress', 'In this module, you will learn strategies for dealing with stress.');
+INSERT INTO modules (name, description, directory) VALUES ('What is stress?', 'In this module, you will learn more about stress.', 'stress-1');
+INSERT INTO modules (name, description, directory) VALUES ('Dealing with stress', 'In this module, you will learn strategies for dealing with stress.', 'stress-2');
 
 INSERT INTO modules_in_course (module_id, course_id) VALUES (1, 1);
 INSERT INTO modules_in_course (module_id, course_id) VALUES (2, 1);
@@ -39,3 +39,21 @@ INSERT INTO modules_in_course (module_id, course_id) VALUES (2, 1);
 INSERT INTO units (module_id, name, directory) VALUES (1, 'Welcome', '1-welcome');
 INSERT INTO units (module_id, name, directory) VALUES (1, 'What is stress?', '2-what-is-stress');
 INSERT INTO units (module_id, name, directory) VALUES (1, 'Explaining stress', '3-explaining-stress');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Stress response', '4-stress-response');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Is stress normal?', '5-is-stress-normal');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Your symptoms', '6-your-symptoms');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Why is stress okay?', '7-why-is-stress-okay');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Danger signs', '8-danger-signs');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Circle of stress', '9-circle-of-stress');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Charging the battery', '10-charging-the-battery');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Basic needs', '11-basic-needs');
+INSERT INTO units (module_id, name, directory) VALUES (1, 'Conclusion', '12-conclusion');
+
+INSERT INTO units (module_id, name, directory) VALUES (2, 'Recap', '1-recap');
+INSERT INTO units (module_id, name, directory) VALUES (2, 'Thougts', '2-thoughts');
+INSERT INTO units (module_id, name, directory) VALUES (2, 'About thoughts', '3-about-thoughts');
+INSERT INTO units (module_id, name, directory) VALUES (2, 'Affecting thoughts', '4-affecting-thoughts');
+INSERT INTO units (module_id, name, directory) VALUES (2, 'Thought errors', '5-thought-errors');
+INSERT INTO units (module_id, name, directory) VALUES (2, 'Thought errors, cont.', '6-thought-errors-cont');
+INSERT INTO units (module_id, name, directory) VALUES (2, 'Unhelpful thoughts', '7-unhelpful-thoughts');
+INSERT INTO units (module_id, name, directory) VALUES (2, 'Conclusion', '8-conclusion');
