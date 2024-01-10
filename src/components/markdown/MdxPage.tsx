@@ -9,6 +9,7 @@ import TextareaInput from '../unit/TextareaInput';
 import UnitNavButtons from '../unit/UnitNavButtons';
 import UnitTask from '../unit/UnitTask';
 import SmallText from './SmallText';
+import { useMDXComponents } from '../../../mdx-components';
 
 export default async function MdxPage({
   source,
@@ -25,7 +26,8 @@ export default async function MdxPage({
     SmallText,
   };
   return (
-    <MDXProvider>
+    <MDXProvider components={useMDXComponents}>
+      {/* TODO: Make styles actually work*/}
       <MDXRemote {...source} components={components} />
     </MDXProvider>
   );
