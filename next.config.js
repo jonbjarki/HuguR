@@ -24,4 +24,8 @@ module.exports = {
     return config;
   },
 };
-module.exports = { ...withMDX(nextConfig) };
+module.exports = {
+  ...withMDX(nextConfig, {
+    options: { providerImportSource: '@mdx-js/react' },
+  }),
+};

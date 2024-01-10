@@ -6,7 +6,6 @@ import fs from 'fs';
 import { cookies } from 'next/headers';
 
 export default async function UnitPage(props) {
-  console.log(props.params.module);
   const source = await getData(props.params.module, props.params.unit);
   return <MdxPage source={source} />;
 }

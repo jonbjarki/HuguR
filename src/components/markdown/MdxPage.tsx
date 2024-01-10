@@ -28,7 +28,9 @@ export default async function MdxPage({
   return (
     <MDXProvider components={useMDXComponents}>
       {/* TODO: Make styles actually work*/}
-      <MDXRemote {...source} components={components} />
+      <div>
+        <MDXRemote {...source} components={components} />
+      </div>
     </MDXProvider>
   );
 }
