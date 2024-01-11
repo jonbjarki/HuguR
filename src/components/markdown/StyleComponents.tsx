@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function LineBreak() {
   return <br />;
 }
@@ -54,7 +56,7 @@ export function Blockquote(props) {
 }
 
 export function Image(props) {
-  return <img className="aspect-auto w-1/2" {...props} />;
+  return <Image className="aspect-auto w-1/2" {...props} />;
 }
 
 export const styleComponents = {
