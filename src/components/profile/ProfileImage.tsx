@@ -1,3 +1,6 @@
+/**
+ * Profile avatar image that changes color on refresh and avatar on click
+ */
 'use client';
 
 import Image from 'next/image';

@@ -1,3 +1,6 @@
+/**
+ * Renders a component for displaying exercise 1.7 from the stress management exercise book
+ */
 export default function Exercise1_7() {
     return (
         <>

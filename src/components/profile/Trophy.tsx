@@ -1,3 +1,6 @@
+/**
+ * Trophy icon for profile page trophy list with hover tooltip
+ */
 import Image from 'next/image';
 
 export default function Trophy({ name, icon, date }) {

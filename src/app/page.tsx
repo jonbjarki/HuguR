@@ -8,12 +8,6 @@ export default function Home() {
       <Hero />
       {/* Main */}
       <main className="flex flex-col items-center gap-16 xl:w-10/12 max-w-6xl mx-auto mt-10">
-        {/* Line for HuguR Introduction replaced with Banner
-        <HomeLine
-          title="HuguR"
-          content="Welcome to HuguR. Our goal is to provide free access to mental health support and advice for students made by students"
-          imgSrc="/images/sittingman.png" /> */}
-
         <HomeLine
           title="Try Our Courses"
           content="We have carefully crafted psychologist approved courses that are designed to help you manage your mental health and provide you with advice for the future"

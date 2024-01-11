@@ -1,3 +1,7 @@
+/**
+ * Displays a range from 1-5 with each number represented by an emoji
+ * Allows the user to select an emoji to represent their mood
+ */
 import { Database } from '@/lib/database.types';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Image from 'next/image';
@@ -8,7 +12,7 @@ export default function MoodSelector({
   currentMood,
 }: {
   setMood: Function;
-  currentMood: string;
+  currentMood: number;
 }) {
   const supabase = createClientComponentClient<Database>();
 
@@ -21,7 +25,7 @@ export default function MoodSelector({
           id={`mood-${mood}`}
           name="mood"
           value={mood}
-          defaultChecked={mood === parseInt(currentMood)}
+          defaultChecked={mood === currentMood}
           className="hidden peer"
         />
         <label

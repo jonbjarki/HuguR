@@ -1,10 +1,15 @@
+/**
+ * The course homepage.
+ * Displays a list of all available courses
+ */
 import Course from '@/components/course/course';
 import styles from './courses.module.css';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import { Database } from '@/lib/database.types';
 
 export default async function CourseHome() {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createServerComponentClient<Database>({ cookies });
 
   const { data: courses, error } = await supabase.from('courses').select('*');
 

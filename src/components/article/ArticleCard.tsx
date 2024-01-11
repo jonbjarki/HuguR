@@ -1,3 +1,6 @@
+/**
+ * Displays an article card with information on an article and a link to read the full article
+ */
 'use client';
 
 import Image from 'next/image';

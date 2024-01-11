@@ -1,3 +1,6 @@
+/**
+ * Lists all articles from the database
+ */
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
@@ -25,10 +28,7 @@ export default async function Reading() {
                 title={article.title}
                 description={article.description}
                 id={article.id}
-                image={
-                  supabase.storage.from('images').getPublicUrl(article.image)
-                    .data.publicUrl
-                }
+                image={article.image}
               />
             </li>
           ))}

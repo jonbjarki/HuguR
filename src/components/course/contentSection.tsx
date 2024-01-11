@@ -1,3 +1,7 @@
+/**
+ * Displays a list of all modules in a course
+ * Modules can be expanded to show all units in the module
+ */
 'use client';
 
 import Icon from '@mdi/react';

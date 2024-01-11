@@ -1,3 +1,6 @@
+/**
+ * A dropdown selector component for adding an entry to the diary
+ */
 'use client';
 
 import { useState } from 'react';

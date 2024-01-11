@@ -1,3 +1,6 @@
+/**
+ * Sidebar displayed when viewing an article, allowing for quick navigation between articles
+ */
 'use client';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';

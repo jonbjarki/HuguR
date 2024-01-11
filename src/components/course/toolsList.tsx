@@ -1,3 +1,8 @@
+/**
+ * @ignore - UNFINISHED WIP
+ * Displays a list of notes that the user has written down as well as a button to add a new note.
+ */
+
 'use client';
 
 import { ReactNode, useState } from 'react';

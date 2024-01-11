@@ -1,11 +1,10 @@
 'use client';
 
-import HomeCover from '@/components/home/HomeCover';
 import CourseRoadmap from '@/components/course/courseRoadmap';
 import { roadmapUnitProps } from '@/components/course/roadmapUnit';
 import { mdiClockOutline } from '@mdi/js';
 import Icon from '@mdi/react';
-import { ParallaxProvider } from 'react-scroll-parallax';
+import { ParallaxBanner, ParallaxProvider } from 'react-scroll-parallax';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export default async function CourseOverview({ params }) {
@@ -41,7 +40,10 @@ export default async function CourseOverview({ params }) {
       <div className="w-full h-auto">
         <ParallaxProvider>
           <div className="w-full h-fit relative">
-            <HomeCover imageSrc="/images/stress-header.png" />
+            <ParallaxBanner
+              layers={[{ image: '/images/homeheader2.png', speed: -30 }]}
+              className="max-h-96 w-full object-cover object-center aspect-[2/1]"
+            />
             <h1 className="absolute bottom-10 left-1/2 -translate-x-1/2 text-6xl text-center text-base-100 drop-shadow-text-white">
               {course.name}
             </h1>

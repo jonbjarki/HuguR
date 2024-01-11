@@ -1,3 +1,7 @@
+/**
+ * Course progress section of profile page
+ * Displays a milestone and a progress bar for that milestone
+ */
 export default function ProfileProgress({ title, progress, total }) {
   return (
     <div className="flex flex-row w-full place-items-center justify-start gap-4">
