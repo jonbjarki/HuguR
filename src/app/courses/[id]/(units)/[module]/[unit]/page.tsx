@@ -4,13 +4,31 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import fs from 'fs';
 import { cookies } from 'next/headers';
+import UnitNavButtons from '@/components/unit/UnitNavButtons';
 
 export default async function UnitPage(props) {
-  const source = await getData(props.params.module, props.params.unit);
-  return <MdxPage source={source} />;
+  const data = await getData(props.params.module);
+  const source = await getMdxSource(data, props.params.unit);
+  const nextPrev = getNextPrevUnitIds(data.units, props.params.unit);
+  const nextUrl = getUnitUrl(
+    props.params.id,
+    props.params.module,
+    nextPrev.next,
+  );
+  const prevUrl = getUnitUrl(
+    props.params.id,
+    props.params.module,
+    nextPrev.prev,
+  );
+  return (
+    <div>
+      <MdxPage source={source} />
+      <UnitNavButtons nextUrl={nextUrl} prevUrl={prevUrl} />
+    </div>
+  );
 }
 
-export async function getData(moduleId, unitId) {
+export async function getData(moduleId) {
   const supabase = createServerComponentClient({ cookies });
 
   const { data: moduleData, error: moduleError } = await supabase
@@ -22,12 +40,24 @@ export async function getData(moduleId, unitId) {
 
   const { data: unitData, error: unitError } = await supabase
     .from('units')
-    .select('directory')
-    .eq('id', unitId)
-    .limit(1)
-    .single();
+    .select('id, directory')
+    .eq('module_id', moduleId)
+    .order('unit_order');
 
-  const directory = `public/modules/${moduleData?.directory}/${unitData?.directory}`;
+  return { module: moduleData, units: unitData };
+}
+
+async function getMdxSource(
+  data: {
+    module;
+    units;
+  },
+  unitId,
+) {
+  const unit = data.units?.find((unit) => {
+    return unit.id == parseInt(unitId);
+  });
+  const directory = `public/modules/${data.module.directory}/${unit.directory}`;
 
   const file = fs.readFileSync(`${directory}/page.mdx`);
 
@@ -37,4 +67,20 @@ export async function getData(moduleId, unitId) {
   });
 
   return source;
+}
+
+function getNextPrevUnitIds(units, unitId) {
+  const i = units.findIndex((unit) => {
+    return unit.id == parseInt(unitId);
+  });
+  const prevUnit = i > 0 ? units[i - 1] : null;
+  const nextUnit = i < units.length ? units[i + 1] : null;
+  return {
+    prev: prevUnit?.id,
+    next: nextUnit?.id,
+  };
+}
+
+function getUnitUrl(courseId, moduleId, unitId) {
+  return `/courses/${courseId}/${moduleId}/${unitId}`;
 }
