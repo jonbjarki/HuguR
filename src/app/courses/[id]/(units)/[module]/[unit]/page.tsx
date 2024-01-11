@@ -82,5 +82,6 @@ function getNextPrevUnitIds(units, unitId) {
 }
 
 function getUnitUrl(courseId, moduleId, unitId) {
+  if (!unitId) return undefined;
   return `/courses/${courseId}/${moduleId}/${unitId}`;
 }
