@@ -19,6 +19,7 @@ const fetchUnit = async (client, params) => {
     .from('units')
     .select('*')
     .eq('id', params.unit)
+    .limit(1)
     .single();
 
   return unit;
