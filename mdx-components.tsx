@@ -37,7 +37,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    img: (props) => <img className="aspect-auto w-1/2" {...props} />,
+    img: (props) => <Image className="aspect-auto w-1/2" {...props} />,
     // Allows customizing built-in components, e.g. to add styling.
     // h1: ({ children }) => <h1 style={{ fontSize: "100px" }}>{children}</h1>,
     ...components,
