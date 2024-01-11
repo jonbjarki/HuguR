@@ -17,6 +17,7 @@ export default async function Article({ params }: { params: { id: number } }) {
     .from('articles')
     .select('*')
     .eq('id', params.id)
+    .limit(1)
     .single();
 
   if (error) {

@@ -13,6 +13,7 @@ const fetchProgress = async (client, course_id) => {
     .from('user_in_course')
     .select('progress')
     .eq('course_id', course_id)
+    .limit(1)
     .single();
   if (error) {
     return 0;
@@ -44,6 +45,7 @@ export default async function IndividualCourse({
     .from('courses')
     .select('*')
     .eq('id', id)
+    .limit(1)
     .single();
 
   if (error) throw error;
