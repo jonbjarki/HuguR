@@ -11,19 +11,6 @@ import type { Emotion, Symptom, DiaryEntry } from './DiaryCard';
 import DiaryCard from './DiaryCard';
 import NewDiaryEntry from './NewDiaryEntry';
 
-// export interface DiaryEntry {
-//   id: number;
-//   date: string;
-//   mood: number;
-//   emotions?: Emotion[];
-//   circumstance: string;
-//   symptoms?: Symptom[];
-//   thoughts?: string | null;
-//   reassessment?: string | null;
-//   coping_strategies?: string;
-//   behaviour?: string;
-// }
-
 export default function DiaryList({
   entries,
   symptomsOptions,
