@@ -1,4 +1,5 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+// Disable warning to use next/image for markdown images as it's buggy
 
 export function LineBreak() {
   return <br />;
@@ -55,8 +56,8 @@ export function Blockquote(props) {
   );
 }
 
-export function Image(props) {
-  return <Image className="aspect-auto w-1/2" {...props} />;
+export function ImageComponent(props) {
+  return <img alt={props.alt || ''} className="aspect-auto w-1/2" {...props} />;
 }
 
 export const styleComponents = {
@@ -70,5 +71,5 @@ export const styleComponents = {
   ol: OrderedList,
   li: ListItem,
   blockquote: Blockquote,
-  img: Image,
+  img: ImageComponent,
 };
