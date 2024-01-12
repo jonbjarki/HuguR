@@ -1,3 +1,6 @@
+/**
+ * A single unit in the content section of a course.
+ */
 'use client';
 
 import Link from 'next/link';

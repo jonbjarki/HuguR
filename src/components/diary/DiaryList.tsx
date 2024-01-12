@@ -1,25 +1,15 @@
+/**
+ * A list of all diary entries made by a user
+ */
 'use client';
 
 // import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 // import { Database } from '@/lib/database.types';
 // import Image from 'next/image';
 import { useState } from 'react';
-import type { Emotion, Symptom } from './DiaryCard';
+import type { Emotion, Symptom, DiaryEntry } from './DiaryCard';
 import DiaryCard from './DiaryCard';
 import NewDiaryEntry from './NewDiaryEntry';
-
-export interface DiaryEntry {
-  id: number;
-  date: string;
-  mood: string;
-  emotions?: Emotion[];
-  circumstance: string;
-  symptoms?: Symptom[];
-  thoughts?: string;
-  reassessment?: string;
-  coping_strategies?: string;
-  behaviour?: string;
-}
 
 export default function DiaryList({
   entries,

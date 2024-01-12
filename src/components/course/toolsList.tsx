@@ -1,11 +1,32 @@
+/**
+ * Displays a list of notes that the user has written down as well as a button to add a new note.
+ */
+
 'use client';
 
 import { ReactNode, useState } from 'react';
 import { Tool } from './tool';
 import { NewEntry } from '../common/newEntry';
 
+interface newTool {
+  title: string;
+  description: string;
+}
+
 export function ToolsList({ tools = [] }: { tools: Array<ReactNode> }) {
-  let day = new Date(); // placeholder
+  // Intial state of entry
+  const [entry, setEntry] = useState<newTool>({
+    title: '',
+    description: '',
+  });
+
+  // Resets entry to be empty
+  const resetEntry = () => {
+    setEntry({
+      title: '',
+      description: '',
+    });
+  };
 
   const [toolsList, setToolsList] = useState(tools);
   const [addingEntry, setAddingEntry] = useState(false);
@@ -16,6 +37,7 @@ export function ToolsList({ tools = [] }: { tools: Array<ReactNode> }) {
 
   function handleClose() {
     setAddingEntry(false);
+    resetEntry();
   }
 
   function addNewEntry() {
@@ -23,23 +45,36 @@ export function ToolsList({ tools = [] }: { tools: Array<ReactNode> }) {
     setToolsList([
       toolsList.concat(
         <Tool
-          title="Don't be sad"
-          description="Just don't do it. It's that easy!"
-          date={day.toLocaleDateString()}
+          title={entry.title}
+          description={entry.description}
+          date={new Date().toLocaleDateString()}
         />,
       ),
     ]);
     setAddingEntry(false);
+    resetEntry();
   }
 
   const newEntryStages = [
     <div key="0">
       <p className="m-10">Pick a title for your entry</p>
-      <input className="input input-bordered mb-6" />
+      <input
+        value={entry.title}
+        onChange={(e) => {
+          setEntry({ ...entry, title: e.target.value });
+        }}
+        className="input input-bordered mb-6"
+      />
     </div>,
     <div key="1">
       <p className="m-10">What would you like to note down for the future?</p>
-      <textarea className="textarea textarea-bordered" />
+      <textarea
+        value={entry.description}
+        onChange={(e) => {
+          setEntry({ ...entry, description: e.target.value });
+        }}
+        className="textarea textarea-bordered"
+      />
     </div>,
   ];
 
@@ -66,6 +101,7 @@ export function ToolsList({ tools = [] }: { tools: Array<ReactNode> }) {
             stages={newEntryStages}
             onClose={handleClose}
             onFinish={addNewEntry}
+            stageRequirements={[entry.title !== '', true]}
           />
         )
       }

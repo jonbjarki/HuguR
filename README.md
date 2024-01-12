@@ -1,6 +1,6 @@
-# Hugur
+# HuguR
 
-Hugur is a web application that allows users to track their mental health and wellbeing made by RU in collaboration with The Icelandic Student Innovation Fund. It is built using Next.js and Supabase.
+HuguR is a web application that allows users to track their mental health and wellbeing made by a team at RU in collaboration with The Icelandic Student Innovation Fund. It is built using Next.js and Supabase.
 
 ## Table of Contents
 

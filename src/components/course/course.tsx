@@ -1,21 +1,21 @@
-'use client';
+/**
+ * Component that renders a card with information on a course and linking to the course page
+ */
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '@/lib/database.types';
 import Icon from '@mdi/react';
 import { mdiClockOutline } from '@mdi/js';
 
 export interface CourseProps {
+  ID: number;
   title: string;
-  duration: string;
+  duration: number;
   content: string;
   imgSrc: string;
 }
 
-export default function Course({ ID, title, duration, content, imgSrc }) {
-  const supabase = createClientComponentClient<Database>();
+export default function Course({ ID, title, duration, content, imgSrc }: CourseProps) {
 
   return (
     <li className="w-fit">

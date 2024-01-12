@@ -1,3 +1,7 @@
+/**
+ * A bubble component on the home page that displays information about a section of the website
+ * Clicking the button will take the user to the specified section
+ */
 'use client';
 
 import Link from 'next/link';
@@ -28,7 +32,7 @@ export default function Bubble({
       </legend>
       <p className="">{content}</p>
       {btnText ? (
-        <Link href={btnLink}>
+        <Link href={btnLink ? btnLink : '/'}>
           <button className="px-6 py-3 ml-6 border-2 border-black w-48 h-20 bg-green-300 text-xl mt-6 lg:mt-0 ">
             {btnText}
           </button>

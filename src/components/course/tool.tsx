@@ -1,3 +1,8 @@
+/**
+ * Displays a card showing the title and description of a note the user has written down.
+ * The card at first only shows the title and can be expanded to show the full note.
+ */
+
 'use client';
 
 import { EntryFrame } from '../common/entryFrame';

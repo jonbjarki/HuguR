@@ -1,6 +1,7 @@
 /**
-  Component that returns a text area input field with a title and a divider if title is provided.
+  Renders a text area input field with a title and a divider if title is provided.
   @param {string} title - Title of the text area input field.
+  @returns The text area input field component.
  */
 
 export default function TextareaInput({ title }: { title?: string }) {

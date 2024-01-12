@@ -1,3 +1,6 @@
+/**
+ * A component that allows the user to add a new diary entry through a series of prompts
+ */
 import { Database } from '@/lib/database.types';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { redirect } from 'next/navigation';
@@ -7,9 +10,10 @@ import { NewEntry } from '../common/newEntry';
 import EmotionIntensity from './EmotionIntensity';
 import DropdownSelector from './DropdownSelector';
 import MoodSelector from './MoodSelector';
-import { DiaryEntry } from './DiaryList';
+import { DiaryEntry } from './DiaryCard';
 import UserInput from './UserInput';
 
+// A new entry is an entry before it is added to the database and given an id
 interface NewEntry extends Omit<DiaryEntry, 'id'> {}
 
 function getCurrentDate(): string {
@@ -23,7 +27,7 @@ function getCurrentDate(): string {
 // Intial state of entry
 const baseEntry: NewEntry = {
   date: getCurrentDate(),
-  mood: '',
+  mood: 3,
   emotions: [],
   circumstance: '',
   symptoms: [],
@@ -52,7 +56,7 @@ export default function NewDiaryEntry({
   );
 
   // Sets mood of entry
-  const setMood = (mood: string): void => {
+  const setMood = (mood: number): void => {
     setEntry({ ...entry, mood: mood });
   };
 
@@ -183,7 +187,7 @@ export default function NewDiaryEntry({
       .from('diary')
       .insert({
         circumstance: entry.circumstance,
-        mood: parseInt(entry.mood),
+        mood: entry.mood,
         thoughts: entry.thoughts,
         reassessment: entry.reassessment,
         coping_strategies: entry.coping_strategies,
@@ -245,9 +249,11 @@ export default function NewDiaryEntry({
           onClose={handleClose}
           onFinish={addEntry}
           stageRequirements={{
+            // The statements that need to evaluate to true for each stage to be completed
+            // true means that the stage has no required fields
             0: entry.circumstance !== '',
             1: entry.date != '',
-            2: entry.mood !== '',
+            2: true,
             3: true,
             4: entry.emotions !== undefined && entry.emotions.length > 0,
             5: true,

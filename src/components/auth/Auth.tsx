@@ -1,3 +1,6 @@
+/**
+ * Renders a sign in/sign up page
+ */
 'use client';
 import { Database } from '@/lib/database.types';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';

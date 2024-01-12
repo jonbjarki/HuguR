@@ -1,25 +1,25 @@
+/**
+ * A card displaying a single diary entry made by a user
+ */
 'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
 
 export type Emotion = { name: string; intensity: number };
 export type Symptom = { name: string };
 
-interface DiaryCardProps {
+export interface DiaryEntry {
   id: number;
-  mood: string;
+  mood: number;
   date: string;
   circumstance: string;
   emotions?: Emotion[];
   symptoms?: Symptom[];
-  thoughts?: string;
-  reassessment?: string;
-  coping_strategies?: string;
-  behaviour?: string;
+  thoughts?: string | null;
+  reassessment?: string | null;
+  coping_strategies?: string | null;
+  behaviour?: string | null;
 }
 
 export default function DiaryCard({
@@ -32,7 +32,7 @@ export default function DiaryCard({
   reassessment,
   coping_strategies,
   behaviour,
-}: DiaryCardProps) {
+}: DiaryEntry) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {

@@ -1,3 +1,8 @@
+/**
+ * A component that displays a roadmap of each unit in a course.
+ * Each unit is displayed as a card with an arrow pointing to the next unit.
+ */
+
 import RoadmapUnit, { roadmapUnitProps } from './roadmapUnit';
 
 export interface courseRoadmapProps {

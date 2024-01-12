@@ -1,3 +1,8 @@
+/**
+ * @ignore - Currently not in use
+ * A sidebar for the diary page that allows the user to filter and sort diary entries
+ * This is currently not in use
+ */
 export default function DiarySidebar() {
   return (
     <aside>

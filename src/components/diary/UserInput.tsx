@@ -1,3 +1,6 @@
+/**
+ * A base component for taking in input from the user for adding an entry to the diary
+ */
 export default function UserInput({
   caption,
   type,
@@ -7,7 +10,7 @@ export default function UserInput({
 }: {
   caption: string;
   type: string;
-  value?: string;
+  value?: string | null;
   onChange: any;
   required?: boolean;
 }) {
@@ -20,7 +23,7 @@ export default function UserInput({
       <input
         type={type}
         className="mb-4 input input-bordered"
-        value={value}
+        value={value || ''}
         onChange={onChange}
       />
     </div>

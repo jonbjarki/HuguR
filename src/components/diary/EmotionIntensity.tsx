@@ -1,3 +1,7 @@
+/**
+ * A slider component for selecting the intensity of an emotion in a diary entry
+ * Takes in emotions with their name and intensity and allows the user to adjust the intensity for each emotion
+ */
 import { Emotion } from './DiaryCard';
 
 export default function EmotionIntensity({

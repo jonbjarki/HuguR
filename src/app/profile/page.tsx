@@ -31,7 +31,7 @@ export default async function Profile() {
       <div className="flex flex-col w-full justify-start place-items-center mb-16 gap-4">
         <ProfileImage />
         <h1 className="text-2xl text-justify font-bold">
-          I am {user.email.split('@')[0]}
+          I am {user.email!.split('@')[0]}
         </h1>
         <h1 className="text-lg text-justify">
           I&apos;ve been here since {user.created_at.slice(0, 10)}

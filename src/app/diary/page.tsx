@@ -7,12 +7,12 @@ import DiaryList from '@/components/diary/DiaryList';
 import { Database } from '@/lib/database.types';
 
 export default async function Diary() {
-  // Require User to be logged in
   const supabase = createServerComponentClient<Database>({ cookies });
   const {
     data: { session },
   } = await supabase.auth.getSession();
 
+  // Require User to be logged in
   if (!session) return redirect('/login');
 
   // Fetches diary entries from database

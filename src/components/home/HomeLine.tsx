@@ -1,5 +1,9 @@
 'use client';
 
+/**
+ * A single line on the home page consisting of a bubble describing a section of the website and an image
+ * Each line alternates between aligning left and right
+ */
 import Bubble from './bubble';
 import Image from 'next/image';
 

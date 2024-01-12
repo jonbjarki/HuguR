@@ -1,3 +1,8 @@
+/**
+ * A unit in the roadmap of a course.
+ * Displays the title and content of a course unit with an arrow pointing to the next unit.
+ */
+
 import Image from 'next/image';
 
 export interface roadmapUnitProps {
