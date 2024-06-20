@@ -28,7 +28,7 @@ export default async function UnitPage(props) {
   );
 }
 
-export async function getData(moduleId) {
+async function getData(moduleId) {
   const supabase = createServerComponentClient({ cookies });
 
   const { data: moduleData, error: moduleError } = await supabase

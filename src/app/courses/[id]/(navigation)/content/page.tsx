@@ -4,7 +4,7 @@ import ContentSection from '@/components/course/contentSection';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { contentUnitProps } from '@/components/course/contentUnit';
 
-export async function getUnitProps(
+async function getUnitProps(
   module: { id: any; name: string },
   courseId,
 ) {

@@ -14,6 +14,8 @@ export const metadata: MetadataProps = {
   description: 'HuguR Mental Health Support',
 };
 
+export const dynamic = 'force-dynamic'
+
 export default async function LocaleLayout({ children, authModal }) {
   return (
     <html data-theme="lightmode">

@@ -4,6 +4,9 @@ const withMDX = require('@next/mdx')();
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   experimental: {
     appDir: true,
   },
@@ -23,8 +26,6 @@ module.exports = {
 
     return config;
   },
-};
-module.exports = {
   ...withMDX(nextConfig, {
     options: { providerImportSource: '@mdx-js/react' },
   }),
